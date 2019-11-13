@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Student Eligibility</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 class="heading">Student Eligibility Checker</h1>
+<p class="subheading">Check what are your chances of getting admitted to the University before you apply.Fill the form to find out the result!!</p> 
+<div class="box">
+<form>
+  
+    <h4><center>Fill in to check your eligibility</center></h4>
+    <hr>
+    <label for="university">University</label>
+    	<select id= "univlist">
+	<option value="" disabled selected>Select your option</option>
+	<option value = "VU">Vrije Universiteit Amsterdam</option>
+	<option value = "UVA">University Of Amsterdam</option>
+	</select>
+	<br><br>
+    <label for="edutype">Type of Study</label>
+	<select id = "typelist">
+	<option value="" disabled selected>Select your option</option>
+	<option value="Master">Master</option>
+	</select><br><br>
+    <label for="course">Select a course</label>
+	<select id = "courselist">
+	<option value="" disabled selected>Select your option</option>
+	<option value = "cs">Computer Science</option>
+	<option value = "ai">Artificial Intelligence</option>
+	<option value = "math">Mathematics</option>
+	</select><br><br>
+    <label for="gpa">GPA in your previous Study</label>
+    <input type="text" placeholder="Enter GPA" name="gpa" required><br><br>
+    <label for="eng">English Language Test Score</label>
+    <input type="text" placeholder="Enter TOEFL/IELTS score" name="eng" required><br><br>
+    <input type="submit">
+</form> 
+</div>
+</body>
+</html>
+
+
