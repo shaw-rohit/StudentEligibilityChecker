@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html data-wf-page="5d397a284f1ba6e94d23b230" data-wf-site="5d2d514fb78ea809e8838a4c">
+<html>
 
 <head>
   <meta charset="utf-8">
   <title>Student Eligibility Checker</title>
-  <meta content="Homepage Loroui" property="og:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
   <link href="./css/normalize.css" rel="stylesheet" type="text/css">
@@ -91,11 +90,11 @@
                                 <select name=track class="browser-default custom-select">
                                     <option selected>Master's Degree Program - Track</option>
                                     <option id="cs1" value="1" style="display:none;">Internet & Web Technology</option>
-                                    <option id="cs1" value="2" style="display:none;">Big Data Engineering</option>
-                                    <option id="cs2" value="3" style="display:none;">Software Engineering and Green IT</option>
-                                    <option id="cs3" value="4" style="display:none;">Parallel Computing Systems</option>
-                                    <option id="cs4" value="5" style="display:none;">Foundations of Computing and Concurrency</option>
-                                    <option id="cs5" value="6" style="display:none;">Computer Systems Security</option>
+                                    <option id="cs2" value="2" style="display:none;">Big Data Engineering</option>
+                                    <option id="cs3" value="3" style="display:none;">Software Engineering and Green IT</option>
+                                    <option id="cs4" value="4" style="display:none;">Parallel Computing Systems</option>
+                                    <option id="cs5" value="5" style="display:none;">Foundations of Computing and Concurrency</option>
+                                    <option id="cs6" value="6" style="display:none;">Computer Systems Security</option>
                                     <option id="ai1" value="7" style="display:none;">Artifical Intelligence</option>
                                     <option id="ai2" value="8" style="display:none;">Cognitive Science</option>
                                     <option id="ai3" value="8" style="display:none;">Hybrid Intelligence</option>
@@ -232,7 +231,6 @@
     function admSelectCheck(nameSelect)
 {
     if(nameSelect){
-        console.log('hiiii')
         csOpt = document.getElementById("cs").value;
         aiOpt = document.getElementById("ai").value;
         isOpt = document.getElementById("is").value;
@@ -242,10 +240,11 @@
             document.getElementById("cs3").style.display = "block";
             document.getElementById("cs4").style.display = "block";
             document.getElementById("cs5").style.display = "block";
+            document.getElementById("cs6").style.display = "block";
             document.getElementById("ai1").style.display = "none";
             document.getElementById("ai2").style.display = "none";
             document.getElementById("ai3").style.display = "none";
-             document.getElementById("is1").style.display = "none";
+            document.getElementById("is1").style.display = "none";
         }
         else if(aiOpt == nameSelect.value){
             document.getElementById("cs1").style.display = "none";
@@ -256,7 +255,7 @@
             document.getElementById("ai1").style.display = "block";
             document.getElementById("ai2").style.display = "block";
             document.getElementById("ai3").style.display = "block";
-             document.getElementById("is1").style.display = "none";
+            document.getElementById("is1").style.display = "none";
         }
         else if(isOpt == nameSelect.value){
             document.getElementById("cs1").style.display = "none";
@@ -279,7 +278,7 @@
         document.getElementById("ai1").style.display = "none";
         document.getElementById("ai2").style.display = "none";
         document.getElementById("ai3").style.display = "none";
-         document.getElementById("is1").style.display = "none";
+        document.getElementById("is1").style.display = "none";
     }
 }
   </script>
