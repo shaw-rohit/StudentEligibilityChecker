@@ -4,6 +4,7 @@ body {
 .page-content {
 	width: 100%;
 	margin:  0 auto;
+	height: 820px;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: center;
@@ -22,7 +23,7 @@ body {
 }
 .form-v1-content   {
 	background: #fff;
-	width: 820px;
+	width: 1000px;
 	box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 	-o-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 	-ms-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
@@ -155,7 +156,7 @@ body {
     -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
     float: right;
-    width: 540px;
+    width: 720px;
     background: #fff;
 }
 .form-register .content h2 {
@@ -415,7 +416,7 @@ body {
 }
 .actions {
 	float: right;
-    width: 540px;
+    width: 720px;
     background: #fff;
 }
 .actions ul {
