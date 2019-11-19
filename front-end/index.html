@@ -77,8 +77,8 @@
     								</div>
                                     <div class="form-row">
                                         <div class="form-holder form-holder-2">
-                                <select name=degree class="browser-default custom-select" onchange="admSelectCheck(this);">
-                                    <option selected>Master's Degree Program</option>
+                                <select name="degree" class="browser-default custom-select" onchange="admSelectCheck(this);">
+                                    <option value="" disabled selected hidden>Master's Degree Program</option>
                                     <option id="cs" value="1">MSc Computer Science</option>
                                     <option id="ai" value="2">MSc Artificial Intelligence</option>
                                     <option id="is" value="3">MSc Information Sciences</option>
@@ -87,8 +87,8 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-holder form-holder-2">
-                                <select name=track class="browser-default custom-select">
-                                    <option selected>Master's Degree Program - Track</option>
+                                <select name="track" class="browser-default custom-select">
+                                    <option value="" disabled selected hidden>Master's Degree Program - Track</option>
                                     <option id="cs1" value="1" style="display:none;">Internet & Web Technology</option>
                                     <option id="cs2" value="2" style="display:none;">Big Data Engineering</option>
                                     <option id="cs3" value="3" style="display:none;">Software Engineering and Green IT</option>
@@ -97,8 +97,8 @@
                                     <option id="cs6" value="6" style="display:none;">Computer Systems Security</option>
                                     <option id="ai1" value="7" style="display:none;">Artifical Intelligence</option>
                                     <option id="ai2" value="8" style="display:none;">Cognitive Science</option>
-                                    <option id="ai3" value="8" style="display:none;">Hybrid Intelligence</option>
-                                    <option id="is1" value="8" style="display:none;">Information Sciences</option>
+                                    <option id="ai3" value="9" style="display:none;">Hybrid Intelligence</option>
+                                    <option id="is1" value="10" style="display:none;">Information Sciences</option>
                                 </select>
                             </div>
                             </div>
@@ -213,7 +213,7 @@
   </div>
 
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="../js/webflow.js" type="text/javascript"></script>
+  <script src="./js/webflow.js" type="text/javascript"></script>
 	<script src="js/jquery.steps.js"></script>
 	<script src="js/main.js"></script>
   <script>
