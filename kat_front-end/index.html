@@ -61,7 +61,7 @@
 
 				<div class="wrap-input100 validate-input" data-validate = "Valid GPA is required.">
 					<span class="label-input100">GPA</span>
-					<input class="input100" type="text" name="email" placeholder="Enter your GPA">
+					<input class="input100" type="text" name="gpa" placeholder="Enter your GPA">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -111,10 +111,19 @@
 					</div>
 					<span class="focus-input100"></span>
 				</div>
-
-				<div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<span class="label-input100">Message</span>
-					<textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">English Exam</span>
+					<div>
+						<select class="selection-2" name="budget" onchange="selectExam(this);">
+							<option>Select English Exam</option>
+							<option id="cs">English Exam 1</option>
+							<option id="ai">English Exam 2</option>
+							<option id="is">English Exam 3</option>
+						</select>
+						<label style="display:none;">Enter your exam score
+							<input></input>
+						</label>
+					</div>
 					<span class="focus-input100"></span>
 				</div>
 
@@ -216,6 +225,11 @@ for (var i=0; i<checkboxes.length; i++)  {
   'You clicked the button!',
   'success'
 )
+</script>
+<script>
+function selectExam(nameSelect){
+
+}
 </script>
 </body>
 </html>
