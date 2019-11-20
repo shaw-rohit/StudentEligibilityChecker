@@ -18,9 +18,13 @@ body {
 	-ms-align-items: center;
 	-moz-align-items: center;
 	-webkit-align-items: center;
-    background-image: -moz-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);
+    background-image: url('../images/bg.jpg');
+     background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(5px);
+     box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+/*    background-image: -moz-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);
     background-image: -webkit-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);
-    background-image: -ms-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);
+    background-image: -ms-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);*/
 }
 .form-v1-content   {
 	background: #fff;
