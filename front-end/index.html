@@ -93,7 +93,7 @@
                                 <select name=track class="browser-default custom-select">
                                     <option selected>Please select an option</option>
                                     <option id="cs1" value="1" style="display:none;">Internet & Web Technology</option>
-                                    <option id="cs1" value="2" style="display:none;">Big Data Engineering</option>
+                                    <option id="cs6" value="2" style="display:none;">Big Data Engineering</option>
                                     <option id="cs2" value="3" style="display:none;">Software Engineering and Green IT</option>
                                     <option id="cs3" value="4" style="display:none;">Parallel Computing Systems</option>
                                     <option id="cs4" value="5" style="display:none;">Foundations of Computing and Concurrency</option>
@@ -143,13 +143,61 @@
 								
     								<div class="form-row">
     									<div class="form-holder form-holder-2">
-    										<fieldset>
+    										
     											<legend>Course Description</legend>
-    											<input type="text" class="form-control" id="course" name="course" placeholder="course" required>
-    										</fieldset>
+   										
     									</div>
+
     									
     								</div>
+                                        <div id="compsci1" style="display:none;">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                CS Course 1
+                                             </label>
+                                        </div>
+                                    </div>
+                                    <div id="compsci2" style="display:none;">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                CS Course 2
+                                             </label>
+                                        </div>
+                                    </div>
+                                    <div id="ai11" style="display:none;">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                AI Course 1
+                                             </label>
+                                        </div>
+                                    </div>
+                                    <div id="ai22" style="display:none;">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                AI Course 2
+                                             </label>
+                                        </div>
+                                    </div>
+                                     <div id="is11" style="display:none;">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                IS Course 1
+                                             </label>
+                                        </div>
+                                    </div>
+                                    <div id="is22" style="display:none;">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                IS Course 2
+                                             </label>
+                                        </div>
+                                    </div>
 								<div class ="form-row">
 								<div class ="form-holder form-holder-2">
 								
@@ -236,21 +284,35 @@
             document.getElementById("cs3").style.display = "block";
             document.getElementById("cs4").style.display = "block";
             document.getElementById("cs5").style.display = "block";
+            document.getElementById("cs6").style.display = "block";
+            document.getElementById("compsci1").style.display = "block";
+            document.getElementById("compsci2").style.display = "block";
             document.getElementById("ai1").style.display = "none";
             document.getElementById("ai2").style.display = "none";
             document.getElementById("ai3").style.display = "none";
-             document.getElementById("is1").style.display = "none";
+            document.getElementById("ai11").style.display = "none";
+            document.getElementById("ai22").style.display = "none";
+            document.getElementById("is1").style.display = "none";
+            document.getElementById("is11").style.display = "none";
+            document.getElementById("is22").style.display = "none";
         }
         else if(aiOpt == nameSelect.value){
             document.getElementById("cs1").style.display = "none";
+            document.getElementById("cs6").style.display = "none";
             document.getElementById("cs2").style.display = "none";
             document.getElementById("cs3").style.display = "none";
             document.getElementById("cs4").style.display = "none";
             document.getElementById("cs5").style.display = "none";
+            document.getElementById("compsci1").style.display = "none";
+            document.getElementById("compsci2").style.display = "none";
             document.getElementById("ai1").style.display = "block";
             document.getElementById("ai2").style.display = "block";
             document.getElementById("ai3").style.display = "block";
-             document.getElementById("is1").style.display = "none";
+            document.getElementById("ai11").style.display = "block";
+            document.getElementById("ai22").style.display = "block";
+            document.getElementById("is1").style.display = "none";
+            document.getElementById("is11").style.display = "none";
+            document.getElementById("is22").style.display = "none";
         }
         else if(isOpt == nameSelect.value){
             document.getElementById("cs1").style.display = "none";
@@ -258,25 +320,48 @@
             document.getElementById("cs3").style.display = "none";
             document.getElementById("cs4").style.display = "none";
             document.getElementById("cs5").style.display = "none";
+            document.getElementById("cs6").style.display = "none";
+            document.getElementById("compsci1").style.display = "none";
+            document.getElementById("compsci2").style.display = "none";
             document.getElementById("ai1").style.display = "none";
             document.getElementById("ai2").style.display = "none";
             document.getElementById("ai3").style.display = "none";
+            document.getElementById("ai11").style.display = "none";
+            document.getElementById("ai22").style.display = "none";
             document.getElementById("is1").style.display = "block";
+            document.getElementById("is11").style.display = "block";
+            document.getElementById("is22").style.display = "block";
         }
     }
     else{
         document.getElementById("cs1").style.display = "none";
-        document.getElementById("cs2").style.display = "block";
-        document.getElementById("cs3").style.display = "block";
-        document.getElementById("cs4").style.display = "block";
-        document.getElementById("cs5").style.display = "block";
+        document.getElementById("cs2").style.display = "none";
+        document.getElementById("cs3").style.display = "none";
+        document.getElementById("cs4").style.display = "none";
+        document.getElementById("cs5").style.display = "none";
+        document.getElementById("cs6").style.display = "none";
+        document.getElementById("compsci1").style.display = "none";
+        document.getElementById("compsci2").style.display = "none";
         document.getElementById("ai1").style.display = "none";
         document.getElementById("ai2").style.display = "none";
         document.getElementById("ai3").style.display = "none";
-         document.getElementById("is1").style.display = "none";
+        document.getElementById("ai11").style.display = "none";
+        document.getElementById("ai22").style.display = "none";
+        document.getElementById("is1").style.display = "none";
+        document.getElementById("is11").style.display = "none";
+        document.getElementById("is22").style.display = "none";
     }
 }
   </script>
+  <script type="text/javascript">
+var checkboxes = document.getElementsByTagName('input');
+
+for (var i=0; i<checkboxes.length; i++)  {
+  if (checkboxes[i].type == 'checkbox')   {
+    checkboxes[i].checked = false;
+  }
+}
+</script>
 
 </body>
 </html>
