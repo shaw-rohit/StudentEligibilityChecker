@@ -378,8 +378,9 @@ body {
 	font-size: 14px;
     color: #666;
     font-weight: 600;
-    background: #fff url('../images/form-v1-icon.png') no-repeat scroll;
-    background-position: right 6px center;
+    background: #fff url('../images/form-arrow2.png') no-repeat scroll;
+    background-position: right 10px center;
+    background-size: 20px 20px;
     z-index: 1;
     cursor: pointer;
     position: relative;
