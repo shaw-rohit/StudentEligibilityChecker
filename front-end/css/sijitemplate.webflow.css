@@ -995,6 +995,38 @@ figcaption {
   min-height: 820px;
 }
 
+.sectionn {
+  overflow: hidden;
+	margin:  0;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	-o-justify-content: center;
+	-ms-justify-content: center;
+	-moz-justify-content: center;
+	-webkit-justify-content: center;
+	align-items: center;
+	-o-align-items: center;
+	-ms-align-items: center;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 0px;
+}
+
+.sectionn:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  position: absolute;
+  box-shadow: inset 0 0 0 200px rgba(255,255,255,0);
+  filter: blur(10px);
+}
+
 .sectionf {
   position: relative;
   overflow: hidden;
@@ -2739,12 +2771,19 @@ figcaption {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/bg.jpg');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
+
+body{
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ background-position: center center;
+ background-image:url('../images/bg.jpg');
+ width: 100%;
+ height: 100%;
+ -webkit-font-smoothing: antialiased;
+}
+
 
 .button-ghost-2 {
   display: -webkit-box;
