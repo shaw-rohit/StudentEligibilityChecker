@@ -80,7 +80,7 @@
                                         <div class="form-holder form-holder-2">
 				 <legend>Choose your Master Degree Program</legend>
                                 <select name=degree class="browser-default custom-select" onchange="admSelectCheck(this);">
-                                    <option selected>Please select an option</option>
+                                    <option selected hidden>Please select an option</option>
                                     <option id="cs" value="1">MSc Computer Science</option>
                                     <option id="ai" value="2">MSc Artificial Intelligence</option>
                                     <option id="is" value="3">MSc Information Sciences</option>
@@ -91,7 +91,7 @@
                                 <div class="form-holder form-holder-2">
 				<legend>Track or Specialization</legend>
                                 <select name=track class="browser-default custom-select">
-                                    <option selected>Please select an option</option>
+                                    <option selected hidden>Please select an option</option>
                                     <option id="cs1" value="1" style="display:none;">Internet & Web Technology</option>
                                     <option id="cs6" value="2" style="display:none;">Big Data Engineering</option>
                                     <option id="cs2" value="3" style="display:none;">Software Engineering and Green IT</option>
@@ -110,13 +110,13 @@
     						<!-- SECTION 2 -->
     			            <h2>
     			            	<p class="step-icon"><span>02</span></p>
-    			            	<span class="step-text">Educational Background</span>
+    			            	<span class="step-text">Academic Background</span>
     			            </h2>
     			            <section>
     			                <div class="inner">
     			                	<div class="wizard-header">
-    									<h3 class="heading">Educational Background</h3>
-    									<p>Specify the details about your previous Education</p>
+    									<h3 class="heading">Academic Background</h3>
+    									<p>Specify the details about your previous Education and Work Experience</p>
     								</div>
 								<div class="form-row">
     									<div class="form-holder form-holder-2">
@@ -128,15 +128,20 @@
     								</div>
     								<div class="form-row">
     									<div class="form-holder">
-    										<fieldset>
+    											
     											<legend>GPA Scale</legend>
-    											<input type="text" class="form-control" id="scale" name="scale" placeholder="GPA scale" required>
-    										</fieldset>
+    											<select name=gpascale class="browser-default custom-select">
+                            								<option selected hidden>Please select an option</option>
+                                    							<option id="us" value="1">1-4</option>
+                                    							<option id="ger" value="2">1-10</option>
+                                						        <option id="usa" value="3">1-5</option>
+											</select>
+    										
     									</div>
     									<div class="form-holder">
     										<fieldset>
     											<legend>GPA</legend>
-    											<input type="text" class="form-control" id="gpa" name="gpa" placeholder="GPA" required>
+    											<input style="height:44px" type="text" class="form-control" id="gpa" name="gpa" placeholder="GPA" required>
     										</fieldset>
     									</div>
     								</div>
@@ -202,20 +207,20 @@
 								<div class ="form-holder form-holder-2">
 								
 								<legend style>Are you a Native English Speaker?</legend>
-									<select name=degree class="browser-default custom-select">
-                                    					<option selected>Please select an option</option>
+									<select id="native" name=degree class="browser-default custom-select">
+                                    					<option selected hidden>Please select an option</option>
                                     					<option id="yes" value="1">Yes</option>
 									<option id="no" value="2">No</option>
                                     					</select>
 																
 								</div>
 								</div>
-								<div class="form-row">
+								<div class="form-row" id="english">
     									<div class="form-holder">
     										
     											<legend>Type of English Test</legend>
     											<select name=english class="browser-default custom-select">
-											 <option selected>Please select an option</option>
+											 <option selected hidden>Please select an option</option>
                                    							 <option id="toefl" value="1">TOEFL-IBT</option>
                                    							 <option id="ielts" value="2">IELTS</option>
                                    							 <option id="cam" value="3">Cambridge</option>
@@ -232,10 +237,15 @@
     								</div>
 								<div class="form-row">
 								<div class="form-holder form-holder-2">
-									<fieldset>									
+																		
 									<legend>Do you have relevant work experience? If yes,mention your years of work experience</legend>
-    									<input type="text" class="form-control" id="work" name="work" placeholder="work experience in years">
-    									</fieldset>	
+									<select name=work class="browser-default custom-select">
+            								<option selected hidden>Please select an option</option>
+                    							<option id="one" value="1">Less than one year</option>
+                    							<option id="two" value="2">Between 1- 2 years</option>
+                						        <option id="five" value="3">Greater than 2 years</option>
+									</select>
+    										
     									</div>
 									
     							</div>
@@ -361,6 +371,15 @@ for (var i=0; i<checkboxes.length; i++)  {
     checkboxes[i].checked = false;
   }
 }
+</script>
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+$('#native').on('change.english',function(){
+$("#english").toggle($(this).val() == '1');
+}).trigger('change.english');
+});
 </script>
 
 </body>
