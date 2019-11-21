@@ -93,14 +93,19 @@ sec:ExtraKnowledge
   rdfs:label "extra knowledge"@en ;
   rdfs:subClassOf owl:Thing ;
 .
-sec:Program
+sec:MasterDegree
   rdf:type owl:Class ;
-  rdfs:label "program"@en ;
+  rdfs:label "master degree"@en ;
   rdfs:subClassOf owl:Thing ;
 .
 sec:Student
   rdf:type owl:Class ;
   rdfs:label "student"@en ;
+  rdfs:subClassOf owl:Thing ;
+.
+sec:Track
+  rdf:type owl:Class ;
+  rdfs:label "track"@en ;
   rdfs:subClassOf owl:Thing ;
 .
 sec:University
@@ -116,7 +121,7 @@ sec:appliesFor
 .
 sec:artificalIntelligence
   rdf:type sec:BachelorDegree ;
-  rdf:type sec:Program ;
+  rdf:type sec:Track ;
   sec:requiresBachelorDegree sec:artificalIntelligence ;
   sec:requiresBachelorDegree sec:computerScience ;
   sec:requiresBachelorDegree sec:phsycology ;
@@ -160,17 +165,23 @@ sec:generalAIKnowledge
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "general AI knowledge" ;
 .
-sec:hasProgramme
+sec:hasMasterDegree
   rdf:type owl:ObjectProperty ;
   rdfs:domain sec:University ;
-  rdfs:label "has programme"@en ;
-  rdfs:range sec:Program ;
+  rdfs:label "has master degree"@en ;
+  rdfs:range sec:MasterDegree ;
 .
 sec:hasScore
   rdf:type owl:DatatypeProperty ;
   rdfs:domain sec:EnglishProfQuantity ;
   rdfs:label "score"@en ;
   rdfs:range xsd:string ;
+.
+sec:hasTrack
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain sec:MasterDegree ;
+  rdfs:label "has track" ;
+  rdfs:range sec:Track ;
 .
 sec:hasType
   rdf:type owl:ObjectProperty ;
@@ -216,25 +227,25 @@ sec:psychology
 .
 sec:requiresBachelorDegree
   rdf:type owl:ObjectProperty ;
-  rdfs:domain sec:Program ;
+  rdfs:domain sec:Track ;
   rdfs:label "requires bachelor degree" ;
   rdfs:range sec:BachelorDegree ;
 .
 sec:requiresEnglishProf
   rdf:type owl:ObjectProperty ;
-  rdfs:domain sec:Program ;
+  rdfs:domain sec:Track ;
   rdfs:label "requires english prof" ;
   rdfs:range sec:EnglishProfQuantity ;
 .
 sec:requiresGPA
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain sec:Program ;
+  rdfs:domain sec:Track ;
   rdfs:label "requires GPA" ;
   rdfs:range xsd:decimal ;
 .
 sec:requiresKnowledge
   rdf:type owl:ObjectProperty ;
-  rdfs:domain sec:Program ;
+  rdfs:domain sec:Track ;
   rdfs:label "requires knowledge" ;
   rdfs:range sec:ExtraKnowledge ;
 .
