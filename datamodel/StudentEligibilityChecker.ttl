@@ -113,12 +113,6 @@ sec:University
   rdfs:label "university"@en ;
   rdfs:subClassOf owl:Thing ;
 .
-sec:appliesFor
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain sec:Student ;
-  rdfs:label "applies for"@en ;
-  rdfs:range sec:University ;
-.
 sec:artificalIntelligence
   rdf:type sec:BachelorDegree ;
   rdf:type sec:Track ;
@@ -157,6 +151,18 @@ sec:cambridgeCertificateInAdvancedEnglish
   rdf:type sec:EnglishTest ;
   rdfs:label "cambridge certificate in advanced english"@en ;
 .
+sec:checksEligibilityOnMaster
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain sec:Student ;
+  rdfs:label "checks eligiility on master"@en ;
+  rdfs:range sec:MasterDegree ;
+.
+sec:checksEligibilityOnTrack
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain sec:Student ;
+  rdfs:label "checks eligiility on track"@en ;
+  rdfs:range sec:Track ;
+.
 sec:computerScience
   rdf:type sec:BachelorDegree ;
   rdfs:label "computer science"@en ;
@@ -164,6 +170,11 @@ sec:computerScience
 sec:generalAIKnowledge
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "general AI knowledge" ;
+.
+sec:hasEmail
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain sec:Student ;
+  rdfs:range xsd:string ;
 .
 sec:hasMasterDegree
   rdf:type owl:ObjectProperty ;
@@ -193,10 +204,6 @@ sec:ielts
   rdf:type sec:EnglishTest ;
   rdfs:label "ielts"@en ;
 .
-sec:isOfType
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "has name"@en ;
-.
 sec:java
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "java" ;
@@ -208,6 +215,11 @@ sec:logic
 sec:mathematics
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "mathematics" ;
+.
+sec:mscArtificalIntelligence
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:artificalIntelligence ;
+  rdfs:label "MSc artifical intelligence"@en ;
 .
 sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
@@ -259,18 +271,13 @@ sec:toeflPaperBased
 .
 sec:vrijeUniversiteitAmsterdam
   rdf:type sec:University ;
+  sec:hasMasterDegree sec:mscArtificalIntelligence ;
   rdfs:label "Free University Amsterdam"@en ;
   rdfs:label "Vrije Universiteit Amsterdam"@nl ;
 .
 sec:vuTestEnglishLanguageProficiency
   rdf:type sec:EnglishTest ;
   rdfs:label "vu-test english language proficiency"@en ;
-.
-foaf:birthday
-  rdf:type owl:FunctionalProperty ;
-  rdfs:domain sec:Student ;
-  rdfs:label "birthday"@en ;
-  rdfs:range xsd:dateTime ;
 .
 foaf:firstName
   rdf:type owl:DatatypeProperty ;
