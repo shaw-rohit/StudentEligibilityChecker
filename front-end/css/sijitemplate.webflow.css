@@ -1011,6 +1011,7 @@ figcaption {
 	-moz-align-items: center;
 	-webkit-align-items: center;
   position: relative;
+  min-height: 900px;
   width: 100%;
   height: 100%;
   background: inherit;
