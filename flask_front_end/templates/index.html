@@ -53,16 +53,19 @@
     									<p>Choose the Master's Degree to which you want to Apply</p>
     								</div>
     								<div class="form-row">
+                                        <form action = "/index" method="POST">
     									<div class="form-holder">
     										<fieldset>
     											<legend>First Name</legend>
-    											<input type="text" class="form-control" id="first-name" name="first-name" placeholder="First Name" required>
+    											<input type="text" class="form-control" id="first-name" name="first-name" placeholder="First Name" >
+                                                <input type="submit">
     										</fieldset>
     									</div>
+                                    </form>
     									<div class="form-holder">
     										<fieldset>
     											<legend>Last Name</legend>
-    											<input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last Name" required>
+    											<input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last Name" >
     										</fieldset>
     									</div>
     								</div>
@@ -70,7 +73,7 @@
     									<div class="form-holder form-holder-2">
     										<fieldset>
     											<legend>Your Email</legend>
-    											<input type="text" name="your_email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" required>
+    											<input type="text" name="your_email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" >
     										</fieldset>
     									</div>
     								</div>
@@ -120,7 +123,7 @@
     									<div class="form-holder form-holder-2">
     										<fieldset>
     											<legend>Bachelor Degree Programme</legend>
-    											<input type="text" name="bachelor" id="bachelor" class="form-control" 												placeholder="Enter your Bachelors" required>
+    											<input type="text" name="bachelor" id="bachelor" class="form-control" 												placeholder="Enter your Bachelors" >
     										</fieldset>
     									</div>
     								</div>
@@ -152,7 +155,7 @@
     									<div class="form-holder">
     										<fieldset>
     											<legend>GPA</legend>
-    											<input style="height:44px" type="text" class="form-control" id="gpa" name="gpa" placeholder="GPA" required>
+    											<input style="height:44px" type="text" class="form-control" id="gpa" name="gpa" placeholder="GPA" >
     										</fieldset>
     									</div>
     								</div>
@@ -226,6 +229,7 @@
 
 								</div>
 								</div>
+                                
 								<div class="form-row" id="english">
     									<div class="form-holder">
 
@@ -244,16 +248,16 @@
                                               
 
     									</div>
-                                        <form action="{{ url_for('index') }}" method="post">
+                                        
     									<div class="form-holder">
 									<fieldset>
 									<legend>Test Score</legend>
-    									<input style ="height:44px" type="text" class="form-control" id="etest" name="etestt" placeholder="Test Score" required>
+    									<input style ="height:44px" type="text" class="form-control" id="etest" name="etestt" placeholder="Test Score" >
     									</fieldset>
     									</div>
-                                        <input type="submit">
-                                    </form>                
+                                                   
     								</div>
+                                  
 								<div class="form-row">
 								<div class="form-holder form-holder-2">
 

@@ -7,20 +7,21 @@ def index():
    if request.method=='GET':
        print('hiiii', file=sys.stdout)
        array = ['TOEFL-IBT', 'IELTS', 'Cambridge', 'VU Test']
+       return render_template('index.html', index = array)
    elif request.method=='POST':
        print('hi', file=sys.stdout)
-       text = request.form.get('etestt')
+       text = request.form.get('first-name')
        processed_text = text.upper()
        print(processed_text, file=sys.stdout)
-   return render_template('index.html', index = array)
+       return render_template('index.html')
 
-@app.route('/index', methods=['POST'])
-def index_post():
-    print('hi', file=sys.stdout)
-    text = request.form.get('etestt')
-    processed_text = text.upper()
-    print(processed_text, file=sys.stdout)
-    return processed_text
+# @app.route('/index', methods=['POST'])
+# def index_post():
+#     print('hi', file=sys.stdout)
+#     text = request.form.get('etestt')
+#     processed_text = text.upper()
+#     print(processed_text, file=sys.stdout)
+#     return processed_text
 
 if __name__ == '__main__':
    app.run(debug = True)
