@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <title>Student Eligibility Checker</title>
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <!-- <meta content="width=device-width, initial-scale=1" name="viewport"> -->
 
   <link href="./css/normalize.css" rel="stylesheet" type="text/css">
   <link href="./css/webflow.css" rel="stylesheet" type="text/css">
@@ -29,14 +29,16 @@
         <h1 class="hero-title ondark">Choose the degree programme that<br>best fits you at<br>VU Amsterdam!</h1>
         <div class="paragraph-medium margin-bottom ondark">Save time &amp; money by applying only to university<br>degree programmes that you are eligible for<br></div>
         <div class="container hero-button-container">
-          <a href="#section-form" class="button-primary-2 w-inline-block">
+          <a href="#sec-fo" class="button-primary-2 w-inline-block">
             <div class="button-text-2">get started</div>
           </a>
         </div>
       </div>
     </div>
   </div>
-  <a id="section-form"></a>
+
+  <a id="sec-fo"> </a>
+
   <div class="sectionn">
     		<div class="form-v1-content">
     			<div class="wizard-form">
@@ -346,7 +348,6 @@
   </div>
 
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="./js/webflow.js" type="text/javascript"></script>
 	<script src="js/jquery.steps.js"></script>
 	<script src="js/main.js"></script>
 
@@ -371,7 +372,7 @@
     }
   </script>
 
-<script>
+  <script>
     function admSelectCheck(nameSelect) {
     if(nameSelect){
         csOpt = document.getElementById("cs").value;
