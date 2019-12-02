@@ -139,7 +139,7 @@
     			                <div class="inner">
     			                	<div class="wizard-header">
     									<h3 class="heading">Academic Background</h3>
-    									<p>Specify the details about your previous Education and Work Experience</p>
+    									<p>Specify details about your previous education</p>
     								</div>
 								<div class="form-row">
     									<div class="form-holder form-holder-2">
@@ -149,6 +149,18 @@
     										</fieldset>
     									</div>
     								</div>
+
+                    <div class ="form-row">
+                      <div class ="form-holder form-holder-2">
+                        <legend style>Is your Bachelor from a research insitute?</legend>
+                        <select id="research" name=insitute class="browser-default custom-select">
+                          <option selected hidden>Choose</option>
+                          <option id="yess" value="11">Yes</option>
+                          <option id="noo" value="22">No</option>
+                        </select>
+                      </div>
+                    </div>
+
     								<div class="form-row">
     									<div class="form-holder">
 
@@ -169,13 +181,69 @@
     										</fieldset>
     									</div>
     								</div>
+								<div class ="form-row">
+								<div class ="form-holder form-holder-2">
 
-    								<div class="form-row">
+								<legend style>Are you a Native English Speaker?</legend>
+									<select id="native" name=degree class="browser-default custom-select">
+                                    					<option selected hidden>Choose</option>
+                                    					<option id="yes" value="1">Yes</option>
+									<option id="no" value="2">No</option>
+                                    					</select>
+
+								</div>
+								</div>
+								<div class="form-row" id="english">
+    									<div class="form-holder">
+    											<legend>Type of English Test</legend>
+    											<select name=english class="browser-default custom-select">
+                            <option selected hidden>Choose</option>
+                            <option id="toefl-i" value="1">TOEFL-IBT</option>
+                            <option id="toefl-p" value="2">TOEFL-PBT</option>
+                            <option id="ielts" value="3">IELTS (Academic)</option>
+                            <option id="cae" value="4">Cambridge (CAE)</option>
+                            <option id="cpe" value="5">Cambridge (CPE)</option>
+                            <option id="toefl-v" value="6">VU TOEFL-ITP</option>
+              						</select>
+                      </div>
+
+    									<div class="form-holder">
+									<fieldset>
+									<legend>Test Score</legend>
+    									<input style ="height:44px" type="text" class="form-control" id="etest" name="etest" placeholder="Test Score" required>
+    									</fieldset>
+    									</div>
+    								</div>
+    			            </section>
+
+                      <!-- SECTION 3 -->
+    			            <h2>
+    			            	<p class="step-icon"><span>03</span></p>
+    			            	<span class="step-text">Technical Knowledge</span>
+    			            </h2>
+    			            <section>
+    			                <div class="inner">
+    			                	<div class="wizard-header">
+    									<h3 class="heading">Technical Knowledge</h3>
+    									<p>Specify details about your technical knowledge and work experience</p>
+    								</div>
+                    <div class="form-row">
+    								<div class="form-holder form-holder-2">
+    									<legend>How many years of relevant work experience do you have?</legend>
+    									<select name=work class="browser-default custom-select">
+                			     <option selected hidden>Choose</option>
+                        	 <option id="one" value="1">< 1 year</option>
+                        	 <option id="two" value="2">1- 2 years</option>
+                    			 <option id="three" value="3">> 2 years</option>
+    									</select>
+        						</div>
+        						</div>
+                    <div class="form-row">
     									<div class="form-holder form-holder-2">
     											<legend>Course Description</legend>
     									</div>
                     </div>
-                    
+
                     <div id="compsci1" style="display:none;">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -264,54 +332,9 @@
                          </label>
                     </div>
                 </div>
-								<div class ="form-row">
-								<div class ="form-holder form-holder-2">
-
-								<legend style>Are you a Native English Speaker?</legend>
-									<select id="native" name=degree class="browser-default custom-select">
-                                    					<option selected hidden>Choose</option>
-                                    					<option id="yes" value="1">Yes</option>
-									<option id="no" value="2">No</option>
-                                    					</select>
-
-								</div>
-								</div>
-								<div class="form-row" id="english">
-    									<div class="form-holder">
-    											<legend>Type of English Test</legend>
-    											<select name=english class="browser-default custom-select">
-                            <option selected hidden>Choose</option>
-                            <option id="toefl-i" value="1">TOEFL-IBT</option>
-                            <option id="toefl-p" value="2">TOEFL-PBT</option>
-                            <option id="ielts" value="3">IELTS (Academic)</option>
-                            <option id="cae" value="4">Cambridge (CAE)</option>
-                            <option id="cpe" value="5">Cambridge (CPE)</option>
-                            <option id="toefl-v" value="6">VU TOEFL-ITP</option>
-              						</select>
-                      </div>
-                      
-    									<div class="form-holder">
-									<fieldset>
-									<legend>Test Score</legend>
-    									<input style ="height:44px" type="text" class="form-control" id="etest" name="etest" placeholder="Test Score" required>
-    									</fieldset>
-    									</div>
-    								</div>
-								<div class="form-row">
-								<div class="form-holder form-holder-2">
-
-									<legend>How many years of relevant work experience do you have?</legend>
-									<select name=work class="browser-default custom-select">
-            								<option selected hidden>Choose</option>
-                    							<option id="one" value="1">< 1 year</option>
-                    							<option id="two" value="2">1- 2 years</option>
-                						        <option id="three" value="3">> 2 years</option>
-									</select>
-
-    									</div>
-
-    							</div>
+    							       </div>
     			            </section>
+
     		        	</div>
     		        </form>
     			</div>
