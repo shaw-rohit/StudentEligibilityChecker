@@ -346,6 +346,7 @@ sec:toeflPaperBased
 sec:vrijeUniversiteitAmsterdam
   rdf:type sec:University ;
   sec:hasMasterDegree sec:mscArtificalIntelligence ;
+  sec:hasMasterDegree sec:mscBusinessAnalytics ;
   rdfs:label "Free University Amsterdam"@en ;
   rdfs:label "Vrije Universiteit Amsterdam"@nl ;
 .
