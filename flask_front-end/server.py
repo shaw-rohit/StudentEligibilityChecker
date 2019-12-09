@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 @app.route('/result')
 def result():
-    return render_template('result.html', 
-      selected_master=request.args.get('selected_master'), 
-      gpa=request.args.get('gpa'), 
+    return render_template('result.html',
+      selected_master=request.args.get('selected_master'),
+      gpa=request.args.get('gpa'),
       gpa_scale=request.args.get('gpa_scale'),
       converted_gpa=request.args.get('converted_gpa'))
 
@@ -17,14 +17,14 @@ def index_get():
    print('sup')
    if request.method=='GET':
        print('hiiii', file=sys.stdout)
-       ontology = "/Users/agukalpa/Documents/VU Amsterdam/Knowledge Engineering/StudentEligibilityChecker/flask_front-end/Ontology.ttl" 
+       ontology = "D:/Amsterdam/VU/KE2019/StudentEligibilityChecker/flask_front-end/Ontology.ttl" 
        g = rdflib.Graph()
        g.parse(ontology, format='ttl')
        ##########################################
        ####### DISPLAY MASTER PRGRM BEGIN #######
        ##########################################
        master_q_result = g.query(
-        """select ?master_label where { 
+        """select ?master_label where {
            ?university rdf:type sec:University .
            ?university sec:hasMasterDegree ?master .
            ?master rdfs:label ?master_label .
@@ -49,7 +49,7 @@ def index_get():
         """select ?englishtest_label where {
           ?englishtest rdf:type sec:EnglishTest .
           ?englishtest rdfs:label ?englishtest_label .
-          FILTER (LANG(?englishtest_label)  = 'en') 
+          FILTER (LANG(?englishtest_label)  = 'en')
         }""")
        english_test = []
        for row in english_q_result:
@@ -105,7 +105,7 @@ def index_post():
         ####### GPA END #######
         #########################
        print(converted_gpa)
-       return redirect(url_for('result', selected_master=selected_master, gpa=gpa, gpa_scale=gpa_scale, 
+       return redirect(url_for('result', selected_master=selected_master, gpa=gpa, gpa_scale=gpa_scale,
         converted_gpa=converted_gpa))
 
 # @app.route('/index', methods=['POST'])
