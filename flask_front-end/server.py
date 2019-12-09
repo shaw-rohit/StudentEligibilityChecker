@@ -1,11 +1,16 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, url_for, redirect, render_template
 import rdflib
 import sys
 import random
 app = Flask(__name__)
 
-@app.route('/index', methods=['GET', 'POST'])
-def index():
+@app.route('/result')
+def result():
+    return render_template('result.html', gpa=request.args.get('gpa'), gpa_scale=request.args.get('gpa_scale'),
+     converted_gpa=request.args.get('converted_gpa'))
+
+@app.route('/index')
+def index_get():
    print('sup')
    if request.method=='GET':
        print('hiiii', file=sys.stdout)
@@ -21,7 +26,7 @@ def index():
            ?university sec:hasMasterDegree ?master .
            ?master rdfs:label ?master_label .
            FILTER (LANG(?master_label ) = "en")
-        }""")
+        }order by ?master_label""")
        master_prgrm = []
        master_id = ['ai', 'ba']
        for row in master_q_result:
@@ -52,7 +57,11 @@ def index():
        ####### DISPLAY ENGLISH TEST END #######
        ########################################
        return render_template('index.html', master_dict=master_dict, english_test=english_test)
-   elif request.method=='POST':
+
+@app.route('/index', methods=['POST'])
+def index_post():
+   print('sup')
+   if request.method=='POST':
        #########################
        ####### GPA BEGIN #######
        #########################
@@ -63,12 +72,14 @@ def index():
        gpa = request.form.get('gpa')
        gpa = float(gpa)
        print("GPA:", gpa)
+       converted_gpa = 0
        #####check for grading scale
        if gpa_scale in grading_scale['usa']:
            #print('usa conversion')
            ###calls us to uk gpa conversion
            calc_us_gpa = us_to_uk(gpa)
            print(calc_us_gpa)
+           converted_gpa  = calc_us_gpa
        else:
            print('carrying india to us conversion first')
            ###converts indian gpa to usa gpa first
@@ -77,10 +88,12 @@ def index():
            ###converts us gpa to uk gpa
            calc_ind_gpa = us_to_uk(usa_gpa)
            print(calc_ind_gpa)
+           converted_gpa = calc_ind_gpa
         #########################
         ####### GPA END #######
         #########################
-       return render_template('index.html')
+       print(converted_gpa)
+       return redirect(url_for('result', gpa=gpa, gpa_scale=gpa_scale, converted_gpa=converted_gpa))
 
 # @app.route('/index', methods=['POST'])
 # def index_post():
