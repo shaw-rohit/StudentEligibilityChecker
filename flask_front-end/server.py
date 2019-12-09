@@ -6,8 +6,11 @@ app = Flask(__name__)
 
 @app.route('/result')
 def result():
-    return render_template('result.html', gpa=request.args.get('gpa'), gpa_scale=request.args.get('gpa_scale'),
-     converted_gpa=request.args.get('converted_gpa'))
+    return render_template('result.html', 
+      selected_master=request.args.get('selected_master'), 
+      gpa=request.args.get('gpa'), 
+      gpa_scale=request.args.get('gpa_scale'),
+      converted_gpa=request.args.get('converted_gpa'))
 
 @app.route('/index')
 def index_get():
@@ -62,6 +65,15 @@ def index_get():
 def index_post():
    print('sup')
    if request.method=='POST':
+       selected_master = request.form.get('programme')
+       if selected_master == 'ai':
+           selected_master = 'MSc Artificial Intelligence'
+       elif selected_master == 'cs':
+           selected_master = 'MSc Computer Science'
+       elif selected_master == 'ba':
+           selected_master = 'MSc Business Analytics'
+       elif selected_master == 'is':
+           selected_master = 'MSc Information Science'
        #########################
        ####### GPA BEGIN #######
        #########################
@@ -93,7 +105,8 @@ def index_post():
         ####### GPA END #######
         #########################
        print(converted_gpa)
-       return redirect(url_for('result', gpa=gpa, gpa_scale=gpa_scale, converted_gpa=converted_gpa))
+       return redirect(url_for('result', selected_master=selected_master, gpa=gpa, gpa_scale=gpa_scale, 
+        converted_gpa=converted_gpa))
 
 # @app.route('/index', methods=['POST'])
 # def index_post():
