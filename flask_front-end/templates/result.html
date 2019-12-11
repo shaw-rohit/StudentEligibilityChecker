@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Student Eligibility Checker</title>
+  <!-- <meta content="width=device-width, initial-scale=1" name="viewport"> -->
+
+  <link href="/static/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/static/css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="/static/css/sijitemplate.webflow.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/static/css/opensans-font.css">
+  <link rel="stylesheet" type="text/css" href="/static/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <link rel="stylesheet" href="/static/css/score-style.css"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Gothic A1:regular,500,600,700,900"]  }});</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="section3">
+    <div class="bar_container">
+        <div id="main_container">
+            <div id="pbar" class="progress-pie-chart" data-percent="0">
+                <div class="ppc-progress">
+                    <div class="ppc-progress-fill"></div>
+                </div>
+                <div class="ppc-percents">
+                    <div class="pcc-percents-wrapper">
+                        <span>%</span>
+                    </div>
+                </div>
+            </div>
+            <progress style="display: none" id="progress_bar" value="0" max="75"></progress>
+        </div>
+    </div>
+  </br>
+    <p>You have a 75% chance of getting admitted to MSc X - Y</p>
+    <p>Selected Master: {{ selected_master }} </p>
+    <p>Your GPA: {{ gpa }} </p>
+    <p>Your GPA Scale: {{ gpa_scale }} </p>
+    <p>Converted GPA: {{ converted_gpa }} </p>
+</div>
+
+  <div id="start" class="sectionf footer-2 flex flex-vertical">
+    <div class="footer-color">
+      <div class="col lg-6 sm-12">
+        <div class="center-text">© 2019 KE Team 4. All rights reserved.</div>
+      </br>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="/static/js/jquery.steps.js"></script>
+	<script src="/static/js/main.js"></script>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    var checkboxes = document.getElementsByTagName('input');
+    for (var i=0; i<checkboxes.length; i++)  {
+      if (checkboxes[i].type == 'checkbox')   {
+        checkboxes[i].checked = false;
+      }
+    }
+  </script>
+
+  <script>
+    function admSelectCheck(nameSelect) {
+    if(nameSelect){
+        console.log("cs value: ",document.getElementById("cs").value);
+        console.log("nameSelect: ", nameSelect.value)
+        //console.log(document.getElementById("ai").id);
+        csOpt = document.getElementById("cs").value;
+        aiOpt = document.getElementById("ai").value;
+        isOpt = document.getElementById("is").value;
+        if(csOpt == nameSelect.value){
+            console.log('truee')
+            document.getElementById("compsci1").style.display = "block";
+            document.getElementById("compsci2").style.display = "block";
+            document.getElementById("ai11").style.display = "none";
+            document.getElementById("ai22").style.display = "none";
+            document.getElementById("ai33").style.display = "none";
+            document.getElementById("ai44").style.display = "none";
+            document.getElementById("ai55").style.display = "none";
+            document.getElementById("ai66").style.display = "none";
+            document.getElementById("ai77").style.display = "none";
+            document.getElementById("is11").style.display = "none";
+            document.getElementById("is22").style.display = "none";
+        }
+        else if(aiOpt == nameSelect.value){
+            document.getElementById("compsci1").style.display = "none";
+            document.getElementById("compsci2").style.display = "none";
+            document.getElementById("ai11").style.display = "block";
+            document.getElementById("ai22").style.display = "block";
+            document.getElementById("ai33").style.display = "block";
+            document.getElementById("ai44").style.display = "block";
+            document.getElementById("ai55").style.display = "block";
+            document.getElementById("ai66").style.display = "block";
+            document.getElementById("ai77").style.display = "block";
+            document.getElementById("is11").style.display = "none";
+            document.getElementById("is22").style.display = "none";
+        }
+        else if(isOpt == nameSelect.value){
+            document.getElementById("compsci1").style.display = "none";
+            document.getElementById("compsci2").style.display = "none";
+            document.getElementById("ai11").style.display = "none";
+            document.getElementById("ai22").style.display = "none";
+            document.getElementById("ai33").style.display = "none";
+            document.getElementById("ai44").style.display = "none";
+            document.getElementById("ai55").style.display = "none";
+            document.getElementById("ai66").style.display = "none";
+            document.getElementById("ai77").style.display = "none";
+            document.getElementById("is11").style.display = "block";
+            document.getElementById("is22").style.display = "block";
+        }
+    }
+    else {
+            document.getElementById("compsci1").style.display = "none";
+            document.getElementById("compsci2").style.display = "none";
+            document.getElementById("ai11").style.display = "none";
+            document.getElementById("ai22").style.display = "none";
+            document.getElementById("ai33").style.display = "none";
+            document.getElementById("ai44").style.display = "none";
+            document.getElementById("ai55").style.display = "none";
+            document.getElementById("ai66").style.display = "none";
+            document.getElementById("ai77").style.display = "none";
+            document.getElementById("is11").style.display = "none";
+            document.getElementById("is22").style.display = "none";
+      }
+    }
+  </script>
+
+  <script type="text/javascript">
+  $(document).ready(function()
+  {
+    $('#native').on('change.english',function(){
+      $("#english").toggle($(this).val() == '2');
+    }).trigger('change.english');
+  });
+
+  $(document).ready(function()
+  {
+    $('#programme').on('change.prog',function(){
+      $("#cs_track").toggle($(this).val() == 'cs');
+    }).trigger('change.prog');
+  });
+
+  $(document).ready(function()
+  {
+    $('#programme').on('change.prog',function(){
+      $("#ai_track").toggle($(this).val() == 'ai');
+    }).trigger('change.prog');
+  });
+
+  $(document).ready(function()
+  {
+    $('#programme').on('change.prog',function(){
+      $("#is_track").toggle($(this).val() == '3');
+    }).trigger('change.prog');
+  });
+  </script>
+
+<script>
+    $(document).ready(function() {
+        var progressbar = $('#progress_bar');
+        max = progressbar.attr('max');
+        time = (100 / max) * 5;
+        value = progressbar.val();
+
+        var loading = function() {
+            value += 1;
+            addValue = progressbar.val(value);
+
+            $('.progress-value').html(value + '%');
+            var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100;
+            if (value > 50) {
+                $ppc.addClass('gt-50');
+            }
+
+            $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
+            $('.ppc-percents span').html(value + '%');
+
+            if (value == max) {
+                clearInterval(animate);
+            }
+        };
+
+        var animate = setInterval(function() {
+            loading();
+        }, time);
+    });
+</script>
+
+</body>
+</html>
