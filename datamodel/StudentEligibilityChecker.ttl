@@ -113,7 +113,7 @@ sec:artificalIntelligence
   rdf:type sec:Track ;
   sec:requiresBachelorDegree sec:artificalIntelligence ;
   sec:requiresBachelorDegree sec:computerScience ;
-  sec:requiresBachelorDegree sec:phsycology ;
+  sec:requiresBachelorDegree sec:phsychology ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
@@ -126,11 +126,9 @@ sec:artificalIntelligence
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:generalAIKnowledge ;
-  sec:requiresKnowledge sec:java ;
+  sec:requiresKnowledge sec:javaOrPython ;
   sec:requiresKnowledge sec:logic ;
   sec:requiresKnowledge sec:mathematics ;
-  sec:requiresKnowledge sec:naturalLanguageProcessing ;
-  sec:requiresKnowledge sec:prolog ;
   sec:requiresKnowledge sec:psychology ;
   rdfs:label "artifical intelligence"@en ;
 .
@@ -178,6 +176,7 @@ sec:cognitiveScience
   rdf:type sec:Track ;
   sec:requiresBachelorDegree sec:artificalIntelligence ;
   sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresBachelorDegree sec:phsychology ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
@@ -190,11 +189,9 @@ sec:cognitiveScience
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:generalAIKnowledge ;
-  sec:requiresKnowledge sec:java ;
+  sec:requiresKnowledge sec:javaOrPython ;
   sec:requiresKnowledge sec:logic ;
   sec:requiresKnowledge sec:mathematics ;
-  sec:requiresKnowledge sec:naturalLanguageProcessing ;
-  sec:requiresKnowledge sec:prolog ;
   sec:requiresKnowledge sec:psychology ;
   rdfs:label "cognitive science"@en ;
 .
@@ -235,30 +232,6 @@ sec:hasType
   rdfs:label "has type" ;
   rdfs:range sec:EnglishTest ;
 .
-sec:hybridIntelligence
-  rdf:type sec:Track ;
-  sec:requiresBachelorDegree sec:artificalIntelligence ;
-  sec:requiresBachelorDegree sec:computerScience ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
-  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresKnowledge sec:basicComputerScience ;
-  sec:requiresKnowledge sec:generalAIKnowledge ;
-  sec:requiresKnowledge sec:java ;
-  sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:mathematics ;
-  sec:requiresKnowledge sec:naturalLanguageProcessing ;
-  sec:requiresKnowledge sec:prolog ;
-  sec:requiresKnowledge sec:psychology ;
-  rdfs:label "hybrid intelligence"@en ;
-.
 sec:ielts
   rdf:type sec:EnglishTest ;
   rdfs:label "ielts"@en ;
@@ -284,7 +257,6 @@ sec:mscArtificalIntelligence
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:artificalIntelligence ;
   sec:hasTrack sec:cognitiveScience ;
-  sec:hasTrack sec:hybridIntelligence ;
   rdfs:label "MSc artifical intelligence"@en ;
 .
 sec:mscBusinessAnalytics
@@ -295,9 +267,9 @@ sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "natural language processing" ;
 .
-sec:phsycology
+sec:phsychology
   rdf:type sec:BachelorDegree ;
-  rdfs:label "psychology" ;
+  rdfs:label "psychology"@en ;
 .
 sec:probabilityAndStatistics
   rdf:type sec:ExtraKnowledge ;
