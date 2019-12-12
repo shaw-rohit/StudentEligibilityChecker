@@ -169,7 +169,7 @@ sec:automata
 .
 sec:basicComputerScience
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "basic computer science " ;
+  rdfs:label "basic computer science"@en ;
 .
 sec:basicProgramming
   rdf:type sec:ExtraKnowledge ;
@@ -463,7 +463,7 @@ sec:foundationsOfComputingAndConcurrency
 .
 sec:generalAIKnowledge
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "general AI knowledge" ;
+  rdfs:label "general AI knowledge"@en ;
 .
 sec:genetic
   rdf:type sec:ExtraKnowledge ;
@@ -563,7 +563,7 @@ sec:internetAndWebTechnology
 .
 sec:java
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "java" ;
+  rdfs:label "java"@en ;
 .
 sec:javaOrPython
   rdf:type sec:ExtraKnowledge ;
@@ -595,7 +595,7 @@ sec:linguistic
 .
 sec:logic
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "logic" ;
+  rdfs:label "logic"@en ;
 .
 sec:machineLearningOrArtificalIntelligence
   rdf:type sec:ExtraKnowledge ;
@@ -701,7 +701,7 @@ sec:mscStochasticsAndFinancialMathematics
 .
 sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "natural language processing" ;
+  rdfs:label "natural language processing"@en ;
 .
 sec:neuropsychology
   rdf:type sec:ExtraKnowledge ;
@@ -815,7 +815,7 @@ sec:programming
 .
 sec:prolog
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "prolog" ;
+  rdfs:label "prolog"@en ;
 .
 sec:psychobiology
   rdf:type sec:BachelorDegree ;
@@ -823,7 +823,7 @@ sec:psychobiology
 .
 sec:psychology
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "psychology" ;
+  rdfs:label "psychology"@en ;
 .
 sec:pythonRMatlabJavaorC
   rdf:type sec:ExtraKnowledge ;
@@ -1009,7 +1009,7 @@ sec:supplyChainManagement
 .
 sec:syntax
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "syntax" ;
+  rdfs:label "syntax"@en ;
 .
 sec:technicalMathematics
   rdf:type sec:BachelorDegree ;
