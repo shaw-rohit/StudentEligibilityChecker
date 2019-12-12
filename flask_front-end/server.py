@@ -1,4 +1,4 @@
-from flask import Flask, request, url_for, redirect, render_template, render_template_string
+from flask import Flask, request, url_for, redirect, render_template, render_template_string, jsonify
 import rdflib
 import sys
 import random
@@ -145,6 +145,14 @@ def index_post():
         gpa=gpa,
         gpa_scale=gpa_scale,
         converted_gpa=converted_gpa))
+
+
+@app.route('/programme',methods=['POST'])
+def programme():
+    name=request.args.get('value')
+    print(name)
+    return jsonify({'reply':'success'})
+
 
 #####converts us gpa to uk gpa
 def us_to_uk(score):

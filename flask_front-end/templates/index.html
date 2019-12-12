@@ -80,7 +80,7 @@
                     <div class="form-row">
                         <div class="form-holder form-holder-2">
                               <legend>Master Degree Programme</legend>
-                              <select name="programme" id="programme" class="browser-default custom-select" onchange="admSelectCheck(this);">
+                              <select name="programme" id="programme" class="browser-default custom-select" onchange="pass_programme(this);">
                                 <option selected hidden>Choose</option>
                                 {% for master, id in master_dict.items() %}
 
@@ -388,7 +388,7 @@
     function admSelectCheck(nameSelect) {
     if(nameSelect){
         console.log("cs value: ",document.getElementById("cs").value);
-        console.log("nameSelect: ", nameSelect.value)
+        console.log("nameSelect: ", nameSelect.value);
         //console.log(document.getElementById("ai").id);
         csOpt = document.getElementById("cs").value;
         aiOpt = document.getElementById("ai").value;
@@ -510,6 +510,32 @@
             loading();
         }, time);
     });
+</script>
+
+<script>
+function pass_programme(selection) {
+  console.log(selection.value);
+ var pass_to_python = selection.value
+              $.ajax(
+              {
+                  type:'POST',
+                  contentType:'application/json; charset-utf-08',
+                  dataType:'json',
+                  url:'http://127.0.0.1:5000/programme?value='+pass_to_python ,
+                  success:function (data) {
+                      var reply=data.reply;
+                      if (reply=="success")
+                      {
+                          return;
+                      }
+                      else
+                          {
+                          alert("some error ocured in session agent")
+                          }
+                  }
+              }
+          );
+}
 </script>
 
 </body>
