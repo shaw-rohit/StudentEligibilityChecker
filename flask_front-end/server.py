@@ -1,8 +1,29 @@
-from flask import Flask, request, url_for, redirect, render_template
+from flask import Flask, request, url_for, redirect, render_template, render_template_string
 import rdflib
 import sys
 import random
 app = Flask(__name__)
+
+ontology = "Ontology.ttl" 
+g = rdflib.Graph()
+g.parse(ontology, format='ttl')
+
+def get_track(degree_name):
+    degree = degree_name
+    track_list = []
+    track_q_result = g.query(
+      """select ?track_label where{
+         VALUES ?masterdegree { """+degree+""" }
+         ?masterdegree rdf:type sec:MasterDegree .
+         ?masterdegree sec:hasTrack ?track .
+         ?track rdfs:label ?track_label .
+         FILTER (LANG(?track_label) = 'en')
+      }
+      """)
+    print("track:")
+    for row in track_q_result:
+           track_list.append("%s" % row)
+           print("%s" % row)
 
 @app.route('/result')
 def result():
@@ -17,9 +38,6 @@ def index_get():
    print('sup')
    if request.method=='GET':
        print('hiiii', file=sys.stdout)
-       ontology = "Ontology.ttl" 
-       g = rdflib.Graph()
-       g.parse(ontology, format='ttl')
        ##########################################
        ####### DISPLAY MASTER PRGRM BEGIN #######
        ##########################################
@@ -31,15 +49,31 @@ def index_get():
            FILTER (LANG(?master_label ) = "en")
         }order by ?master_label""")
        master_prgrm = []
-       master_id = ['ai', 'ba']
+       master_id = ['ai', 'bsb', 'ba', 'cs', 'eoc', 'gbh', 'is', 'lgs', 'math', 'pdcs', 'sbi', 'sfm']
        for row in master_q_result:
            master_prgrm.append("%s" % row)
+           print("%s" % row)
        print(master_prgrm)
        print(master_id)
        master_dict = dict(zip(master_prgrm, master_id))
        print(master_dict)
        ##########################################
        ####### DISPLAY MASTER PRGRM END #########
+       ##########################################
+
+       ##########################################
+       ####### DISPLAY MASTER TRACK BEGIN #######
+       ##########################################
+
+       # get the selected master program
+       # after getting the selected master program do something like this for ALL 12 programs.
+       # if (selected_master == "MSc Artificial Intelligence"):
+          # selected_master = "sec:mscArtificalIntelligence"
+          # get_track(selected_master)
+       # ^ that is needed to pass to the query and query from the ontology.
+
+       ##########################################
+       ####### DISPLAY MASTER TRACK END #########
        ##########################################
 
        ##########################################
@@ -59,6 +93,7 @@ def index_get():
        ########################################
        ####### DISPLAY ENGLISH TEST END #######
        ########################################
+
        return render_template('index.html', master_dict=master_dict, english_test=english_test)
 
 @app.route('/index', methods=['POST'])

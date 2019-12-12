@@ -9,6 +9,14 @@
 @prefix sec: <http://example.org/StudentEligibilityChecker/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix : <http://example.org/StudentEligibilityChecker/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/StudentEligibilityChecker/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
 sec:
   rdf:type owl:Ontology ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -17,6 +25,10 @@ sec:BachelorDegree
   rdf:type owl:Class ;
   rdfs:label "bachelor degree"@en ;
   rdfs:subClassOf owl:Thing ;
+.
+sec:CorCplusprogramming
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "C/C++"@en ;
 .
 sec:EnglishProfQuantity
   rdf:type owl:Class ;
@@ -35,15 +47,33 @@ sec:EnglishProfQuantity_10
   sec:hasType sec:vuTestEnglishLanguageProficiency ;
   rdfs:label "English prof quantity 10" ;
 .
+sec:EnglishProfQuantity_1_1
+  rdf:type sec:EnglishProfQuantity ;
+  sec:hasScore "7.0" ;
+  sec:hasType sec:ielts ;
+  rdfs:label "English prof quantity 1_1" ;
+.
 sec:EnglishProfQuantity_2
   rdf:type sec:EnglishProfQuantity ;
   sec:hasScore "580" ;
   sec:hasType sec:toeflPaperBased ;
   rdfs:label "English prof quantity 2" ;
 .
+sec:EnglishProfQuantity_2_1
+  rdf:type sec:EnglishProfQuantity ;
+  sec:hasScore "600" ;
+  sec:hasType sec:toeflPaperBased ;
+  rdfs:label "English prof quantity 2_1" ;
+.
 sec:EnglishProfQuantity_3
   rdf:type sec:EnglishProfQuantity ;
   sec:hasScore "92" ;
+  sec:hasType sec:toeflInternetBased ;
+  rdfs:label "English prof quantity 3" ;
+.
+sec:EnglishProfQuantity_3_1
+  rdf:type sec:EnglishProfQuantity ;
+  sec:hasScore "100" ;
   sec:hasType sec:toeflInternetBased ;
   rdfs:label "English prof quantity 3" ;
 .
@@ -108,12 +138,20 @@ sec:University
   rdfs:label "university"@en ;
   rdfs:subClassOf owl:Thing ;
 .
+sec:algorithms
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "algorithms"@en ;
+.
+sec:anyOtherScienceBachelor
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "any other bachelor in science"@en ;
+.
 sec:artificalIntelligence
   rdf:type sec:BachelorDegree ;
   rdf:type sec:Track ;
   sec:requiresBachelorDegree sec:artificalIntelligence ;
   sec:requiresBachelorDegree sec:computerScience ;
-  sec:requiresBachelorDegree sec:phsycology ;
+  sec:requiresBachelorDegree sec:phsychology ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
@@ -124,19 +162,92 @@ sec:artificalIntelligence
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:generalAIKnowledge ;
-  sec:requiresKnowledge sec:java ;
+  sec:requiresKnowledge sec:javaOrPython ;
   sec:requiresKnowledge sec:logic ;
   sec:requiresKnowledge sec:mathematics ;
-  sec:requiresKnowledge sec:naturalLanguageProcessing ;
-  sec:requiresKnowledge sec:prolog ;
   sec:requiresKnowledge sec:psychology ;
-  rdfs:label "artifical intelligence"@en ;
+  rdfs:label "Artifical Intelligence"@en ;
+.
+sec:automata
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "automata"@en ;
 .
 sec:basicComputerScience
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "basic computer science " ;
+.
+sec:basicProgramming
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "basic programming"@en ;
+.
+sec:bigDataEngineering
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:algorithms ;
+  sec:requiresKnowledge sec:automata ;
+  sec:requiresKnowledge sec:compiler ;
+  sec:requiresKnowledge sec:computerNetwork ;
+  sec:requiresKnowledge sec:computerSystems ;
+  sec:requiresKnowledge sec:database ;
+  sec:requiresKnowledge sec:graphTheory ;
+  sec:requiresKnowledge sec:logic ;
+  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
+  sec:requiresKnowledge sec:programming ;
+  sec:requiresKnowledge sec:softwareEngineering ;
+  rdfs:label "Big Data Engineering"@en ;
+.
+sec:bioinformatic
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "bioinformatics"@en ;
+.
+sec:bioinformaticsAndSystemsBiology
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:anyOtherScienceBachelor ;
+  sec:requiresBachelorDegree sec:medicine ;
+  sec:requiresBachelorDegree sec:phsychology ;
+  sec:requiresBachelorDegree sec:psychobiology ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:basicProgramming ;
+  sec:requiresKnowledge sec:biology ;
+  sec:requiresKnowledge sec:mathematics ;
+  rdfs:label "Bioinformatics and Systems Biology" ;
+.
+sec:biologicalPsychology
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "biological psychology"@en ;
+.
+sec:biology
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "biology"@en ;
+.
+sec:biomedicalScience
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "biomedical sciences"@en ;
 .
 sec:businessAnalytics
   rdf:type sec:BachelorDegree ;
@@ -155,28 +266,89 @@ sec:businessAnalytics
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:econometrics ;
   sec:requiresKnowledge sec:javaOrPython ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:probabilityAndStatistics ;
-  rdfs:label "business analytics"@en ;
+  rdfs:label "Business Analytics"@en ;
+.
+sec:businessInnovationSocialScience
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "business, innovation, social science"@en ;
 .
 sec:businessMathematics
   rdf:type sec:BachelorDegree ;
   rdfs:label "business mathematics"@en ;
 .
+sec:businessModelling
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "business modelling"@en ;
+.
 sec:cambridgeCertificateIOfProficiencyInEnglish
   rdf:type sec:EnglishTest ;
-  rdfs:label "Cambridge (CPE)"@en ;
+  rdfs:label "cambridge certificate of proficiency in english"@en ;
 .
 sec:cambridgeCertificateInAdvancedEnglish
   rdf:type sec:EnglishTest ;
-  rdfs:label "Cambridge (CAE)"@en ;
+  rdfs:label "cambridge certificate in advanced english"@en ;
+.
+sec:chemistry
+  rdf:type sec:BachelorDegree ;
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "chemistry"@en ;
 .
 sec:cognitiveScience
   rdf:type sec:Track ;
   sec:requiresBachelorDegree sec:artificalIntelligence ;
+  sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresBachelorDegree sec:phsychology ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:basicComputerScience ;
+  sec:requiresKnowledge sec:generalAIKnowledge ;
+  sec:requiresKnowledge sec:javaOrPython ;
+  sec:requiresKnowledge sec:logic ;
+  sec:requiresKnowledge sec:mathematics ;
+  sec:requiresKnowledge sec:psychology ;
+  rdfs:label "Cognitive Science"@en ;
+.
+sec:compiler
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "compilers"@en ;
+.
+sec:computerArchitecture
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "computer architecture"@en ;
+.
+sec:computerNetwork
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "computer networks"@en ;
+.
+sec:computerScience
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "computer science"@en ;
+.
+sec:computerSkills
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "computer skills"@en ;
+.
+sec:computerSystems
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "computer systems"@en ;
+.
+sec:computerSystemsSecurity
+  rdf:type sec:Track ;
   sec:requiresBachelorDegree sec:computerScience ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
@@ -188,28 +360,126 @@ sec:cognitiveScience
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresKnowledge sec:basicComputerScience ;
-  sec:requiresKnowledge sec:generalAIKnowledge ;
-  sec:requiresKnowledge sec:java ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:algorithms ;
+  sec:requiresKnowledge sec:automata ;
+  sec:requiresKnowledge sec:compiler ;
+  sec:requiresKnowledge sec:computerArchitecture ;
+  sec:requiresKnowledge sec:computerNetwork ;
+  sec:requiresKnowledge sec:computerSystems ;
+  sec:requiresKnowledge sec:database ;
+  sec:requiresKnowledge sec:graphTheory ;
   sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:mathematics ;
-  sec:requiresKnowledge sec:naturalLanguageProcessing ;
-  sec:requiresKnowledge sec:prolog ;
-  sec:requiresKnowledge sec:psychology ;
-  rdfs:label "cognitive science"@en ;
+  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
+  sec:requiresKnowledge sec:operatingSystem ;
+  sec:requiresKnowledge sec:programming ;
+  sec:requiresKnowledge sec:softwareEngineering ;
+  rdfs:label "Computer Systems Security"@en ;
 .
-sec:computerScience
-  rdf:type sec:BachelorDegree ;
-  rdfs:label "computer science"@en ;
+sec:database
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "databases"@en ;
 .
 sec:econometrics
   rdf:type sec:BachelorDegree ;
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "econometrics"@en ;
 .
+sec:econometricsAndDataScience
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresBachelorDegree sec:econometrics ;
+  sec:requiresBachelorDegree sec:mathematics ;
+  sec:requiresBachelorDegree sec:statistic ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:basicProgramming ;
+  sec:requiresKnowledge sec:econometrics ;
+  sec:requiresKnowledge sec:mathematics ;
+  sec:requiresKnowledge sec:probability ;
+  sec:requiresKnowledge sec:statistic ;
+  rdfs:label "Econometrics and Data Science"@en ;
+.
+sec:educationalScience
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "educational science"@en ;
+.
+sec:engineeringMathematics
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "engineering mathematics"@en ;
+.
+sec:financialEngineering
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:mathematics ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:linearAlgebra ;
+  sec:requiresKnowledge sec:optimization ;
+  sec:requiresKnowledge sec:probability ;
+  sec:requiresKnowledge sec:pythonRMatlabJavaorC ;
+  sec:requiresKnowledge sec:realAnalysis ;
+  sec:requiresKnowledge sec:statistic ;
+  sec:requiresKnowledge sec:stochasticModelling ;
+  rdfs:label "Financial Engineering"@en ;
+.
+sec:foundationsOfComputingAndConcurrency
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:algorithms ;
+  sec:requiresKnowledge sec:automata ;
+  sec:requiresKnowledge sec:compiler ;
+  sec:requiresKnowledge sec:computerNetwork ;
+  sec:requiresKnowledge sec:computerSystems ;
+  sec:requiresKnowledge sec:database ;
+  sec:requiresKnowledge sec:graphTheory ;
+  sec:requiresKnowledge sec:logic ;
+  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
+  sec:requiresKnowledge sec:programming ;
+  sec:requiresKnowledge sec:softwareEngineering ;
+  rdfs:label "Foundations of Computing and Concurrency"@en ;
+.
 sec:generalAIKnowledge
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "general AI knowledge" ;
+.
+sec:genetic
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "genetics"@en ;
+.
+sec:graphTheory
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "graph theory"@en ;
 .
 sec:hasMasterDegree
   rdf:type owl:ObjectProperty ;
@@ -235,9 +505,43 @@ sec:hasType
   rdfs:label "has type" ;
   rdfs:range sec:EnglishTest ;
 .
-sec:hybridIntelligence
+sec:healthScience
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "health sciences"@en ;
+.
+sec:ielts
+  rdf:type sec:EnglishTest ;
+  rdfs:label "ielts"@en ;
+.
+sec:informatic
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "informatics"@en ;
+.
+sec:informationScience
   rdf:type sec:Track ;
   sec:requiresBachelorDegree sec:artificalIntelligence ;
+  sec:requiresBachelorDegree sec:businessAnalytics ;
+  sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresBachelorDegree sec:informatic ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:basicProgramming ;
+  sec:requiresKnowledge sec:businessModelling ;
+  sec:requiresKnowledge sec:database ;
+  sec:requiresKnowledge sec:requirementsEngineering ;
+  rdfs:label "Information Science"@en ;
+.
+sec:internetAndWebTechnology
+  rdf:type sec:Track ;
   sec:requiresBachelorDegree sec:computerScience ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
@@ -249,19 +553,21 @@ sec:hybridIntelligence
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresKnowledge sec:basicComputerScience ;
-  sec:requiresKnowledge sec:generalAIKnowledge ;
-  sec:requiresKnowledge sec:java ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:algorithms ;
+  sec:requiresKnowledge sec:automata ;
+  sec:requiresKnowledge sec:compiler ;
+  sec:requiresKnowledge sec:computerNetwork ;
+  sec:requiresKnowledge sec:computerSystems ;
+  sec:requiresKnowledge sec:database ;
+  sec:requiresKnowledge sec:graphTheory ;
   sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:mathematics ;
-  sec:requiresKnowledge sec:naturalLanguageProcessing ;
-  sec:requiresKnowledge sec:prolog ;
-  sec:requiresKnowledge sec:psychology ;
-  rdfs:label "hybrid intelligence"@en ;
-.
-sec:ielts
-  rdf:type sec:EnglishTest ;
-  rdfs:label "IELTS (Academic)"@en ;
+  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
+  sec:requiresKnowledge sec:operatingSystem ;
+  sec:requiresKnowledge sec:programming ;
+  sec:requiresKnowledge sec:softwareEngineering ;
+  rdfs:label "Internet and Web Technology"@en ;
 .
 sec:java
   rdf:type sec:ExtraKnowledge ;
@@ -271,45 +577,273 @@ sec:javaOrPython
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "java or python"@en ;
 .
+sec:languageCounselling
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "language counselling"@en ;
+.
+sec:languagePolicy
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "language policy"@en ;
+.
+sec:languageTherapy
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "language therapy"@en ;
+.
+sec:languageVariation
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "language variation"@en ;
+.
+sec:linearAlgebra
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "linear algebra"@en ;
+.
+sec:linguistic
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "linguistics"@en ;
+.
 sec:logic
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "logic" ;
 .
+sec:machineLearningOrArtificalIntelligence
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "machine learning or artifical intelligence"@en ;
+.
 sec:mathematics
   rdf:type sec:BachelorDegree ;
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "mathematics"@en ;
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:engineeringMathematics ;
+  sec:requiresBachelorDegree sec:mathematics ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  rdfs:label "Mathematics"@en ;
+.
+sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "Mathematics (Linear Algebra, Discrete Mathematics, Statistics)"@en ;
+.
+sec:medicine
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "medicine"@en ;
+.
+sec:morphology
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "morphology"@en ;
 .
 sec:mscArtificalIntelligence
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:artificalIntelligence ;
   sec:hasTrack sec:cognitiveScience ;
-  sec:hasTrack sec:hybridIntelligence ;
   rdfs:label "MSc Artifical Intelligence"@en ;
+.
+sec:mscBioinformaticsAndSystemsBiology
+  rdf:type sec:MasterDegree ;
+  rdfs:label "MSc Bioinformatics&Systems Biology"@en ;
 .
 sec:mscBusinessAnalytics
   rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:businessAnalytics ;
   rdfs:label "MSc Business Analytics"@en ;
+.
+sec:mscComputerScience
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:bigDataEngineering ;
+  sec:hasTrack sec:computerSystemsSecurity ;
+  sec:hasTrack sec:foundationsOfComputingAndConcurrency ;
+  sec:hasTrack sec:internetAndWebTechnology ;
+  sec:hasTrack sec:parallelComputingSystems ;
+  sec:hasTrack sec:softwareEngineeringAndGreenIT ;
+  rdfs:label "MSc Computer Science"@en ;
+.
+sec:mscEconometricsAndOperationsResearch
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:econometricsAndDataScience ;
+  sec:hasTrack sec:financialEngineering ;
+  sec:hasTrack sec:operationsResearchTheory ;
+  sec:hasTrack sec:supplyChainManagement ;
+  rdfs:label "MSc Econometrics and Operations Research"@en ;
+.
+sec:mscGenesInBehaviourAndHealth
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:researchMaster ;
+  rdfs:label "MSc Genes In Behaviour and Health"@en ;
+.
+sec:mscInformationScience
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:informationScience ;
+  rdfs:label "MSc Information Sciences"@en ;
+.
+sec:mscLinguistic
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:textMining ;
+  rdfs:label "MSc Linguistics"@en ;
+.
+sec:mscMathematics
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:mathematics ;
+  rdfs:label "MSc Mathematics"@en ;
+.
+sec:mscParallelDistributedComputerSystem
+  rdf:type sec:MasterDegree ;
+  rdfs:label "MSc Parallel Distributed Computer Systems"@en ;
+.
+sec:mscScienceBusinessInnovation
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:scienceBusinessInnovation ;
+  rdfs:label "MSc Science Business Innovation"@en ;
+.
+sec:mscStochasticsAndFinancialMathematics
+  rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:stochasticsAndFinancialMathematics ;
+  rdfs:label "MSc Stochastics&Financial Mathematics"@en ;
 .
 sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "natural language processing" ;
 .
-sec:phsycology
+sec:neuropsychology
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "neuropsychology"@en ;
+.
+sec:neuroscience
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "neuroscience"@en ;
+.
+sec:operatingSystem
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "operating systems"@en ;
+.
+sec:operationsResearchTheory
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:mathematics ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:linearAlgebra ;
+  sec:requiresKnowledge sec:optimization ;
+  sec:requiresKnowledge sec:probability ;
+  sec:requiresKnowledge sec:pythonRMatlabJavaorC ;
+  sec:requiresKnowledge sec:realAnalysis ;
+  sec:requiresKnowledge sec:statistic ;
+  sec:requiresKnowledge sec:stochasticModelling ;
+  rdfs:label "Operations Research Theory"@en ;
+.
+sec:optimization
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "optimization"@en ;
+.
+sec:parallelComputingSystems
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:CorCplusprogramming ;
+  sec:requiresKnowledge sec:algorithms ;
+  sec:requiresKnowledge sec:automata ;
+  sec:requiresKnowledge sec:compiler ;
+  sec:requiresKnowledge sec:computerNetwork ;
+  sec:requiresKnowledge sec:computerSystems ;
+  sec:requiresKnowledge sec:database ;
+  sec:requiresKnowledge sec:graphTheory ;
+  sec:requiresKnowledge sec:logic ;
+  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
+  sec:requiresKnowledge sec:programming ;
+  sec:requiresKnowledge sec:softwareEngineering ;
+  rdfs:label "Parallel Computing Systems"@en ;
+.
+sec:parallelDistributedComputerSystem
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:computerSystems ;
+  rdfs:label "Parallel Distributed Computer Systems"@en ;
+.
+sec:phonology
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "phonology"@en ;
+.
+sec:phsychology
   rdf:type sec:BachelorDegree ;
-  rdfs:label "psychology" ;
+  rdfs:label "psychology"@en ;
+.
+sec:physics
+  rdf:type sec:BachelorDegree ;
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "physics"@en ;
+.
+sec:probability
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "probability"@en ;
 .
 sec:probabilityAndStatistics
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "probability and statistics"@en ;
 .
+sec:programming
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "programming (Java or C/C++ or Python)"@en ;
+.
 sec:prolog
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "prolog" ;
 .
+sec:psychobiology
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "psychobiology"@en ;
+.
 sec:psychology
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "psychology" ;
+.
+sec:pythonRMatlabJavaorC
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "python, R, Matlab, Java or C/C++"@en ;
+.
+sec:realAnalysis
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "real analysis"@en ;
+.
+sec:requirementsEngineering
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "requirements engineering"@en ;
 .
 sec:requiresBachelorDegree
   rdf:type owl:ObjectProperty ;
@@ -326,7 +860,7 @@ sec:requiresEnglishProf
 sec:requiresGPA
   rdf:type owl:DatatypeProperty ;
   rdfs:domain sec:Track ;
-  rdfs:label "requires GPA" ;
+  rdfs:label "requires min GPA" ;
   rdfs:range xsd:decimal ;
 .
 sec:requiresKnowledge
@@ -335,22 +869,214 @@ sec:requiresKnowledge
   rdfs:label "requires knowledge" ;
   rdfs:range sec:ExtraKnowledge ;
 .
+sec:researchMaster
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:bioinformatic ;
+  sec:requiresBachelorDegree sec:biomedicalScience ;
+  sec:requiresBachelorDegree sec:educationalScience ;
+  sec:requiresBachelorDegree sec:healthScience ;
+  sec:requiresBachelorDegree sec:phsychology ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:biologicalPsychology ;
+  sec:requiresKnowledge sec:genetic ;
+  sec:requiresKnowledge sec:neuropsychology ;
+  sec:requiresKnowledge sec:neuroscience ;
+  sec:requiresKnowledge sec:researchMethod ;
+  sec:requiresKnowledge sec:statistic ;
+  rdfs:label "Research Master"@en ;
+.
+sec:researchMethod
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "research methods"@en ;
+.
+sec:scienceBusinessInnovation
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:chemistry ;
+  sec:requiresBachelorDegree sec:physics ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:businessInnovationSocialScience ;
+  sec:requiresKnowledge sec:chemistry ;
+  sec:requiresKnowledge sec:computerSkills ;
+  sec:requiresKnowledge sec:mathematics ;
+  sec:requiresKnowledge sec:physics ;
+  sec:requiresKnowledge sec:statistic ;
+  sec:requiresKnowledge sec:thermodynamics ;
+  rdfs:label "science business innovation"@en ;
+.
+sec:semantic
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "semantics"@en ;
+.
+sec:softwareDesign
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "software design"@en ;
+.
+sec:softwareEngineering
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "software engineering"@en ;
+.
+sec:softwareEngineeringAndGreenIT
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:computerScience ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:algorithms ;
+  sec:requiresKnowledge sec:automata ;
+  sec:requiresKnowledge sec:compiler ;
+  sec:requiresKnowledge sec:computerNetwork ;
+  sec:requiresKnowledge sec:computerSystems ;
+  sec:requiresKnowledge sec:database ;
+  sec:requiresKnowledge sec:graphTheory ;
+  sec:requiresKnowledge sec:logic ;
+  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
+  sec:requiresKnowledge sec:programming ;
+  sec:requiresKnowledge sec:softwareDesign ;
+  sec:requiresKnowledge sec:softwareEngineering ;
+  rdfs:label "software engineering and green IT"@en ;
+.
+sec:statistic
+  rdf:type sec:BachelorDegree ;
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "statistics"@en ;
+.
+sec:stochasticModelling
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "stochastic modelling"@en ;
+.
+sec:stochasticsAndFinancialMathematics
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:engineeringMathematics ;
+  sec:requiresBachelorDegree sec:mathematics ;
+  sec:requiresBachelorDegree sec:technicalMathematics ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:mathematics ;
+  rdfs:label "stochastics and financial mathematics"@en ;
+.
+sec:supplyChainManagement
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:mathematics ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:linearAlgebra ;
+  sec:requiresKnowledge sec:optimization ;
+  sec:requiresKnowledge sec:probability ;
+  sec:requiresKnowledge sec:pythonRMatlabJavaorC ;
+  sec:requiresKnowledge sec:realAnalysis ;
+  sec:requiresKnowledge sec:statistic ;
+  sec:requiresKnowledge sec:stochasticModelling ;
+  rdfs:label "supply chain management"@en ;
+.
+sec:syntax
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "syntax" ;
+.
+sec:technicalMathematics
+  rdf:type sec:BachelorDegree ;
+  rdfs:label "technical mathematics"@en ;
+.
+sec:textMining
+  rdf:type sec:Track ;
+  sec:requiresBachelorDegree sec:linguistic ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_10 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_1_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_2_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_3_1 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_4 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_5 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_6 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
+  sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
+  sec:requiresGPA 7.5 ;
+  sec:requiresKnowledge sec:languageCounselling ;
+  sec:requiresKnowledge sec:languagePolicy ;
+  sec:requiresKnowledge sec:languageTherapy ;
+  sec:requiresKnowledge sec:languageVariation ;
+  sec:requiresKnowledge sec:morphology ;
+  sec:requiresKnowledge sec:phonology ;
+  sec:requiresKnowledge sec:semantic ;
+  sec:requiresKnowledge sec:syntax ;
+  rdfs:label "text mining"@en ;
+.
+sec:thermodynamics
+  rdf:type sec:ExtraKnowledge ;
+  rdfs:label "thermodynamics"@en ;
+.
 sec:toeflInternetBased
   rdf:type sec:EnglishTest ;
-  rdfs:label "TOEFL-IBT"@en ;
+  rdfs:label "toefl internet based"@en ;
 .
 sec:toeflPaperBased
   rdf:type sec:EnglishTest ;
-  rdfs:label "TOEFL-PBT"@en ;
+  rdfs:label "toefl paper based"@en ;
 .
 sec:vrijeUniversiteitAmsterdam
   rdf:type sec:University ;
   sec:hasMasterDegree sec:mscArtificalIntelligence ;
   sec:hasMasterDegree sec:mscBusinessAnalytics ;
+  sec:hasMasterDegree sec:mscBioinformaticsAndSystemsBiology ;
+  sec:hasMasterDegree sec:mscComputerScience ;
+  sec:hasMasterDegree sec:mscEconometricsAndOperationsResearch ;
+  sec:hasMasterDegree sec:mscGenesInBehaviourAndHealth ;
+  sec:hasMasterDegree sec:mscInformationScience ;
+  sec:hasMasterDegree sec:mscLinguistic ;
+  sec:hasMasterDegree sec:mscMathematics ;
+  sec:hasMasterDegree sec:mscParallelDistributedComputerSystem ;
+  sec:hasMasterDegree sec:mscScienceBusinessInnovation ;
+  sec:hasMasterDegree sec:mscStochasticsAndFinancialMathematics ;
   rdfs:label "Free University Amsterdam"@en ;
   rdfs:label "Vrije Universiteit Amsterdam"@nl ;
 .
 sec:vuTestEnglishLanguageProficiency
   rdf:type sec:EnglishTest ;
-  rdfs:label "VU TOEFL-ITP"@en ;
+  rdfs:label "vu-test english language proficiency"@en ;
 .
