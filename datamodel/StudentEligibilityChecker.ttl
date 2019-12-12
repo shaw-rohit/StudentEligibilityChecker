@@ -1054,7 +1054,17 @@ sec:toeflPaperBased
 sec:vrijeUniversiteitAmsterdam
   rdf:type sec:University ;
   sec:hasMasterDegree sec:mscArtificalIntelligence ;
+  sec:hasMasterDegree sec:mscBioinformaticsAndSystemsBiology ;
   sec:hasMasterDegree sec:mscBusinessAnalytics ;
+  sec:hasMasterDegree sec:mscComputerScience ;
+  sec:hasMasterDegree sec:mscEconometricsAndOperationsResearch ;
+  sec:hasMasterDegree sec:mscGenesInBehaviourAndHealth ;
+  sec:hasMasterDegree sec:mscInformationScience ;
+  sec:hasMasterDegree sec:mscLinguistic ;
+  sec:hasMasterDegree sec:mscMathematics ;
+  sec:hasMasterDegree sec:mscParallelDistributedComputerSystem ;
+  sec:hasMasterDegree sec:mscScienceBusinessInnovation ;
+  sec:hasMasterDegree sec:mscStochasticsAndFinancialMathematics ;
   rdfs:label "Free University Amsterdam"@en ;
   rdfs:label "Vrije Universiteit Amsterdam"@nl ;
 .
