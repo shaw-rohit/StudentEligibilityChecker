@@ -17,7 +17,7 @@ def index_get():
    print('sup')
    if request.method=='GET':
        print('hiiii', file=sys.stdout)
-       ontology = "D:/Amsterdam/VU/KE2019/StudentEligibilityChecker/flask_front-end/Ontology.ttl" 
+       ontology = "Ontology.ttl" 
        g = rdflib.Graph()
        g.parse(ontology, format='ttl')
        ##########################################
@@ -105,16 +105,12 @@ def index_post():
         ####### GPA END #######
         #########################
        print(converted_gpa)
-       return redirect(url_for('result', selected_master=selected_master, gpa=gpa, gpa_scale=gpa_scale,
+       return redirect(url_for('result', 
+        selected_master=selected_master, 
+        gpa=gpa, 
+        gpa_scale=gpa_scale,
         converted_gpa=converted_gpa))
 
-# @app.route('/index', methods=['POST'])
-# def index_post():
-#     print('hi', file=sys.stdout)
-#     text = request.form.get('etestt')
-#     processed_text = text.upper()
-#     print(processed_text, file=sys.stdout)
-#     return processed_text
 #####converts us gpa to uk gpa
 def us_to_uk(score):
     print('comes into the conversion')

@@ -42,9 +42,13 @@
   </br>
     <p>You have a 75% chance of getting admitted to MSc X - Y</p>
     <p>Selected Master: {{ selected_master }} </p>
+    <p>Selected Track: {{ selected_track }} </p>
     <p>Your GPA: {{ gpa }} </p>
     <p>Your GPA Scale: {{ gpa_scale }} </p>
     <p>Converted GPA: {{ converted_gpa }} </p>
+    <form>
+                <a href="http://127.0.0.1:5000/index">Home</a>
+              </form>
 </div>
 
   <div id="start" class="sectionf footer-2 flex flex-vertical">
@@ -70,111 +74,6 @@
         });
       });
     });
-  </script>
-
-  <script type="text/javascript">
-    var checkboxes = document.getElementsByTagName('input');
-    for (var i=0; i<checkboxes.length; i++)  {
-      if (checkboxes[i].type == 'checkbox')   {
-        checkboxes[i].checked = false;
-      }
-    }
-  </script>
-
-  <script>
-    function admSelectCheck(nameSelect) {
-    if(nameSelect){
-        console.log("cs value: ",document.getElementById("cs").value);
-        console.log("nameSelect: ", nameSelect.value)
-        //console.log(document.getElementById("ai").id);
-        csOpt = document.getElementById("cs").value;
-        aiOpt = document.getElementById("ai").value;
-        isOpt = document.getElementById("is").value;
-        if(csOpt == nameSelect.value){
-            console.log('truee')
-            document.getElementById("compsci1").style.display = "block";
-            document.getElementById("compsci2").style.display = "block";
-            document.getElementById("ai11").style.display = "none";
-            document.getElementById("ai22").style.display = "none";
-            document.getElementById("ai33").style.display = "none";
-            document.getElementById("ai44").style.display = "none";
-            document.getElementById("ai55").style.display = "none";
-            document.getElementById("ai66").style.display = "none";
-            document.getElementById("ai77").style.display = "none";
-            document.getElementById("is11").style.display = "none";
-            document.getElementById("is22").style.display = "none";
-        }
-        else if(aiOpt == nameSelect.value){
-            document.getElementById("compsci1").style.display = "none";
-            document.getElementById("compsci2").style.display = "none";
-            document.getElementById("ai11").style.display = "block";
-            document.getElementById("ai22").style.display = "block";
-            document.getElementById("ai33").style.display = "block";
-            document.getElementById("ai44").style.display = "block";
-            document.getElementById("ai55").style.display = "block";
-            document.getElementById("ai66").style.display = "block";
-            document.getElementById("ai77").style.display = "block";
-            document.getElementById("is11").style.display = "none";
-            document.getElementById("is22").style.display = "none";
-        }
-        else if(isOpt == nameSelect.value){
-            document.getElementById("compsci1").style.display = "none";
-            document.getElementById("compsci2").style.display = "none";
-            document.getElementById("ai11").style.display = "none";
-            document.getElementById("ai22").style.display = "none";
-            document.getElementById("ai33").style.display = "none";
-            document.getElementById("ai44").style.display = "none";
-            document.getElementById("ai55").style.display = "none";
-            document.getElementById("ai66").style.display = "none";
-            document.getElementById("ai77").style.display = "none";
-            document.getElementById("is11").style.display = "block";
-            document.getElementById("is22").style.display = "block";
-        }
-    }
-    else {
-            document.getElementById("compsci1").style.display = "none";
-            document.getElementById("compsci2").style.display = "none";
-            document.getElementById("ai11").style.display = "none";
-            document.getElementById("ai22").style.display = "none";
-            document.getElementById("ai33").style.display = "none";
-            document.getElementById("ai44").style.display = "none";
-            document.getElementById("ai55").style.display = "none";
-            document.getElementById("ai66").style.display = "none";
-            document.getElementById("ai77").style.display = "none";
-            document.getElementById("is11").style.display = "none";
-            document.getElementById("is22").style.display = "none";
-      }
-    }
-  </script>
-
-  <script type="text/javascript">
-  $(document).ready(function()
-  {
-    $('#native').on('change.english',function(){
-      $("#english").toggle($(this).val() == '2');
-    }).trigger('change.english');
-  });
-
-  $(document).ready(function()
-  {
-    $('#programme').on('change.prog',function(){
-      $("#cs_track").toggle($(this).val() == 'cs');
-    }).trigger('change.prog');
-  });
-
-  $(document).ready(function()
-  {
-    $('#programme').on('change.prog',function(){
-      $("#ai_track").toggle($(this).val() == 'ai');
-    }).trigger('change.prog');
-  });
-
-  $(document).ready(function()
-  {
-    $('#programme').on('change.prog',function(){
-      $("#is_track").toggle($(this).val() == '3');
-    }).trigger('change.prog');
-  });
   </script>
 
 <script>
