@@ -4,7 +4,7 @@ import sys
 import random
 app = Flask(__name__)
 
-ontology = "Ontology.ttl" 
+ontology = "Ontology.ttl"
 g = rdflib.Graph()
 g.parse(ontology, format='ttl')
 
@@ -140,9 +140,9 @@ def index_post():
         ####### GPA END #######
         #########################
        print(converted_gpa)
-       return redirect(url_for('result', 
-        selected_master=selected_master, 
-        gpa=gpa, 
+       return redirect(url_for('result',
+        selected_master=selected_master,
+        gpa=gpa,
         gpa_scale=gpa_scale,
         converted_gpa=converted_gpa))
 
@@ -192,4 +192,6 @@ def ind_to_us(gpa):
         return round(random.uniform(0, 1.3), 1)
 
 if __name__ == '__main__':
+   print("\nQuick access link: http://127.0.0.1:5000/index")
+   print("\n")
    app.run(debug = True)
