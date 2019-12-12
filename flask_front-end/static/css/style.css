@@ -417,60 +417,7 @@ body {
   color: #666;
   font-size: 14px;
 }
-.actions {
-	float: right;
-    width: 720px;
-    background: #fff;
-}
-.actions ul {
-    list-style: none;
-    padding: 0 50px;
-    margin: 13px 0 35px;
-    display: flex;
-    display: -webkit-flex;
-    justify-content: space-between;
-    -o-justify-content: space-between;
-    -ms-justify-content: space-between;
-    -moz-justify-content: space-between;
-    -webkit-justify-content: space-between;
-}
-.actions ul li.disabled,
-.actions ul li:first-child {
-	opacity: 0;
-}
-.actions ul li {
-	padding: 0;
-    border: none;
-    border-radius: 50%;
-    -o-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    display: inline-flex;
-    height: 50px;
-    width: 50px;
-    justify-content: center;
-    -o-justify-content: center;
-    -ms-justify-content: center;
-    -moz-justify-content: center;
-    -webkit-justify-content: center;
-    align-items: center;
-    -o-align-items: center;
-    -ms-align-items: center;
-    -moz-align-items: center;
-    -webkit-align-items: center;
-    background: #4fab40;
-    cursor: pointer;
-    font-size: 18px;
-}
-.actions ul li:hover {
-	background: #36782c;
-}
-.actions ul li a {
-	color: #fff;
-	text-decoration: none;
-    padding: 13px 19px;
-}
+
 
 /* Responsive */
 @media screen and (max-width: 1199px) {

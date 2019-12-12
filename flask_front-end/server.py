@@ -7,7 +7,8 @@ app = Flask(__name__)
 @app.route('/result')
 def result():
     return render_template('result.html', 
-      selected_master=request.args.get('selected_master'), 
+      selected_master=request.args.get('selected_master'),
+      selected_track=request.args.get('selected_track'), 
       gpa=request.args.get('gpa'), 
       gpa_scale=request.args.get('gpa_scale'),
       converted_gpa=request.args.get('converted_gpa'))
@@ -17,7 +18,7 @@ def index_get():
    print('sup')
    if request.method=='GET':
        print('hiiii', file=sys.stdout)
-       ontology = "/Users/agukalpa/Documents/VU Amsterdam/Knowledge Engineering/StudentEligibilityChecker/flask_front-end/Ontology.ttl" 
+       ontology = "Ontology.ttl" 
        g = rdflib.Graph()
        g.parse(ontology, format='ttl')
        ##########################################
@@ -67,12 +68,16 @@ def index_post():
    if request.method=='POST':
        selected_master = request.form.get('programme')
        if selected_master == 'ai':
+           selected_track = request.form.get('ai_track')
            selected_master = 'MSc Artificial Intelligence'
        elif selected_master == 'cs':
+           selected_track = request.form.get('cs_track')
            selected_master = 'MSc Computer Science'
        elif selected_master == 'ba':
+           selected_track = request.form.get('none')
            selected_master = 'MSc Business Analytics'
        elif selected_master == 'is':
+           selected_track = request.form.get('is_track')
            selected_master = 'MSc Information Science'
        #########################
        ####### GPA BEGIN #######
@@ -104,8 +109,11 @@ def index_post():
         #########################
         ####### GPA END #######
         #########################
-       print(converted_gpa)
-       return redirect(url_for('result', selected_master=selected_master, gpa=gpa, gpa_scale=gpa_scale, 
+       print('selected track: ', selected_track)
+       return redirect(url_for('result', 
+        selected_master=selected_master,
+        selected_track=selected_track, 
+        gpa=gpa, gpa_scale=gpa_scale, 
         converted_gpa=converted_gpa))
 
 # @app.route('/index', methods=['POST'])
