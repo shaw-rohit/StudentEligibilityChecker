@@ -6,10 +6,9 @@ app = Flask(__name__)
 
 @app.route('/result')
 def result():
-    return render_template('result.html', 
+    return render_template('result.html',
       selected_master=request.args.get('selected_master'),
-      selected_track=request.args.get('selected_track'), 
-      gpa=request.args.get('gpa'), 
+      gpa=request.args.get('gpa'),
       gpa_scale=request.args.get('gpa_scale'),
       converted_gpa=request.args.get('converted_gpa'))
 
@@ -25,7 +24,7 @@ def index_get():
        ####### DISPLAY MASTER PRGRM BEGIN #######
        ##########################################
        master_q_result = g.query(
-        """select ?master_label where { 
+        """select ?master_label where {
            ?university rdf:type sec:University .
            ?university sec:hasMasterDegree ?master .
            ?master rdfs:label ?master_label .
@@ -50,7 +49,7 @@ def index_get():
         """select ?englishtest_label where {
           ?englishtest rdf:type sec:EnglishTest .
           ?englishtest rdfs:label ?englishtest_label .
-          FILTER (LANG(?englishtest_label)  = 'en') 
+          FILTER (LANG(?englishtest_label)  = 'en')
         }""")
        english_test = []
        for row in english_q_result:
@@ -68,16 +67,12 @@ def index_post():
    if request.method=='POST':
        selected_master = request.form.get('programme')
        if selected_master == 'ai':
-           selected_track = request.form.get('ai_track')
            selected_master = 'MSc Artificial Intelligence'
        elif selected_master == 'cs':
-           selected_track = request.form.get('cs_track')
            selected_master = 'MSc Computer Science'
        elif selected_master == 'ba':
-           selected_track = request.form.get('none')
            selected_master = 'MSc Business Analytics'
        elif selected_master == 'is':
-           selected_track = request.form.get('is_track')
            selected_master = 'MSc Information Science'
        #########################
        ####### GPA BEGIN #######
@@ -109,20 +104,13 @@ def index_post():
         #########################
         ####### GPA END #######
         #########################
-       print('selected track: ', selected_track)
+       print(converted_gpa)
        return redirect(url_for('result', 
-        selected_master=selected_master,
-        selected_track=selected_track, 
-        gpa=gpa, gpa_scale=gpa_scale, 
+        selected_master=selected_master, 
+        gpa=gpa, 
+        gpa_scale=gpa_scale,
         converted_gpa=converted_gpa))
 
-# @app.route('/index', methods=['POST'])
-# def index_post():
-#     print('hi', file=sys.stdout)
-#     text = request.form.get('etestt')
-#     processed_text = text.upper()
-#     print(processed_text, file=sys.stdout)
-#     return processed_text
 #####converts us gpa to uk gpa
 def us_to_uk(score):
     print('comes into the conversion')
