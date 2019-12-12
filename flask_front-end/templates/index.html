@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <title>Student Eligibility Checker</title>
-  <!-- <meta content="width=device-width, initial-scale=1" name="viewport"> -->
+  <meta content="width=device-width, initial-scale=1" name="viewport">
 
   <link href="/static/css/normalize.css" rel="stylesheet" type="text/css">
   <link href="/static/css/webflow.css" rel="stylesheet" type="text/css">
@@ -83,9 +83,9 @@
                               <select name="programme" id="programme" class="browser-default custom-select" onchange="admSelectCheck(this);">
                                 <option selected hidden>Choose</option>
                                 {% for master, id in master_dict.items() %}
-                                 
+
                                   <option id={{ id }} value={{ id }}>{{ master }}</option>
-                                                                 
+
                                 {% endfor %}
 <!--                                 <option id="cs" value="cs">MSc Computer Science</option>
                                 <option id="is" value="3">MSc Information Sciences</option> -->
@@ -169,7 +169,7 @@
                     </div>
                     <form action="" method="POST">
     								<div class="form-row">
-                       
+
     									<div class="form-holder">
 
     											<legend>GPA Scale</legend>
@@ -182,7 +182,7 @@
 											</select>
 
     									</div>
-                  
+
     									<div class="form-holder">
     										<fieldset>
     											<legend>GPA</legend>
@@ -341,10 +341,10 @@
                     </div>
                 </div>
     							       </div>
-                                     <button type="submit" class="btn btn-labeled btn-success" action="http://127.0.0.1:5000/result">
-                <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Submit</button>
+                                     <!-- <button type="submit" class="btn btn-labeled btn-success" action="http://127.0.0.1:5000/result">
+                <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Submit</button> -->
     			            </section>
-    		        	</div>  
+    		        	</div>
     		        </form>
     			</div>
     		</div>

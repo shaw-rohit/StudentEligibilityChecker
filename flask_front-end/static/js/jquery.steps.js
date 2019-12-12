@@ -1937,7 +1937,7 @@ var defaults = $.fn.steps.defaults = {
      * @for defaults
      **/
     onFinished: function (event, currentIndex) {
-      console.log('yolo');
+      $('form').submit();
     },
 
     /**

@@ -435,6 +435,7 @@ body {
     -webkit-justify-content: space-between;
 }
 
+.actions ul li.disabled,
 .actions ul li:first-child {
 	opacity: 0;
 }

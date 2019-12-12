@@ -11,7 +11,7 @@ $(function(){
         labels: {
             previous : 'Back Step',
             next : '<i class="zmdi zmdi-arrow-right"></i>',
-            finish : '<i class="zmdi zmdi-checkefwfewfewfewf"></i>',
+            finish : '<i class="zmdi zmdi-check"></i>',
             current : ''
         },
     })
