@@ -154,7 +154,7 @@ sec:artificialIntelligence
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:generalAIKnowledge ;
   sec:requiresKnowledge sec:javaOrPython ;
@@ -188,7 +188,7 @@ sec:bigDataEngineering
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -223,7 +223,7 @@ sec:bioinformaticsAndSystemsBiology
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicProgramming ;
   sec:requiresKnowledge sec:biology ;
   sec:requiresKnowledge sec:mathematics ;
@@ -258,7 +258,7 @@ sec:businessAnalytics
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:econometrics ;
   sec:requiresKnowledge sec:javaOrPython ;
@@ -306,7 +306,7 @@ sec:cognitiveScience
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:generalAIKnowledge ;
   sec:requiresKnowledge sec:javaOrPython ;
@@ -352,7 +352,7 @@ sec:computerSystemsSecurity
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -394,7 +394,7 @@ sec:econometricsAndDataScience
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicProgramming ;
   sec:requiresKnowledge sec:econometrics ;
   sec:requiresKnowledge sec:mathematics ;
@@ -423,7 +423,7 @@ sec:financialEngineering
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:linearAlgebra ;
   sec:requiresKnowledge sec:optimization ;
   sec:requiresKnowledge sec:probability ;
@@ -446,7 +446,7 @@ sec:foundationsOfComputingAndConcurrency
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -525,7 +525,7 @@ sec:informationScience
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicProgramming ;
   sec:requiresKnowledge sec:businessModelling ;
   sec:requiresKnowledge sec:database ;
@@ -545,7 +545,7 @@ sec:internetAndWebTechnology
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -617,7 +617,7 @@ sec:mathematics
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   rdfs:label "mathematics"@en ;
 .
 sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics
@@ -730,7 +730,7 @@ sec:operationsResearchTheory
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:linearAlgebra ;
   sec:requiresKnowledge sec:optimization ;
   sec:requiresKnowledge sec:probability ;
@@ -757,7 +757,7 @@ sec:parallelComputingSystems
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:CorCplusprogramming ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
@@ -786,7 +786,7 @@ sec:parallelDistributedComputerSystem
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:computerSystems ;
   rdfs:label "parallel distributed computer systems"@en ;
 .
@@ -880,7 +880,7 @@ sec:researchMaster
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:biologicalPsychology ;
   sec:requiresKnowledge sec:genetic ;
   sec:requiresKnowledge sec:neuropsychology ;
@@ -907,7 +907,7 @@ sec:scienceBusinessInnovation
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:businessInnovationSocialScience ;
   sec:requiresKnowledge sec:chemistry ;
   sec:requiresKnowledge sec:computerSkills ;
@@ -942,7 +942,7 @@ sec:softwareEngineeringAndGreenIT
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -982,7 +982,7 @@ sec:stochasticsAndFinancialMathematics
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:mathematics ;
   rdfs:label "stochastics and financial mathematics"@en ;
 .
@@ -999,7 +999,7 @@ sec:supplyChainManagement
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:linearAlgebra ;
   sec:requiresKnowledge sec:optimization ;
   sec:requiresKnowledge sec:probability ;
@@ -1030,7 +1030,7 @@ sec:textMining
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:languageCounselling ;
   sec:requiresKnowledge sec:languagePolicy ;
   sec:requiresKnowledge sec:languageTherapy ;
