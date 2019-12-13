@@ -705,7 +705,7 @@ sec:mscScienceBusinessInnovation
 sec:mscStochasticsAndFinancialMathematics
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:stochasticsAndFinancialMathematics ;
-  rdfs:label "MSc Stochastics&Financial Mathematics"@en ;
+  rdfs:label "MSc Stochastics & Financial Mathematics"@en ;
 .
 sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
@@ -962,7 +962,7 @@ sec:softwareEngineeringAndGreenIT
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareDesign ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "software engineering and green IT"@en ;
+  rdfs:label "Software Engineering and Green IT"@en ;
 .
 sec:statistic
   rdf:type sec:BachelorDegree ;

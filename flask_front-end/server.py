@@ -1,6 +1,7 @@
 from flask import Flask, request, url_for, redirect, render_template, render_template_string, jsonify
 from rdflib import Graph
 import sys
+import io
 import random
 app = Flask(__name__)
 
@@ -8,7 +9,8 @@ ontology = "C:/Users/rshaw/OneDrive - NetApp Inc/Documents/Uni Stuff/KE/StudentE
 g = Graph()
 g.parse(ontology, format='ttl')
 
-master_dict = {}
+master_map = {}
+master_track_map = {}
 
 def get_track(degree_name):
     degree = degree_name
@@ -22,12 +24,11 @@ def get_track(degree_name):
          FILTER (LANG(?track_label) = 'en')
       }
       """)
-    print("track:")
     for row in track_q_result:
-           track_list.append("%s" % row)
-           print("%s" % row)
+        track_list.append("%s" % row)
+    
+    return(track_list)
 
-    return 
 
 
 @app.route('/result')
@@ -38,9 +39,11 @@ def result():
       gpa_scale=request.args.get('gpa_scale'),
       converted_gpa=request.args.get('converted_gpa'))
 
+
 @app.route('/index')
 def index_get():
-   global master_dict
+   global master_map
+   global master_track_map
    print('sup')
    if request.method=='GET':
        print('hiiii', file=sys.stdout)
@@ -61,8 +64,8 @@ def index_get():
            print("%s" % row)
        print(master_prgrm)
        print(master_id)
-       master_dict = dict(zip(master_prgrm, master_id))
-       print(master_dict)
+       master_map = dict(zip(master_prgrm, master_id))
+       print(master_map)
        ##########################################
        ####### DISPLAY MASTER PRGRM END #########
        ##########################################
@@ -70,6 +73,22 @@ def index_get():
        ##########################################
        ####### DISPLAY MASTER TRACK BEGIN #######
        ##########################################
+
+       ## Creating a dictionary here - {programme1: [track1, track2, ...], programme2: [], ...}
+       ## The idea is to read the keys as programmes and populate the tracks accordingly
+
+       sec_name = ["sec:mscArtificialIntelligence", "sec:mscBioinformaticsAndSystemsBiology", "sec:mscBusinessAnalytics",
+                "sec:mscComputerScience", "sec:mscEconometricsAndOperationsResearch", "sec:mscGenesInBehaviourAndHealth", 
+                "sec:mscInformationScience", "sec:mscLinguistic", "sec:mscMathematics", "sec:mscParallelDistributedComputerSystem",
+                "sec:mscScienceBusinessInnovation", "sec:mscStochasticsAndFinancialMathematics"]
+
+       track_list = []
+
+       for item in sec_name:
+           tracks = get_track(item)
+           track_list.append(tracks)
+
+       master_track_map = dict(zip(master_prgrm, track_list))
 
        # get the selected master program
        # after getting the selected master program do something like this for ALL 12 programs.
@@ -100,7 +119,8 @@ def index_get():
        ####### DISPLAY ENGLISH TEST END #######
        ########################################
 
-       return render_template('index.html', master_dict=master_dict, english_test=english_test)
+       return render_template('index.html', master_map=master_map, english_test=english_test, master_track_map=master_track_map)
+
 
 @app.route('/index', methods=['POST'])
 def index_post():
@@ -115,6 +135,7 @@ def index_post():
            selected_master = 'MSc Business Analytics'
        elif selected_master == 'is':
            selected_master = 'MSc Information Science'
+       
        #########################
        ####### GPA BEGIN #######
        #########################
@@ -145,6 +166,7 @@ def index_post():
         #########################
         ####### GPA END #######
         #########################
+        
        print(converted_gpa)
        return redirect(url_for('result',
         selected_master=selected_master,
@@ -153,11 +175,13 @@ def index_post():
         converted_gpa=converted_gpa))
 
 
+## This method receives the option ID (master_id) of the selected programme from the front end and gets the track for it
+## Not sure how to send the track list to the front-end
 @app.route('/programme', methods=['POST'])
 def programme():
     name = request.args.get('value')
     if name != '':
-        selected_master = list(master_dict.keys())[list(master_dict.values()).index(name)]
+        selected_master = list(master_map.keys())[list(master_map.values()).index(name)]   # retrieve the key from the value (master_id)
         print(selected_master)
         
         if (selected_master == "MSc Artificial Intelligence"):
@@ -196,6 +220,7 @@ def us_to_uk(score):
     if score < 1:
         return round(random.uniform(0, 35), 2)
 
+
 #####Converts indian gpa to US gpa
 def ind_to_us(gpa):
     if gpa >= 8.5:
@@ -217,6 +242,7 @@ def ind_to_us(gpa):
         return 1.7
     if gpa < 5:
         return round(random.uniform(0, 1.3), 1)
+
 
 if __name__ == '__main__':
    print("\n--------------------------------------------------")

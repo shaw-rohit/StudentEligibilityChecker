@@ -82,7 +82,7 @@
                               <legend>Master Degree Programme</legend>
                               <select name="programme" id="programme" class="browser-default custom-select" onchange="pass_programme(this);">
                                 <option selected hidden>Choose</option>
-                                {% for master, id in master_dict.items() %}
+                                {% for master, id in master_map.items() %}
 
                                   <option id={{ id }} value={{ id }}>{{ master }}</option>
 
@@ -101,9 +101,9 @@
 				                    <legend>Track or Specialization</legend>
                                 <select id="cs_track" name="cs_track" class="browser-default custom-select">
                                     <option selected hidden>Choose</option>
-                                    {% for master, id in master_dict.items() %}
+                                    {% for master, tracks in master_track_map.items() %}
 
-                                    <option id={{ id }} value={{ id }}>{{ master }}</option> <!-- todo -->
+                                    <option id={{ master }} value={{ master }}>{{ tracks }}</option> <!-- todo -->
 
                                     {% endfor %}
 
