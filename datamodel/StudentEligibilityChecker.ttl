@@ -640,6 +640,7 @@ sec:mscArtificalIntelligence
 .
 sec:mscBioinformaticsAndSystemsBiology
   rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:bioinformaticsAndSystemsBiology ;
   rdfs:label "MSc Bioinformatics&Systems Biology"@en ;
 .
 sec:mscBusinessAnalytics
@@ -687,6 +688,7 @@ sec:mscMathematics
 .
 sec:mscParallelDistributedComputerSystem
   rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:parallelDistributedComputerSystem ;
   rdfs:label "MSc parallel distributed computer systems"@en ;
 .
 sec:mscScienceBusinessInnovation
