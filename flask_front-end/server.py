@@ -5,7 +5,7 @@ import io
 import random
 app = Flask(__name__)
 
-ontology = "C:/Users/rshaw/OneDrive - NetApp Inc/Documents/Uni Stuff/KE/StudentEligibilityChecker/flask_front-end/Ontology.ttl"
+ontology = "Ontology.ttl"
 g = Graph()
 g.parse(ontology, format='ttl')
 
@@ -61,11 +61,11 @@ def index_get():
        master_id = ['ai', 'bsb', 'ba', 'cs', 'eoc', 'gbh', 'is', 'lgs', 'math', 'pdcs', 'sbi', 'sfm']
        for row in master_q_result:
            master_prgrm.append("%s" % row)
-           print("%s" % row)
-       print(master_prgrm)
-       print(master_id)
+           #print("%s" % row)
+       #print(master_prgrm)
+       #print(master_id)
        master_map = dict(zip(master_prgrm, master_id))
-       print(master_map)
+       #print(master_map)
        ##########################################
        ####### DISPLAY MASTER PRGRM END #########
        ##########################################
@@ -77,18 +77,18 @@ def index_get():
        ## Creating a dictionary here - {programme1: [track1, track2, ...], programme2: [], ...}
        ## The idea is to read the keys as programmes and populate the tracks accordingly
 
-       sec_name = ["sec:mscArtificialIntelligence", "sec:mscBioinformaticsAndSystemsBiology", "sec:mscBusinessAnalytics",
-                "sec:mscComputerScience", "sec:mscEconometricsAndOperationsResearch", "sec:mscGenesInBehaviourAndHealth", 
-                "sec:mscInformationScience", "sec:mscLinguistic", "sec:mscMathematics", "sec:mscParallelDistributedComputerSystem",
-                "sec:mscScienceBusinessInnovation", "sec:mscStochasticsAndFinancialMathematics"]
+       # sec_name = ["sec:mscArtificialIntelligence", "sec:mscBioinformaticsAndSystemsBiology", "sec:mscBusinessAnalytics",
+       #          "sec:mscComputerScience", "sec:mscEconometricsAndOperationsResearch", "sec:mscGenesInBehaviourAndHealth", 
+       #          "sec:mscInformationScience", "sec:mscLinguistic", "sec:mscMathematics", "sec:mscParallelDistributedComputerSystem",
+       #          "sec:mscScienceBusinessInnovation", "sec:mscStochasticsAndFinancialMathematics"]
 
-       track_list = []
+       # track_list = []
 
-       for item in sec_name:
-           tracks = get_track(item)
-           track_list.append(tracks)
+       # for item in sec_name:
+       #     tracks = get_track(item)
+       #     track_list.append(tracks)
 
-       master_track_map = dict(zip(master_prgrm, track_list))
+       # master_track_map = dict(zip(master_prgrm, track_list))
 
        # get the selected master program
        # after getting the selected master program do something like this for ALL 12 programs.
@@ -113,13 +113,14 @@ def index_get():
        english_test = []
        for row in english_q_result:
            english_test.append("%s" % row)
-           print("%s" % row)
-       print(english_test)
+           #print("%s" % row)
+       #print(english_test)
        ########################################
        ####### DISPLAY ENGLISH TEST END #######
        ########################################
+       tracks=['select master program']
 
-       return render_template('index.html', master_map=master_map, english_test=english_test, master_track_map=master_track_map)
+       return render_template('index.html', master_map=master_map, english_test=english_test, tracks=tracks)
 
 
 @app.route('/index', methods=['POST'])
@@ -175,24 +176,89 @@ def index_post():
         converted_gpa=converted_gpa))
 
 
+# this method gets the selected master program, and updated the track menu accordingly
+@app.route('/update_track_menu')
+def update_track_menu():
+
+    # the value of the first dropdown (selected by the user)
+    selected_master = request.args.get('selected_master', type=str)
+    print('selected master: ',selected_master)
+           # master_id = ['ai', 'bsb', 'ba', 'cs', 'eoc', 'gbh', 'is', 'lgs', 'math', 'pdcs', 'sbi', 'sfm']
+    if selected_master == 'math':
+      selected_master = "sec:mscMathematics"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'ai':
+      selected_master = "sec:mscArtificialIntelligence"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'cs':
+      selected_master = "sec:mscComputerScience"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'ba':
+      selected_master = "sec:mscBusinessAnalytics"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'bsb':
+      selected_master = "sec:mscBioinformaticsAndSystemsBiology"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'eoc':
+      selected_master = "sec:mscEconometricsAndOperationsResearch"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'gbh':
+      selected_master = "sec:mscGenesInBehaviourAndHealth"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'is':
+      selected_master = "sec:mscInformationScience"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'lgs':
+      selected_master = "sec:mscLinguistic"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'pdcs':
+      selected_master = "sec:mscParallelDistributedComputerSystem"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'sbi':
+      selected_master = "sec:mscScienceBusinessInnovation"
+      updated_tracks = get_track(selected_master)
+    elif selected_master == 'sfm':
+      selected_master = "sec:mscStochasticsAndFinancialMathematics"
+      updated_tracks = get_track(selected_master)
+
+    print('track list: ', updated_tracks)
+
+    # create the values in the dropdown as a html string
+    html_string_selected = ''
+    for entry in updated_tracks:
+        html_string_selected += '<option value="{}">{}</option>'.format(entry, entry)
+
+    return jsonify(html_string_selected=html_string_selected)
+
+@app.route('/update_knowledge')
+def update_knowledge():
+  # gonna update knowledge here depending on selected track, once jquery is fixed
+  print('wassup')
+
 ## This method receives the option ID (master_id) of the selected programme from the front end and gets the track for it
 ## Not sure how to send the track list to the front-end
-@app.route('/programme', methods=['POST'])
+@app.route('/programme', methods=['POST', 'GET'])
 def programme():
-    name = request.args.get('value')
-    if name != '':
-        selected_master = list(master_map.keys())[list(master_map.values()).index(name)]   # retrieve the key from the value (master_id)
-        print(selected_master)
-        
-        if (selected_master == "MSc Artificial Intelligence"):
-            selected_master = "sec:mscArtificialIntelligence"
-            get_track(selected_master)
-        elif (selected_master == "MSc Computer Science"):
-            selected_master = "sec:mscComputerScience"
-            get_track(selected_master)
-        elif (selected_master == "MSc Econometrics and Operations Research"):
-            selected_master = "sec:mscEconometricsAndOperationsResearch"
-            get_track(selected_master)
+    if request.method=='POST':
+      print('this is post request')
+      name = request.args.get('value')
+      if name != '':
+          selected_master = list(master_map.keys())[list(master_map.values()).index(name)]   # retrieve the key from the value (master_id)
+          print(selected_master)
+          
+          if (selected_master == "MSc Artificial Intelligence"):
+              selected_master = "sec:mscArtificialIntelligence"
+              track_list = get_track(selected_master)
+          elif (selected_master == "MSc Computer Science"):
+              selected_master = "sec:mscComputerScience"
+              track_list = get_track(selected_master)
+          elif (selected_master == "MSc Econometrics and Operations Research"):
+              selected_master = "sec:mscEconometricsAndOperationsResearch"
+              track_list = get_track(selected_master)
+
+      print (track_list)
+    elif request.method=='GET':
+      print('this is get request')
 
     return jsonify({'reply':'success'})
 

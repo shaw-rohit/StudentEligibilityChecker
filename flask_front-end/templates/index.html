@@ -79,8 +79,8 @@
     								</div>
                     <div class="form-row">
                         <div class="form-holder form-holder-2">
-                              <legend>Master Degree Programme</legend>
-                              <select name="programme" id="programme" class="browser-default custom-select" onchange="pass_programme(this);">
+                              <legend for="programme">Master Degree Programme</legend>
+                              <select name="programme" id="programme" class="browser-default custom-select">
                                 <option selected hidden>Choose</option>
                                 {% for master, id in master_map.items() %}
 
@@ -95,15 +95,15 @@
                               </select>
                         </div>
                     </div>
-                    <div id="cs_track">
+                  
                     <div class="form-row">
                       <div class="form-holder form-holder-2">
-				                    <legend>Track or Specialization</legend>
-                                <select id="cs_track" name="cs_track" class="browser-default custom-select">
+				                    <legend for="tracks">Track or Specialization</legend>
+                                <select id="tracks" name="tracks" class="browser-default custom-select">
                                     <option selected hidden>Choose</option>
-                                    {% for master, tracks in master_track_map.items() %}
+                                    {% for o in tracks%}
 
-                                    <option id={{ master }} value={{ master }}>{{ tracks }}</option> <!-- todo -->
+                                    <option value="{{ track }}">{{ o }}</option> <!-- todo -->
 
                                     {% endfor %}
 
@@ -116,7 +116,7 @@
                                 </select>
                         </div>
                    </div>
-                 </div>
+<!--                 
                  <div id="ai_track">
                    <div class="form-row">
                      <div class="form-holder form-holder-2">
@@ -129,8 +129,8 @@
                                </select>
                        </div>
                   </div>
-                </div>
-                <div id="is_track">
+                </div> -->
+ <!--                <div id="is_track">
                   <div class="form-row">
                     <div class="form-holder form-holder-2">
                           <legend>Track or Specialization</legend>
@@ -140,7 +140,7 @@
                               </select>
                       </div>
                  </div>
-               </div>
+               </div> -->
              </div>
     			            </section>
     						<!-- SECTION 2 -->
@@ -456,7 +456,7 @@
     }
   </script>
 
-  <script type="text/javascript">
+<!--   <script type="text/javascript">
   $(document).ready(function()
   {
     $('#native').on('change.english',function(){
@@ -484,7 +484,7 @@
       $("#is_track").toggle($(this).val() == '3');
     }).trigger('change.prog');
   });
-  </script>
+  </script> -->
 
 <script>
     $(document).ready(function() {
@@ -545,6 +545,34 @@
     );
   }
 </script>
+<!-- the following two scripts are breaking the front end, but works for dynamic menues :///
+comment these two scripts if u wanna get the front-end working, but the track menu won't update then -->
+<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+      $(document).ready(function() {
+
+        $('#programme').change(function(){
+
+          $.getJSON('/update_track_menu', {
+            selected_master: $('#programme').val()
+
+          }).success(function(data) {
+                $('#tracks').html(data.html_string_selected);
+           })
+        });
+        // this bit is for sending the selected track input to flask, and displaying required knowledge.
+        // $('#tracks').change(function(){
+
+        //   $.getJSON('/update_knowledge', {
+        //     selected_track: $('#tracks').val()
+
+        //   }).success(function(data) {
+        //         $('#knowledge').html(data.html_string_selected);
+        //    })
+        // });
+      });
+    </script>
 
 </body>
 </html>
