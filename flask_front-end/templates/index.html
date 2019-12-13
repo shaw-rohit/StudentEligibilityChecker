@@ -80,7 +80,7 @@
                     <div class="form-row">
                         <div class="form-holder form-holder-2">
                               <legend>Master Degree Programme</legend>
-                              <select name="programme" id="programme" class="browser-default custom-select" onchange="admSelectCheck(this);">
+                              <select name="programme" id="programme" class="browser-default custom-select" onchange="pass_programme(this);">
                                 <option selected hidden>Choose</option>
                                 {% for master, id in master_dict.items() %}
 
@@ -101,12 +101,18 @@
 				                    <legend>Track or Specialization</legend>
                                 <select id="cs_track" name="cs_track" class="browser-default custom-select">
                                     <option selected hidden>Choose</option>
-                                    <option id="cs1" value="Internet & Web Technology">Internet & Web Technology</option>
+                                    {% for master, id in master_dict.items() %}
+
+                                    <option id={{ id }} value={{ id }}>{{ master }}</option> <!-- todo -->
+
+                                    {% endfor %}
+
+                                    <!-- <option id="cs1" value="Internet & Web Technology">Internet & Web Technology</option>
                                     <option id="cs2" value="Big Data Engineering">Big Data Engineering</option>
                                     <option id="cs3" value="Software Engineering and Green IT">Software Engineering and Green IT</option>
                                     <option id="cs4" value="Parallel Computing Systems">Parallel Computing Systems</option>
                                     <option id="cs5" value="Foundations of Computing and Concurrency">Foundations of Computing and Concurrency</option>
-                                    <option id="cs6" value="Computer Systems Security">Computer Systems Security</option>
+                                    <option id="cs6" value="Computer Systems Security">Computer Systems Security</option> -->
                                 </select>
                         </div>
                    </div>
@@ -388,7 +394,7 @@
     function admSelectCheck(nameSelect) {
     if(nameSelect){
         console.log("cs value: ",document.getElementById("cs").value);
-        console.log("nameSelect: ", nameSelect.value)
+        console.log("nameSelect: ", nameSelect.value);
         //console.log(document.getElementById("ai").id);
         csOpt = document.getElementById("cs").value;
         aiOpt = document.getElementById("ai").value;
@@ -510,6 +516,34 @@
             loading();
         }, time);
     });
+</script>
+
+<script>
+  function pass_programme(selection) {
+    var sel = selection.value;
+    var prgrm_name = "";
+    if(sel != 'Choose') {
+      prgrm_name = sel;
+      url = 'http://127.0.0.1:5000/programme?value=' + prgrm_name;
+    }
+    $.ajax( 
+      {
+        type:'POST',
+        contentType:'application/json; charset-utf-08',
+        dataType:'json',
+        url: url,
+        success: function (data) {
+          var reply = data.reply;
+          if (reply == "success") {
+              return;
+          }
+          else {
+              alert("some error ocured")
+          }
+        }
+      }
+    );
+  }
 </script>
 
 </body>

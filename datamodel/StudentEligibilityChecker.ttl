@@ -138,10 +138,10 @@ sec:anyOtherScienceBachelor
   rdf:type sec:BachelorDegree ;
   rdfs:label "any other bachelor in science"@en ;
 .
-sec:artificalIntelligence
+sec:artificialIntelligence
   rdf:type sec:BachelorDegree ;
   rdf:type sec:Track ;
-  sec:requiresBachelorDegree sec:artificalIntelligence ;
+  sec:requiresBachelorDegree sec:artificialIntelligence ;
   sec:requiresBachelorDegree sec:computerScience ;
   sec:requiresBachelorDegree sec:phsychology ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
@@ -161,7 +161,7 @@ sec:artificalIntelligence
   sec:requiresKnowledge sec:logic ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:psychology ;
-  rdfs:label "artifical intelligence"@en ;
+  rdfs:label "artificial intelligence"@en ;
 .
 sec:automata
   rdf:type sec:ExtraKnowledge ;
@@ -197,7 +197,7 @@ sec:bigDataEngineering
   sec:requiresKnowledge sec:database ;
   sec:requiresKnowledge sec:graphTheory ;
   sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:machineLearningOrArtificialIntelligence ;
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
@@ -293,7 +293,7 @@ sec:chemistry
 .
 sec:cognitiveScience
   rdf:type sec:Track ;
-  sec:requiresBachelorDegree sec:artificalIntelligence ;
+  sec:requiresBachelorDegree sec:artificialIntelligence ;
   sec:requiresBachelorDegree sec:computerScience ;
   sec:requiresBachelorDegree sec:phsychology ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_1 ;
@@ -362,7 +362,7 @@ sec:computerSystemsSecurity
   sec:requiresKnowledge sec:database ;
   sec:requiresKnowledge sec:graphTheory ;
   sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:machineLearningOrArtificialIntelligence ;
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:operatingSystem ;
   sec:requiresKnowledge sec:programming ;
@@ -455,7 +455,7 @@ sec:foundationsOfComputingAndConcurrency
   sec:requiresKnowledge sec:database ;
   sec:requiresKnowledge sec:graphTheory ;
   sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:machineLearningOrArtificialIntelligence ;
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
@@ -511,7 +511,7 @@ sec:informatic
 .
 sec:informationScience
   rdf:type sec:Track ;
-  sec:requiresBachelorDegree sec:artificalIntelligence ;
+  sec:requiresBachelorDegree sec:artificialIntelligence ;
   sec:requiresBachelorDegree sec:businessAnalytics ;
   sec:requiresBachelorDegree sec:computerScience ;
   sec:requiresBachelorDegree sec:informatic ;
@@ -554,7 +554,7 @@ sec:internetAndWebTechnology
   sec:requiresKnowledge sec:database ;
   sec:requiresKnowledge sec:graphTheory ;
   sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:machineLearningOrArtificialIntelligence ;
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:operatingSystem ;
   sec:requiresKnowledge sec:programming ;
@@ -597,9 +597,9 @@ sec:logic
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "logic"@en ;
 .
-sec:machineLearningOrArtificalIntelligence
+sec:machineLearningOrArtificialIntelligence
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "machine learning or artifical intelligence"@en ;
+  rdfs:label "machine learning or artificial intelligence"@en ;
 .
 sec:mathematics
   rdf:type sec:BachelorDegree ;
@@ -632,11 +632,11 @@ sec:morphology
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "morphology"@en ;
 .
-sec:mscArtificalIntelligence
+sec:mscArtificialIntelligence
   rdf:type sec:MasterDegree ;
-  sec:hasTrack sec:artificalIntelligence ;
+  sec:hasTrack sec:artificialIntelligence ;
   sec:hasTrack sec:cognitiveScience ;
-  rdfs:label "MSc Artifical Intelligence"@en ;
+  rdfs:label "MSc Artificial Intelligence"@en ;
 .
 sec:mscBioinformaticsAndSystemsBiology
   rdf:type sec:MasterDegree ;
@@ -767,7 +767,7 @@ sec:parallelComputingSystems
   sec:requiresKnowledge sec:database ;
   sec:requiresKnowledge sec:graphTheory ;
   sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:machineLearningOrArtificialIntelligence ;
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
@@ -951,7 +951,7 @@ sec:softwareEngineeringAndGreenIT
   sec:requiresKnowledge sec:database ;
   sec:requiresKnowledge sec:graphTheory ;
   sec:requiresKnowledge sec:logic ;
-  sec:requiresKnowledge sec:machineLearningOrArtificalIntelligence ;
+  sec:requiresKnowledge sec:machineLearningOrArtificialIntelligence ;
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareDesign ;
@@ -1055,7 +1055,7 @@ sec:toeflPaperBased
 .
 sec:vrijeUniversiteitAmsterdam
   rdf:type sec:University ;
-  sec:hasMasterDegree sec:mscArtificalIntelligence ;
+  sec:hasMasterDegree sec:mscArtificialIntelligence ;
   sec:hasMasterDegree sec:mscBioinformaticsAndSystemsBiology ;
   sec:hasMasterDegree sec:mscBusinessAnalytics ;
   sec:hasMasterDegree sec:mscComputerScience ;
