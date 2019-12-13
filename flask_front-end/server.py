@@ -1,12 +1,14 @@
 from flask import Flask, request, url_for, redirect, render_template, render_template_string, jsonify
-import rdflib
+from rdflib import Graph
 import sys
 import random
 app = Flask(__name__)
 
-ontology = "Ontology.ttl"
-g = rdflib.Graph()
+ontology = "C:/Users/rshaw/OneDrive - NetApp Inc/Documents/Uni Stuff/KE/StudentEligibilityChecker/flask_front-end/Ontology.ttl"
+g = Graph()
 g.parse(ontology, format='ttl')
+
+master_dict = {}
 
 def get_track(degree_name):
     degree = degree_name
@@ -25,6 +27,9 @@ def get_track(degree_name):
            track_list.append("%s" % row)
            print("%s" % row)
 
+    return 
+
+
 @app.route('/result')
 def result():
     return render_template('result.html',
@@ -35,6 +40,7 @@ def result():
 
 @app.route('/index')
 def index_get():
+   global master_dict
    print('sup')
    if request.method=='GET':
        print('hiiii', file=sys.stdout)
@@ -68,7 +74,7 @@ def index_get():
        # get the selected master program
        # after getting the selected master program do something like this for ALL 12 programs.
        # if (selected_master == "MSc Artificial Intelligence"):
-          # selected_master = "sec:mscArtificalIntelligence"
+          # selected_master = "sec:mscArtificialIntelligence"
           # get_track(selected_master)
        # ^ that is needed to pass to the query and query from the ontology.
 
@@ -147,10 +153,23 @@ def index_post():
         converted_gpa=converted_gpa))
 
 
-@app.route('/programme',methods=['POST'])
+@app.route('/programme', methods=['POST'])
 def programme():
-    name=request.args.get('value')
-    print(name)
+    name = request.args.get('value')
+    if name != '':
+        selected_master = list(master_dict.keys())[list(master_dict.values()).index(name)]
+        print(selected_master)
+        
+        if (selected_master == "MSc Artificial Intelligence"):
+            selected_master = "sec:mscArtificialIntelligence"
+            get_track(selected_master)
+        elif (selected_master == "MSc Computer Science"):
+            selected_master = "sec:mscComputerScience"
+            get_track(selected_master)
+        elif (selected_master == "MSc Econometrics and Operations Research"):
+            selected_master = "sec:mscEconometricsAndOperationsResearch"
+            get_track(selected_master)
+
     return jsonify({'reply':'success'})
 
 
@@ -200,6 +219,7 @@ def ind_to_us(gpa):
         return round(random.uniform(0, 1.3), 1)
 
 if __name__ == '__main__':
-   print("\nQuick access link: http://127.0.0.1:5000/index")
-   print("\n")
+   print("\n--------------------------------------------------")
+   print("| Quick access link: http://127.0.0.1:5000/index |")
+   print("--------------------------------------------------\n")
    app.run(debug = True)
