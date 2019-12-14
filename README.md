@@ -21,10 +21,10 @@ The system is basically a ```Website``` built using ```HTML and other frontend t
 1) Download the repository and extract the contents to a folder.
 2) Navigate to the repository location in the command line.
 3) Ensure that Flask and rdflib packages are installed in your location using the following commands: <br>
-<pre>                              pip install flask                                                         </pre>
-<pre>                              pip install rdflib                                                        </pre><br> 
+<pre>                              pip install flask                                                       </pre>
+<pre>                              pip install rdflib                                                      </pre><br> 
 4) To start hosting the server, follow the below command.<br>
-<pre>                              python server.py                                                          </pre>
+<pre>                              python server.py                                                        </pre>
 5) Once the script is executed, Go to the following link to start using the Student Eligibility checker:<http://127.0.0.1:5000/index>
 6) Now the server and the system are up and running. Try your hands at the Student Eligibility cheecker and save time and money!!
 
