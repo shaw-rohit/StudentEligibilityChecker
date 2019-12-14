@@ -352,7 +352,7 @@ def update_knowledge():
   print('knowledge list: ', updated_knowledge)
   html_string_selected = ''
   for entry in updated_knowledge:
-      html_string_selected += '<option value="{}">{}</option>'.format(entry, entry)
+      html_string_selected += '<label value="{}">{}</label>'.format(entry, entry)
 
   return jsonify(html_string_selected=html_string_selected)
 
