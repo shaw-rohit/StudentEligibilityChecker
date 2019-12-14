@@ -258,21 +258,22 @@
     									</div>
                     </div>
                         
-                        {% for o in knowledge%}
+                        
                         <div id="knowledge">
                         <div class="form-check">
                           
-                            <input value="{{ o }}" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            
+                            <input value="knowledge" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            {% for o in knowledge%}
                             <label value="{{ o }}"class="form-check-label" for="defaultCheck1">
                             {{ o }}
                          </label>
+                         {% endfor %}
 
 
                       
                     </div>
                   </div>
-                   {% endfor %}
+                   
 
 
 <!--                 <div id="compsci2" style="display:none;">
