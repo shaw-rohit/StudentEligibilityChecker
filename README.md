@@ -10,23 +10,23 @@ The Student Eligibility Checker gets user inputs like the masters they want to a
 
 The system works on an Ontology driven decision making approach. It is configured only to work for courses offered at the ```Vrije Universiteit Amsterdam``` at this point of time. All the information about the courses is stored in the ontology and all the important criterias required for the decision making is also kept in the ontology. This ensures that the ontology forms the heart of the system and the user inputs are used to compare with the ontology to arrive at a decision. 
 
-*Input: User values - GPA, preferred choice of masters, previous education details, english test scores etc.
-*Decision Making: Ontology - contains the data about the courses and the eligibility criterias.
-*Output: A Eligibility Score -  High eligibility score means the person is eligible for the course and vice versa
+1)Input: User values - GPA, preferred choice of masters, previous education details, english test scores etc.<br>
+2)Decision Making: Ontology - contains the data about the courses and the eligibility criterias.<br>
+3)Output: A Eligibility Score -  High eligibility score means the person is eligible for the course and vice versa
 
 ## Starting the Student Eligibility Checker System:
 
 The system is basically a ```Website``` built using ```HTML and other frontend technologies like CSS,JQUERY and Javascript```. The website is hosted on a local server using ```Python's Flask Framework```. Python is used to establish the connection between the Website and the ontology. The ontology is a .ttl file and its being queried using ```SPARQL```.
 
-*Download the repository and extract the contents to a folder.
-*Navigate to the repository location in the command line.
-*Ensure that Flask and rdflib packages are installed in your location using the following commands: <br>
+1) Download the repository and extract the contents to a folder.
+2) Navigate to the repository location in the command line.
+3) Ensure that Flask and rdflib packages are installed in your location using the following commands: <br>
 <pre>                           pip install flask                                                         </pre>
 <pre>                           pip install rdflib                                                        </pre><br> 
-*To start hosting the server, follow the below command.<br>
+4) To start hosting the server, follow the below command.<br>
 <pre>                           python server.py                                                          </pre>
-*Once the script is executed, Go to the following link to start using the Student Eligibility checker:<http://127.0.0.1:5000/index>
-*Now the server and the system are up and running. Try your hands at the Student Eligibility cheecker and save time and money!!
+5) Once the script is executed, Go to the following link to start using the Student Eligibility checker:<http://127.0.0.1:5000/index>
+6) Now the server and the system are up and running. Try your hands at the Student Eligibility cheecker and save time and money!!
 
 
 
