@@ -103,7 +103,7 @@
                                     <option selected hidden>Choose</option>
                                     {% for o in tracks%}
 
-                                    <option value="{{ track }}">{{ o }}</option> <!-- todo -->
+                                    <option value="{{ o }}">{{ o }}</option> <!-- todo -->
 
                                     {% endfor %}
 
@@ -254,19 +254,28 @@
         						</div>
                     <div class="form-row">
     									<div class="form-holder form-holder-2">
-    											<legend>Course Description</legend>
+    											<legend for="knowledge">Course Description</legend>
     									</div>
                     </div>
-
-                    <div id="compsci1" style="display:none;">
+                        
+                        {% for o in knowledge%}
+                        <div id="knowledge">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            CS Course 1
+                          
+                            <input value="{{ o }}" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            
+                            <label value="{{ o }}"class="form-check-label" for="defaultCheck1">
+                            {{ o }}
                          </label>
+
+
+                      
                     </div>
-                </div>
-                <div id="compsci2" style="display:none;">
+                  </div>
+                   {% endfor %}
+
+
+<!--                 <div id="compsci2" style="display:none;">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
@@ -345,7 +354,7 @@
                             IS Course 2
                          </label>
                     </div>
-                </div>
+                </div> -->
     							       </div>
                                      <!-- <button type="submit" class="btn btn-labeled btn-success" action="http://127.0.0.1:5000/result">
                 <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Submit</button> -->
@@ -523,7 +532,7 @@
     });
 </script>
 
-<script>
+<!-- <script>
   function pass_programme(selection) {
     var sel = selection.value;
     var prgrm_name = "";
@@ -549,10 +558,7 @@
       }
     );
   }
-</script>
-<!-- the following two scripts are breaking the front end, but works for dynamic menues :///
-comment these two scripts if u wanna get the front-end working, but the track menu won't update then -->
-
+</script> -->
 <script type="text/javascript">
       $(document).ready(function() {
 
@@ -565,16 +571,15 @@ comment these two scripts if u wanna get the front-end working, but the track me
                 $('#tracks').html(data.html_string_selected);
            })
         });
-        // this bit is for sending the selected track input to flask, and displaying required knowledge.
-        // $('#tracks').change(function(){
+        $('#tracks').change(function(){
 
-        //   $.getJSON('/update_knowledge', {
-        //     selected_track: $('#tracks').val()
+          $.getJSON('/update_knowledge', {
+            selected_track: $('#tracks').val()
 
-        //   }).success(function(data) {
-        //         $('#knowledge').html(data.html_string_selected);
-        //    })
-        // });
+          }).success(function(data) {
+                $('#knowledge').html(data.html_string_selected);
+           })
+        });
       });
     </script>
 

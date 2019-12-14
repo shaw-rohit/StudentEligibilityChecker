@@ -921,7 +921,7 @@ sec:scienceBusinessInnovation
   sec:requiresKnowledge sec:physics ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:thermodynamics ;
-  rdfs:label "science business innovation"@en ;
+  rdfs:label "Science Business Innovation"@en ;
 .
 sec:semantic
   rdf:type sec:ExtraKnowledge ;
@@ -990,7 +990,7 @@ sec:stochasticsAndFinancialMathematics
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
   sec:requiresGPA 7.5 ;
   sec:requiresKnowledge sec:mathematics ;
-  rdfs:label "stochastics and financial mathematics"@en ;
+  rdfs:label "Stochastics and Financial Mathematics"@en ;
 .
 sec:supplyChainManagement
   rdf:type sec:Track ;
@@ -1013,7 +1013,7 @@ sec:supplyChainManagement
   sec:requiresKnowledge sec:realAnalysis ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:stochasticModelling ;
-  rdfs:label "supply chain management"@en ;
+  rdfs:label "Supply Chain Management"@en ;
 .
 sec:syntax
   rdf:type sec:ExtraKnowledge ;
@@ -1045,7 +1045,7 @@ sec:textMining
   sec:requiresKnowledge sec:phonology ;
   sec:requiresKnowledge sec:semantic ;
   sec:requiresKnowledge sec:syntax ;
-  rdfs:label "text mining"@en ;
+  rdfs:label "Text Mining"@en ;
 .
 sec:thermodynamics
   rdf:type sec:ExtraKnowledge ;
