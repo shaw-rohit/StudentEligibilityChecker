@@ -16,7 +16,7 @@ The system works on an Ontology driven decision making approach. It is configure
 
 ## Starting the Student Eligibility Checker System:
 
-The system is basically a ```Website``` built using ```HTML and other frontend technologies like CSS,JQUERY and Javascript```. The website is hosted on a local server using ```Python's Flask Framework```. Python is used to establish the connection between the Website and the ontology. The ontology is a .ttl file and its being queried using ```SPARQL```.
+The system is basically a ```Website``` built using ```HTML and other frontend technologies like CSS,JQUERY and Javascript```. The website is hosted on a local server using ```Python's Flask Framework```. Python version 3.x.x is used to establish the connection between the Website and the ontology. The ontology is a .ttl file and its being queried using ```SPARQL```.
 
 1) Download the repository and extract the contents to a folder.
 2) Navigate to the repository location in the command line.
@@ -24,7 +24,7 @@ The system is basically a ```Website``` built using ```HTML and other frontend t
 <pre>                            pip install flask                                                       </pre>
 <pre>                            pip install rdflib                                                      </pre><br> 
 4) To start hosting the server, follow the below command.<br>
-<pre>                            python server.py                                                        </pre>
+<pre>                            python3 server.py                                                        </pre>
 5) Once the script is executed, Go to the following link to start using the Student Eligibility checker:<http://127.0.0.1:5000/index>
 6) Now the server and the system are up and running. Try your hands at the Student Eligibility cheecker and save time and money!!
 
