@@ -9,14 +9,6 @@
 @prefix sec: <http://example.org/StudentEligibilityChecker/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix : <http://example.org/StudentEligibilityChecker/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sec: <http://example.org/StudentEligibilityChecker/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
 sec:
   rdf:type owl:Ontology ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -162,14 +154,14 @@ sec:artificialIntelligence
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:generalAIKnowledge ;
   sec:requiresKnowledge sec:javaOrPython ;
   sec:requiresKnowledge sec:logic ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:psychology ;
-  rdfs:label "Artificial Intelligence"@en ;
+  rdfs:label "artificial intelligence"@en ;
 .
 sec:automata
   rdf:type sec:ExtraKnowledge ;
@@ -177,7 +169,7 @@ sec:automata
 .
 sec:basicComputerScience
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "basic computer science " ;
+  rdfs:label "basic computer science"@en ;
 .
 sec:basicProgramming
   rdf:type sec:ExtraKnowledge ;
@@ -196,7 +188,7 @@ sec:bigDataEngineering
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -209,7 +201,7 @@ sec:bigDataEngineering
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "Big Data Engineering"@en ;
+  rdfs:label "big data engineering"@en ;
 .
 sec:bioinformatic
   rdf:type sec:BachelorDegree ;
@@ -231,11 +223,11 @@ sec:bioinformaticsAndSystemsBiology
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicProgramming ;
   sec:requiresKnowledge sec:biology ;
   sec:requiresKnowledge sec:mathematics ;
-  rdfs:label "Bioinformatics and Systems Biology" ;
+  rdfs:label "bioinformatics and systems biology" ;
 .
 sec:biologicalPsychology
   rdf:type sec:ExtraKnowledge ;
@@ -266,13 +258,13 @@ sec:businessAnalytics
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:econometrics ;
   sec:requiresKnowledge sec:javaOrPython ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:probabilityAndStatistics ;
-  rdfs:label "Business Analytics"@en ;
+  rdfs:label "business analytics"@en ;
 .
 sec:businessInnovationSocialScience
   rdf:type sec:ExtraKnowledge ;
@@ -314,14 +306,14 @@ sec:cognitiveScience
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicComputerScience ;
   sec:requiresKnowledge sec:generalAIKnowledge ;
   sec:requiresKnowledge sec:javaOrPython ;
   sec:requiresKnowledge sec:logic ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:psychology ;
-  rdfs:label "Cognitive Science"@en ;
+  rdfs:label "cognitive science"@en ;
 .
 sec:compiler
   rdf:type sec:ExtraKnowledge ;
@@ -360,7 +352,7 @@ sec:computerSystemsSecurity
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -375,7 +367,7 @@ sec:computerSystemsSecurity
   sec:requiresKnowledge sec:operatingSystem ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "Computer Systems Security"@en ;
+  rdfs:label "computer systems security"@en ;
 .
 sec:database
   rdf:type sec:ExtraKnowledge ;
@@ -402,13 +394,13 @@ sec:econometricsAndDataScience
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicProgramming ;
   sec:requiresKnowledge sec:econometrics ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:probability ;
   sec:requiresKnowledge sec:statistic ;
-  rdfs:label "Econometrics and Data Science"@en ;
+  rdfs:label "econometrics and data science"@en ;
 .
 sec:educationalScience
   rdf:type sec:BachelorDegree ;
@@ -431,7 +423,7 @@ sec:financialEngineering
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:linearAlgebra ;
   sec:requiresKnowledge sec:optimization ;
   sec:requiresKnowledge sec:probability ;
@@ -439,7 +431,7 @@ sec:financialEngineering
   sec:requiresKnowledge sec:realAnalysis ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:stochasticModelling ;
-  rdfs:label "Financial Engineering"@en ;
+  rdfs:label "financial engineering"@en ;
 .
 sec:foundationsOfComputingAndConcurrency
   rdf:type sec:Track ;
@@ -454,7 +446,7 @@ sec:foundationsOfComputingAndConcurrency
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -467,11 +459,11 @@ sec:foundationsOfComputingAndConcurrency
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "Foundations of Computing and Concurrency"@en ;
+  rdfs:label "foundations of computing and concurrency"@en ;
 .
 sec:generalAIKnowledge
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "general AI knowledge" ;
+  rdfs:label "general AI knowledge"@en ;
 .
 sec:genetic
   rdf:type sec:ExtraKnowledge ;
@@ -533,12 +525,12 @@ sec:informationScience
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:basicProgramming ;
   sec:requiresKnowledge sec:businessModelling ;
   sec:requiresKnowledge sec:database ;
   sec:requiresKnowledge sec:requirementsEngineering ;
-  rdfs:label "Information Science"@en ;
+  rdfs:label "information science"@en ;
 .
 sec:internetAndWebTechnology
   rdf:type sec:Track ;
@@ -553,7 +545,7 @@ sec:internetAndWebTechnology
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -567,11 +559,11 @@ sec:internetAndWebTechnology
   sec:requiresKnowledge sec:operatingSystem ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "Internet and Web Technology"@en ;
+  rdfs:label "internet and web technology"@en ;
 .
 sec:java
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "java" ;
+  rdfs:label "java"@en ;
 .
 sec:javaOrPython
   rdf:type sec:ExtraKnowledge ;
@@ -603,7 +595,7 @@ sec:linguistic
 .
 sec:logic
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "logic" ;
+  rdfs:label "logic"@en ;
 .
 sec:machineLearningOrArtificialIntelligence
   rdf:type sec:ExtraKnowledge ;
@@ -625,8 +617,8 @@ sec:mathematics
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
-  rdfs:label "Mathematics"@en ;
+  sec:requiresGPA 65 ;
+  rdfs:label "mathematics"@en ;
 .
 sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics
   rdf:type sec:ExtraKnowledge ;
@@ -648,6 +640,7 @@ sec:mscArtificialIntelligence
 .
 sec:mscBioinformaticsAndSystemsBiology
   rdf:type sec:MasterDegree ;
+  sec:hasTrack sec:bioinformaticsAndSystemsBiology ;
   rdfs:label "MSc Bioinformatics&Systems Biology"@en ;
 .
 sec:mscBusinessAnalytics
@@ -691,11 +684,12 @@ sec:mscLinguistic
 sec:mscMathematics
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:mathematics ;
-  rdfs:label "MSc Mathematics"@en ;
+  rdfs:label "MSc mathematics"@en ;
 .
 sec:mscParallelDistributedComputerSystem
   rdf:type sec:MasterDegree ;
-  rdfs:label "MSc Parallel Distributed Computer Systems"@en ;
+  sec:hasTrack sec:parallelDistributedComputerSystem ;
+  rdfs:label "MSc parallel distributed computer systems"@en ;
 .
 sec:mscScienceBusinessInnovation
   rdf:type sec:MasterDegree ;
@@ -705,11 +699,11 @@ sec:mscScienceBusinessInnovation
 sec:mscStochasticsAndFinancialMathematics
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:stochasticsAndFinancialMathematics ;
-  rdfs:label "MSc Stochastics & Financial Mathematics"@en ;
+  rdfs:label "MSc Stochastics&Financial Mathematics"@en ;
 .
 sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "natural language processing" ;
+  rdfs:label "natural language processing"@en ;
 .
 sec:neuropsychology
   rdf:type sec:ExtraKnowledge ;
@@ -736,7 +730,7 @@ sec:operationsResearchTheory
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:linearAlgebra ;
   sec:requiresKnowledge sec:optimization ;
   sec:requiresKnowledge sec:probability ;
@@ -744,7 +738,7 @@ sec:operationsResearchTheory
   sec:requiresKnowledge sec:realAnalysis ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:stochasticModelling ;
-  rdfs:label "Operations Research Theory"@en ;
+  rdfs:label "operations research theory"@en ;
 .
 sec:optimization
   rdf:type sec:ExtraKnowledge ;
@@ -763,7 +757,7 @@ sec:parallelComputingSystems
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:CorCplusprogramming ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
@@ -777,7 +771,7 @@ sec:parallelComputingSystems
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "Parallel Computing Systems"@en ;
+  rdfs:label "parallel computing systems"@en ;
 .
 sec:parallelDistributedComputerSystem
   rdf:type sec:Track ;
@@ -792,9 +786,9 @@ sec:parallelDistributedComputerSystem
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:computerSystems ;
-  rdfs:label "Parallel Distributed Computer Systems"@en ;
+  rdfs:label "parallel distributed computer systems"@en ;
 .
 sec:phonology
   rdf:type sec:ExtraKnowledge ;
@@ -823,7 +817,7 @@ sec:programming
 .
 sec:prolog
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "prolog" ;
+  rdfs:label "prolog"@en ;
 .
 sec:psychobiology
   rdf:type sec:BachelorDegree ;
@@ -831,7 +825,7 @@ sec:psychobiology
 .
 sec:psychology
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "psychology" ;
+  rdfs:label "psychology"@en ;
 .
 sec:pythonRMatlabJavaorC
   rdf:type sec:ExtraKnowledge ;
@@ -886,14 +880,14 @@ sec:researchMaster
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:biologicalPsychology ;
   sec:requiresKnowledge sec:genetic ;
   sec:requiresKnowledge sec:neuropsychology ;
   sec:requiresKnowledge sec:neuroscience ;
   sec:requiresKnowledge sec:researchMethod ;
   sec:requiresKnowledge sec:statistic ;
-  rdfs:label "Research Master"@en ;
+  rdfs:label "research master"@en ;
 .
 sec:researchMethod
   rdf:type sec:ExtraKnowledge ;
@@ -913,7 +907,7 @@ sec:scienceBusinessInnovation
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:businessInnovationSocialScience ;
   sec:requiresKnowledge sec:chemistry ;
   sec:requiresKnowledge sec:computerSkills ;
@@ -921,7 +915,7 @@ sec:scienceBusinessInnovation
   sec:requiresKnowledge sec:physics ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:thermodynamics ;
-  rdfs:label "Science Business Innovation"@en ;
+  rdfs:label "science business innovation"@en ;
 .
 sec:semantic
   rdf:type sec:ExtraKnowledge ;
@@ -948,7 +942,7 @@ sec:softwareEngineeringAndGreenIT
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:algorithms ;
   sec:requiresKnowledge sec:automata ;
   sec:requiresKnowledge sec:compiler ;
@@ -962,7 +956,7 @@ sec:softwareEngineeringAndGreenIT
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareDesign ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "Software Engineering and Green IT"@en ;
+  rdfs:label "software engineering and green IT"@en ;
 .
 sec:statistic
   rdf:type sec:BachelorDegree ;
@@ -988,9 +982,9 @@ sec:stochasticsAndFinancialMathematics
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:mathematics ;
-  rdfs:label "Stochastics and Financial Mathematics"@en ;
+  rdfs:label "stochastics and financial mathematics"@en ;
 .
 sec:supplyChainManagement
   rdf:type sec:Track ;
@@ -1005,7 +999,7 @@ sec:supplyChainManagement
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:linearAlgebra ;
   sec:requiresKnowledge sec:optimization ;
   sec:requiresKnowledge sec:probability ;
@@ -1013,11 +1007,11 @@ sec:supplyChainManagement
   sec:requiresKnowledge sec:realAnalysis ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:stochasticModelling ;
-  rdfs:label "Supply Chain Management"@en ;
+  rdfs:label "supply chain management"@en ;
 .
 sec:syntax
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "syntax" ;
+  rdfs:label "syntax"@en ;
 .
 sec:technicalMathematics
   rdf:type sec:BachelorDegree ;
@@ -1036,7 +1030,7 @@ sec:textMining
   sec:requiresEnglishProf sec:EnglishProfQuantity_7 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
-  sec:requiresGPA 7.5 ;
+  sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:languageCounselling ;
   sec:requiresKnowledge sec:languagePolicy ;
   sec:requiresKnowledge sec:languageTherapy ;
@@ -1045,7 +1039,7 @@ sec:textMining
   sec:requiresKnowledge sec:phonology ;
   sec:requiresKnowledge sec:semantic ;
   sec:requiresKnowledge sec:syntax ;
-  rdfs:label "Text Mining"@en ;
+  rdfs:label "text mining"@en ;
 .
 sec:thermodynamics
   rdf:type sec:ExtraKnowledge ;
@@ -1062,8 +1056,8 @@ sec:toeflPaperBased
 sec:vrijeUniversiteitAmsterdam
   rdf:type sec:University ;
   sec:hasMasterDegree sec:mscArtificialIntelligence ;
-  sec:hasMasterDegree sec:mscBusinessAnalytics ;
   sec:hasMasterDegree sec:mscBioinformaticsAndSystemsBiology ;
+  sec:hasMasterDegree sec:mscBusinessAnalytics ;
   sec:hasMasterDegree sec:mscComputerScience ;
   sec:hasMasterDegree sec:mscEconometricsAndOperationsResearch ;
   sec:hasMasterDegree sec:mscGenesInBehaviourAndHealth ;
