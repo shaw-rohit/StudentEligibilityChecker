@@ -26,7 +26,7 @@ The system is basically a ```Website``` built using ```HTML and other frontend t
 4) To start hosting the server, follow the below command.<br>
 <pre>                            python3 server.py                                                        </pre>
 5) Once the script is executed, Go to the following link to start using the Student Eligibility checker:<http://127.0.0.1:5000/index>
-6) Now the server and the system are up and running. Try your hands at the Student Eligibility cheecker and save time and money!!
+6) Now the server and the system are up and running. Try your hands at the Student Eligibility checker to save time and money on your college apps!!
 
 
 
