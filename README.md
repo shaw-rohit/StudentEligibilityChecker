@@ -10,9 +10,9 @@ The Student Eligibility Checker gets user inputs like the masters they want to a
 
 The system works on an Ontology driven decision making approach. It is configured only to work for courses offered at the ```Vrije Universiteit Amsterdam``` at this point of time. All the information about the courses is stored in the ontology and all the important criterias required for the decision making is also kept in the ontology. This ensures that the ontology forms the heart of the system and the user inputs are used to compare with the ontology to arrive at a decision. 
 
-1)Input: User values - GPA, preferred choice of masters, previous education details, english test scores etc.<br>
-2)Decision Making: Ontology - contains the data about the courses and the eligibility criterias.<br>
-3)Output: A Eligibility Score -  High eligibility score means the person is eligible for the course and vice versa
+1) Input: User values - GPA, preferred choice of masters, previous education details, english test scores etc.<br>
+2) Decision Making: Ontology - contains the data about the courses and the eligibility criterias.<br>
+3) Output: A Eligibility Score -  High eligibility score means the person is eligible for the course and vice versa
 
 ## Starting the Student Eligibility Checker System:
 
