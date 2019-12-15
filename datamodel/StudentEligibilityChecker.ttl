@@ -138,7 +138,7 @@ sec:University
 .
 sec:algorithms
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "algorithms"@en ;
+  rdfs:label "Algorithms"@en ;
 .
 sec:anyOtherScienceBachelor
   rdf:type sec:BachelorDegree ;
@@ -175,15 +175,15 @@ sec:artificialIntelligence
 .
 sec:automata
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "automata"@en ;
+  rdfs:label "Automata"@en ;
 .
 sec:basicComputerScience
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "basic computer science"@en ;
+  rdfs:label "Basic Computer Science"@en ;
 .
 sec:basicProgramming
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "basic programming"@en ;
+  rdfs:label "Basic Programming"@en ;
 .
 sec:bigDataEngineering
   rdf:type sec:Track ;
@@ -241,11 +241,11 @@ sec:bioinformaticsAndSystemsBiology
 .
 sec:biologicalPsychology
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "biological psychology"@en ;
+  rdfs:label "Biological Psychology"@en ;
 .
 sec:biology
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "biology"@en ;
+  rdfs:label "Biology"@en ;
 .
 sec:biomedicalScience
   rdf:type sec:BachelorDegree ;
@@ -278,7 +278,7 @@ sec:businessAnalytics
 .
 sec:businessInnovationSocialScience
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "business, innovation, social science"@en ;
+  rdfs:label "Business, Innovation, Social Science"@en ;
 .
 sec:businessMathematics
   rdf:type sec:BachelorDegree ;
@@ -286,7 +286,7 @@ sec:businessMathematics
 .
 sec:businessModelling
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "business modelling"@en ;
+  rdfs:label "Business Modelling"@en ;
 .
 sec:cambridgeCertificateIOfProficiencyInEnglish
   rdf:type sec:EnglishTest ;
@@ -299,7 +299,7 @@ sec:cambridgeCertificateInAdvancedEnglish
 sec:chemistry
   rdf:type sec:BachelorDegree ;
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "chemistry"@en ;
+  rdfs:label "Chemistry"@en ;
 .
 sec:cognitiveScience
   rdf:type sec:Track ;
@@ -327,15 +327,15 @@ sec:cognitiveScience
 .
 sec:compiler
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "compilers"@en ;
+  rdfs:label "Compilers"@en ;
 .
 sec:computerArchitecture
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "computer architecture"@en ;
+  rdfs:label "Computer Architecture"@en ;
 .
 sec:computerNetwork
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "computer networks"@en ;
+  rdfs:label "Computer Networks"@en ;
 .
 sec:computerScience
   rdf:type sec:BachelorDegree ;
@@ -343,11 +343,11 @@ sec:computerScience
 .
 sec:computerSkills
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "computer skills"@en ;
+  rdfs:label "Computer Skills"@en ;
 .
 sec:computerSystems
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "computer systems"@en ;
+  rdfs:label "Computer Systems"@en ;
 .
 sec:computerSystemsSecurity
   rdf:type sec:Track ;
@@ -381,12 +381,12 @@ sec:computerSystemsSecurity
 .
 sec:database
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "databases"@en ;
+  rdfs:label "Databases"@en ;
 .
 sec:econometrics
   rdf:type sec:BachelorDegree ;
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "econometrics"@en ;
+  rdfs:label "Econometrics"@en ;
 .
 sec:econometricsAndDataScience
   rdf:type sec:Track ;
@@ -473,15 +473,15 @@ sec:foundationsOfComputingAndConcurrency
 .
 sec:generalAIKnowledge
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "general AI knowledge"@en ;
+  rdfs:label "General AI Knowledge"@en ;
 .
 sec:genetic
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "genetics"@en ;
+  rdfs:label "Genetics"@en ;
 .
 sec:graphTheory
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "graph theory"@en ;
+  rdfs:label "Graph Theory"@en ;
 .
 sec:hasMasterDegree
   rdf:type owl:ObjectProperty ;
@@ -573,31 +573,31 @@ sec:internetAndWebTechnology
 .
 sec:java
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "java"@en ;
+  rdfs:label "Java"@en ;
 .
 sec:javaOrPython
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "java or python"@en ;
+  rdfs:label "Java or Python"@en ;
 .
 sec:languageCounselling
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "language counselling"@en ;
+  rdfs:label "Language Counselling"@en ;
 .
 sec:languagePolicy
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "language policy"@en ;
+  rdfs:label "Language Policy"@en ;
 .
 sec:languageTherapy
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "language therapy"@en ;
+  rdfs:label "Language Therapy"@en ;
 .
 sec:languageVariation
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "language variation"@en ;
+  rdfs:label "Language Variation"@en ;
 .
 sec:linearAlgebra
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "linear algebra"@en ;
+  rdfs:label "Linear Algebra"@en ;
 .
 sec:linguistic
   rdf:type sec:BachelorDegree ;
@@ -605,11 +605,11 @@ sec:linguistic
 .
 sec:logic
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "logic"@en ;
+  rdfs:label "Logic"@en ;
 .
 sec:machineLearningOrArtificialIntelligence
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "machine learning or artificial intelligence"@en ;
+  rdfs:label "Machine Learning or Artificial Intelligence"@en ;
 .
 sec:mathematics
   rdf:type sec:BachelorDegree ;
@@ -640,7 +640,7 @@ sec:medicine
 .
 sec:morphology
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "morphology"@en ;
+  rdfs:label "Morphology"@en ;
 .
 sec:mscArtificialIntelligence
   rdf:type sec:MasterDegree ;
@@ -713,19 +713,19 @@ sec:mscStochasticsAndFinancialMathematics
 .
 sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "natural language processing"@en ;
+  rdfs:label "Natural Language Processing"@en ;
 .
 sec:neuropsychology
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "neuropsychology"@en ;
+  rdfs:label "Neuropsychology"@en ;
 .
 sec:neuroscience
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "neuroscience"@en ;
+  rdfs:label "Neuroscience"@en ;
 .
 sec:operatingSystem
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "operating systems"@en ;
+  rdfs:label "Operating Systems"@en ;
 .
 sec:operationsResearchTheory
   rdf:type sec:Track ;
@@ -752,7 +752,7 @@ sec:operationsResearchTheory
 .
 sec:optimization
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "optimization"@en ;
+  rdfs:label "Optimization"@en ;
 .
 sec:parallelComputingSystems
   rdf:type sec:Track ;
@@ -802,7 +802,7 @@ sec:parallelDistributedComputerSystem
 .
 sec:phonology
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "phonology"@en ;
+  rdfs:label "Phonology"@en ;
 .
 sec:phsychology
   rdf:type sec:BachelorDegree ;
@@ -811,23 +811,23 @@ sec:phsychology
 sec:physics
   rdf:type sec:BachelorDegree ;
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "physics"@en ;
+  rdfs:label "Physics"@en ;
 .
 sec:probability
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "probability"@en ;
+  rdfs:label "Probability"@en ;
 .
 sec:probabilityAndStatistics
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "probability and statistics"@en ;
+  rdfs:label "Probability and Statistics"@en ;
 .
 sec:programming
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "programming (Java or C/C++ or Python)"@en ;
+  rdfs:label "Programming (Java or C/C++ or Python)"@en ;
 .
 sec:prolog
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "prolog"@en ;
+  rdfs:label "Prolog"@en ;
 .
 sec:psychobiology
   rdf:type sec:BachelorDegree ;
@@ -835,19 +835,19 @@ sec:psychobiology
 .
 sec:psychology
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "psychology"@en ;
+  rdfs:label "Psychology"@en ;
 .
 sec:pythonRMatlabJavaorC
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "python, R, Matlab, Java or C/C++"@en ;
+  rdfs:label "Python, R, Matlab, Java or C/C++"@en ;
 .
 sec:realAnalysis
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "real analysis"@en ;
+  rdfs:label "Real Analysis"@en ;
 .
 sec:requirementsEngineering
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "requirements engineering"@en ;
+  rdfs:label "Requirements Engineering"@en ;
 .
 sec:requiresBachelorDegree
   rdf:type owl:ObjectProperty ;
@@ -901,7 +901,7 @@ sec:researchMaster
 .
 sec:researchMethod
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "research methods"@en ;
+  rdfs:label "Research Methods"@en ;
 .
 sec:scienceBusinessInnovation
   rdf:type sec:Track ;
@@ -929,15 +929,15 @@ sec:scienceBusinessInnovation
 .
 sec:semantic
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "semantics"@en ;
+  rdfs:label "Semantics"@en ;
 .
 sec:softwareDesign
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "software design"@en ;
+  rdfs:label "Software Design"@en ;
 .
 sec:softwareEngineering
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "software engineering"@en ;
+  rdfs:label "Software Engineering"@en ;
 .
 sec:softwareEngineeringAndGreenIT
   rdf:type sec:Track ;
@@ -971,11 +971,11 @@ sec:softwareEngineeringAndGreenIT
 sec:statistic
   rdf:type sec:BachelorDegree ;
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "statistics"@en ;
+  rdfs:label "Statistics"@en ;
 .
 sec:stochasticModelling
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "stochastic modelling"@en ;
+  rdfs:label "Stochastic Modelling"@en ;
 .
 sec:stochasticsAndFinancialMathematics
   rdf:type sec:Track ;
@@ -1021,7 +1021,7 @@ sec:supplyChainManagement
 .
 sec:syntax
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "syntax"@en ;
+  rdfs:label "Syntax"@en ;
 .
 sec:technicalMathematics
   rdf:type sec:BachelorDegree ;
@@ -1053,7 +1053,7 @@ sec:textMining
 .
 sec:thermodynamics
   rdf:type sec:ExtraKnowledge ;
-  rdfs:label "thermodynamics"@en ;
+  rdfs:label "Thermodynamics"@en ;
 .
 sec:toeflInternetBased
   rdf:type sec:EnglishTest ;
