@@ -22,6 +22,12 @@ sec:CorCplusprogramming
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "C/C++"@en ;
 .
+sec:EligibilityQuantity
+  rdf:type owl:Class ;
+  rdfs:comment "class contains information for the final eligibility grade" ;
+  rdfs:label "Eligibility Quantity"@en ;
+  rdfs:subClassOf owl:Thing ;
+.
 sec:EnglishProfQuantity
   rdf:type owl:Class ;
   rdfs:label "english prof quantity"@en ;
@@ -138,6 +144,10 @@ sec:anyOtherScienceBachelor
   rdf:type sec:BachelorDegree ;
   rdfs:label "any other bachelor in science"@en ;
 .
+sec:artificalIntelligenceBachelorScore45
+  rdf:type sec:EligibilityQuantity ;
+  rdfs:label "artifical Intelligence track bachelor score 45" ;
+.
 sec:artificialIntelligence
   rdf:type sec:BachelorDegree ;
   rdf:type sec:Track ;
@@ -161,7 +171,7 @@ sec:artificialIntelligence
   sec:requiresKnowledge sec:logic ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:psychology ;
-  rdfs:label "artificial intelligence"@en ;
+  rdfs:label "Artificial Intelligence"@en ;
 .
 sec:automata
   rdf:type sec:ExtraKnowledge ;
@@ -201,7 +211,7 @@ sec:bigDataEngineering
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "big data engineering"@en ;
+  rdfs:label "Big Data Engineering"@en ;
 .
 sec:bioinformatic
   rdf:type sec:BachelorDegree ;
@@ -227,7 +237,7 @@ sec:bioinformaticsAndSystemsBiology
   sec:requiresKnowledge sec:basicProgramming ;
   sec:requiresKnowledge sec:biology ;
   sec:requiresKnowledge sec:mathematics ;
-  rdfs:label "bioinformatics and systems biology" ;
+  rdfs:label "Bioinformatics and Systems Biology"@en ;
 .
 sec:biologicalPsychology
   rdf:type sec:ExtraKnowledge ;
@@ -264,7 +274,7 @@ sec:businessAnalytics
   sec:requiresKnowledge sec:javaOrPython ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:probabilityAndStatistics ;
-  rdfs:label "business analytics"@en ;
+  rdfs:label "Business Analytics"@en ;
 .
 sec:businessInnovationSocialScience
   rdf:type sec:ExtraKnowledge ;
@@ -313,7 +323,7 @@ sec:cognitiveScience
   sec:requiresKnowledge sec:logic ;
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:psychology ;
-  rdfs:label "cognitive science"@en ;
+  rdfs:label "Cognitive Science"@en ;
 .
 sec:compiler
   rdf:type sec:ExtraKnowledge ;
@@ -367,7 +377,7 @@ sec:computerSystemsSecurity
   sec:requiresKnowledge sec:operatingSystem ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "computer systems security"@en ;
+  rdfs:label "Computer Systems Security"@en ;
 .
 sec:database
   rdf:type sec:ExtraKnowledge ;
@@ -400,7 +410,7 @@ sec:econometricsAndDataScience
   sec:requiresKnowledge sec:mathematics ;
   sec:requiresKnowledge sec:probability ;
   sec:requiresKnowledge sec:statistic ;
-  rdfs:label "econometrics and data science"@en ;
+  rdfs:label "Econometrics and Data Science"@en ;
 .
 sec:educationalScience
   rdf:type sec:BachelorDegree ;
@@ -431,7 +441,7 @@ sec:financialEngineering
   sec:requiresKnowledge sec:realAnalysis ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:stochasticModelling ;
-  rdfs:label "financial engineering"@en ;
+  rdfs:label "Financial Engineering"@en ;
 .
 sec:foundationsOfComputingAndConcurrency
   rdf:type sec:Track ;
@@ -459,7 +469,7 @@ sec:foundationsOfComputingAndConcurrency
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "foundations of computing and concurrency"@en ;
+  rdfs:label "Foundations of Computing and Concurrency"@en ;
 .
 sec:generalAIKnowledge
   rdf:type sec:ExtraKnowledge ;
@@ -530,7 +540,7 @@ sec:informationScience
   sec:requiresKnowledge sec:businessModelling ;
   sec:requiresKnowledge sec:database ;
   sec:requiresKnowledge sec:requirementsEngineering ;
-  rdfs:label "information science"@en ;
+  rdfs:label "Information Sciences"@en ;
 .
 sec:internetAndWebTechnology
   rdf:type sec:Track ;
@@ -559,7 +569,7 @@ sec:internetAndWebTechnology
   sec:requiresKnowledge sec:operatingSystem ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "internet and web technology"@en ;
+  rdfs:label "Internet and Web Technology"@en ;
 .
 sec:java
   rdf:type sec:ExtraKnowledge ;
@@ -618,7 +628,7 @@ sec:mathematics
   sec:requiresEnglishProf sec:EnglishProfQuantity_8 ;
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
   sec:requiresGPA 65 ;
-  rdfs:label "mathematics"@en ;
+  rdfs:label "Mathematics"@en ;
 .
 sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics
   rdf:type sec:ExtraKnowledge ;
@@ -684,12 +694,12 @@ sec:mscLinguistic
 sec:mscMathematics
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:mathematics ;
-  rdfs:label "MSc mathematics"@en ;
+  rdfs:label "MSc Mathematics"@en ;
 .
 sec:mscParallelDistributedComputerSystem
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:parallelDistributedComputerSystem ;
-  rdfs:label "MSc parallel distributed computer systems"@en ;
+  rdfs:label "MSc Parallel Distributed Computer Systems"@en ;
 .
 sec:mscScienceBusinessInnovation
   rdf:type sec:MasterDegree ;
@@ -738,7 +748,7 @@ sec:operationsResearchTheory
   sec:requiresKnowledge sec:realAnalysis ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:stochasticModelling ;
-  rdfs:label "operations research theory"@en ;
+  rdfs:label "Operations Research Theory"@en ;
 .
 sec:optimization
   rdf:type sec:ExtraKnowledge ;
@@ -771,7 +781,7 @@ sec:parallelComputingSystems
   sec:requiresKnowledge sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics ;
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "parallel computing systems"@en ;
+  rdfs:label "Parallel Computing Systems"@en ;
 .
 sec:parallelDistributedComputerSystem
   rdf:type sec:Track ;
@@ -788,7 +798,7 @@ sec:parallelDistributedComputerSystem
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
   sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:computerSystems ;
-  rdfs:label "parallel distributed computer systems"@en ;
+  rdfs:label "Parallel Distributed Computer Systems"@en ;
 .
 sec:phonology
   rdf:type sec:ExtraKnowledge ;
@@ -887,7 +897,7 @@ sec:researchMaster
   sec:requiresKnowledge sec:neuroscience ;
   sec:requiresKnowledge sec:researchMethod ;
   sec:requiresKnowledge sec:statistic ;
-  rdfs:label "research master"@en ;
+  rdfs:label "Research Master"@en ;
 .
 sec:researchMethod
   rdf:type sec:ExtraKnowledge ;
@@ -915,7 +925,7 @@ sec:scienceBusinessInnovation
   sec:requiresKnowledge sec:physics ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:thermodynamics ;
-  rdfs:label "science business innovation"@en ;
+  rdfs:label "Science Business Innovation"@en ;
 .
 sec:semantic
   rdf:type sec:ExtraKnowledge ;
@@ -956,7 +966,7 @@ sec:softwareEngineeringAndGreenIT
   sec:requiresKnowledge sec:programming ;
   sec:requiresKnowledge sec:softwareDesign ;
   sec:requiresKnowledge sec:softwareEngineering ;
-  rdfs:label "software engineering and green IT"@en ;
+  rdfs:label "Software Engineering and Green IT"@en ;
 .
 sec:statistic
   rdf:type sec:BachelorDegree ;
@@ -984,7 +994,7 @@ sec:stochasticsAndFinancialMathematics
   sec:requiresEnglishProf sec:EnglishProfQuantity_9 ;
   sec:requiresGPA 65 ;
   sec:requiresKnowledge sec:mathematics ;
-  rdfs:label "stochastics and financial mathematics"@en ;
+  rdfs:label "Stochastics and Financial Mathematics"@en ;
 .
 sec:supplyChainManagement
   rdf:type sec:Track ;
@@ -1007,7 +1017,7 @@ sec:supplyChainManagement
   sec:requiresKnowledge sec:realAnalysis ;
   sec:requiresKnowledge sec:statistic ;
   sec:requiresKnowledge sec:stochasticModelling ;
-  rdfs:label "supply chain management"@en ;
+  rdfs:label "Supply Chain Management"@en ;
 .
 sec:syntax
   rdf:type sec:ExtraKnowledge ;
@@ -1039,7 +1049,7 @@ sec:textMining
   sec:requiresKnowledge sec:phonology ;
   sec:requiresKnowledge sec:semantic ;
   sec:requiresKnowledge sec:syntax ;
-  rdfs:label "text mining"@en ;
+  rdfs:label "Text Mining"@en ;
 .
 sec:thermodynamics
   rdf:type sec:ExtraKnowledge ;
