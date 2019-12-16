@@ -3,6 +3,7 @@ from rdflib import Graph
 import sys
 import io
 import random
+import inspect
 app = Flask(__name__)
 
 ontology = "Ontology.ttl"
@@ -58,7 +59,30 @@ def get_knowledge(degree_name, track_name):
 
     return (knowledge_list)
 
+###########################################
+####### GET BACHELORS FROM ONTOLOGY #######
+###########################################
+def get_bachelor(degree_name, track_name):
+    degree = degree_name
+    trackname = track_name
+    bachelor_list = []
 
+    bachelor_q_result = g.query(
+      """select ?bachelordegree_label where {
+         VALUES ?masterdegree { """+degree+""" }
+         VALUES ?track { """+trackname+""" }
+         ?masterdegree rdf:type sec:MasterDegree .
+         ?masterdegree sec:hasTrack ?track .
+         ?bachelordegree rdf:type sec:BachelorDegree .
+         ?bachelordegree rdfs:label ?bachelordegree_label .
+         FILTER (LANG(?bachelordegree_label)  = 'en') 
+      }order by ?bachelordegree_label
+      """)
+
+    for row in bachelor_q_result:
+      bachelor_list.append("%s" % row)
+
+    return (bachelor_list)
 
 @app.route('/result')
 def result():
@@ -100,37 +124,6 @@ def index_get():
        ##########################################
 
        ##########################################
-       ####### DISPLAY MASTER TRACK BEGIN #######
-       ##########################################
-
-       ## Creating a dictionary here - {programme1: [track1, track2, ...], programme2: [], ...}
-       ## The idea is to read the keys as programmes and populate the tracks accordingly
-
-       # sec_name = ["sec:mscArtificialIntelligence", "sec:mscBioinformaticsAndSystemsBiology", "sec:mscBusinessAnalytics",
-       #          "sec:mscComputerScience", "sec:mscEconometricsAndOperationsResearch", "sec:mscGenesInBehaviourAndHealth", 
-       #          "sec:mscInformationScience", "sec:mscLinguistic", "sec:mscMathematics", "sec:mscParallelDistributedComputerSystem",
-       #          "sec:mscScienceBusinessInnovation", "sec:mscStochasticsAndFinancialMathematics"]
-
-       # track_list = []
-
-       # for item in sec_name:
-       #     tracks = get_track(item)
-       #     track_list.append(tracks)
-
-       # master_track_map = dict(zip(master_prgrm, track_list))
-
-       # get the selected master program
-       # after getting the selected master program do something like this for ALL 12 programs.
-       # if (selected_master == "MSc Artificial Intelligence"):
-          # selected_master = "sec:mscArtificialIntelligence"
-          # get_track(selected_master)
-       # ^ that is needed to pass to the query and query from the ontology.
-
-       ##########################################
-       ####### DISPLAY MASTER TRACK END #########
-       ##########################################
-
-       ##########################################
        ####### DISPLAY ENGLISH TEST BEGIN #######
        ##########################################
        english_q_result = g.query(
@@ -149,12 +142,14 @@ def index_get():
        ########################################
        tracks=['select master program']
        knowledge = ['select track']
+       bachelors = ['Other']
 
        return render_template('index.html', 
         master_map=master_map, 
         english_test=english_test, 
         tracks=tracks, 
-        knowledge=knowledge)
+        knowledge=knowledge,
+        bachelors=bachelors)
 
 
 @app.route('/index', methods=['POST'])
@@ -239,7 +234,7 @@ def update_knowledge():
   selected_track = request.args.get('selected_track', type=str)
   print('selected_track: ', selected_track)
 
-  updated_knowledge = check_knowledge(selected_track)
+  updated_knowledge = check_knowledge_or_bachelor(selected_track)
 
   print('knowledge list: ', updated_knowledge)
   html_string_selected = ''
@@ -248,6 +243,27 @@ def update_knowledge():
 
   return jsonify(html_string_selected=html_string_selected)
 
+#######################################
+####### POPULATE BACHELOR LIST ########
+#######################################
+@app.route('/update_bachelor')
+def update_bachelor():
+  # gonna update knowledge here depending on selected track, once jquery is fixed
+  #selected_master = request.args.get('selected_master', type=str)
+  selected_track = request.args.get('selected_track', type=str)
+
+  updated_bachelor = check_knowledge_or_bachelor(selected_track)
+
+  print('bachelors list: ', updated_bachelor)
+  html_string_selected = ''
+  for entry in updated_bachelor:
+      html_string_selected += '<option value="{}">{}</option>'.format(entry, entry)
+
+  return jsonify(html_string_selected=html_string_selected)
+
+
+def test():
+  print('checking whose callling')
 
 ###############################
 ####### CHECK TRACK ###########
@@ -305,102 +321,183 @@ def check_track(selected_master):
 ###############################
 ####### CHECK KNOWLEDGE #######
 ###############################
-def check_knowledge(selected_track):
+def check_knowledge_or_bachelor(selected_track):
+  curframe = inspect.currentframe()
+  calframe = inspect.getouterframes(curframe, 2)
+  print('caller name:', calframe[1][3])
+  if calframe[1][3] == 'update_track_menu':
+    test()
   if selected_track == 'Cognitive Science':
     selected_track = "sec:cognitiveScience"
     selected_master = "sec:mscArtificialIntelligence"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Artificial Intelligence':
     selected_track = "sec:artificialIntelligence"
     selected_master = "sec:mscArtificialIntelligence"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Business Analytics':
     selected_track = "sec:businessAnalytics"
     selected_master = "sec:mscBusinessAnalytics"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Big Data Engineering':
     selected_track = "sec:bigDataEngineering"
     selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Computer Systems Security':
     selected_track = "sec:computerSystemsSecurity"
     selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Foundations of Computing and Concurrency':
     selected_track = "sec:foundationsOfComputingAndConcurrency"
     selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Internet and Web Technology':
     selected_track = "sec:internetAndWebTechnology"
     selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Parallel Computing Systems':
     selected_track = "sec:parallelComputingSystems"
     selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Software Engineering and Green IT':
     selected_track = "sec:softwareEngineeringAndGreenIT"
     selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Econometrics and Data Science':
     selected_track = "sec:econometricsAndDataScience"
     selected_master = "sec:mscEconometricsAndOperationsResearch"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Financial Engineering':
     selected_track = "sec:financialEngineering"
     selected_master = "sec:mscEconometricsAndOperationsResearch"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Operations Research Theory':
     selected_track = "sec:operationsResearchTheory"
     selected_master = "sec:mscEconometricsAndOperationsResearch"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Supply Chain Management':
     selected_track = "sec:supplyChainManagement"
     selected_master = "sec:mscEconometricsAndOperationsResearch"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Research Master':
     selected_track = "sec:researchMaster"
     selected_master = "sec:mscGenesInBehaviourAndHealth"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Information Science':
     selected_track = "sec:informationScience"
     selected_master = "sec:mscInformationScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Text Mining':
     selected_track = "sec:textMining"
     selected_master = "sec:mscLinguistic"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Mathematics':
     selected_track = "sec:mathematics"
     selected_master = "sec:mscMathematics"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Science Business Innovation':
     selected_track = "sec:scienceBusinessInnovation"
     selected_master = "sec:mscScienceBusinessInnovation"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
   elif selected_track == 'Stochastics and Financial Mathematics':
     selected_track = "sec:stochasticsAndFinancialMathematics"
     selected_master = "sec:mscStochasticsAndFinancialMathematics"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-    return updated_knowledge
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
 
 
 
