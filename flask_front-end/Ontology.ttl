@@ -142,7 +142,7 @@ sec:algorithms
 .
 sec:anyOtherScienceBachelor
   rdf:type sec:BachelorDegree ;
-  rdfs:label "any other bachelor in science"@en ;
+  rdfs:label "Any Other Bachelor in Science"@en ;
 .
 sec:artificalIntelligenceBachelorScore45
   rdf:type sec:EligibilityQuantity ;
@@ -215,7 +215,7 @@ sec:bigDataEngineering
 .
 sec:bioinformatic
   rdf:type sec:BachelorDegree ;
-  rdfs:label "bioinformatics"@en ;
+  rdfs:label "Bioinformatics"@en ;
 .
 sec:bioinformaticsAndSystemsBiology
   rdf:type sec:Track ;
@@ -249,7 +249,7 @@ sec:biology
 .
 sec:biomedicalScience
   rdf:type sec:BachelorDegree ;
-  rdfs:label "biomedical sciences"@en ;
+  rdfs:label "Biomedical Sciences"@en ;
 .
 sec:businessAnalytics
   rdf:type sec:BachelorDegree ;
@@ -339,7 +339,7 @@ sec:computerNetwork
 .
 sec:computerScience
   rdf:type sec:BachelorDegree ;
-  rdfs:label "computer science"@en ;
+  rdfs:label "Computer Science"@en ;
 .
 sec:computerSkills
   rdf:type sec:ExtraKnowledge ;
@@ -414,11 +414,11 @@ sec:econometricsAndDataScience
 .
 sec:educationalScience
   rdf:type sec:BachelorDegree ;
-  rdfs:label "educational science"@en ;
+  rdfs:label "Educational Science"@en ;
 .
 sec:engineeringMathematics
   rdf:type sec:BachelorDegree ;
-  rdfs:label "engineering mathematics"@en ;
+  rdfs:label "Engineering Mathematics"@en ;
 .
 sec:financialEngineering
   rdf:type sec:Track ;
@@ -509,7 +509,7 @@ sec:hasType
 .
 sec:healthScience
   rdf:type sec:BachelorDegree ;
-  rdfs:label "health sciences"@en ;
+  rdfs:label "Health Sciences"@en ;
 .
 sec:ielts
   rdf:type sec:EnglishTest ;
@@ -517,7 +517,7 @@ sec:ielts
 .
 sec:informatic
   rdf:type sec:BachelorDegree ;
-  rdfs:label "informatics"@en ;
+  rdfs:label "Informatics"@en ;
 .
 sec:informationScience
   rdf:type sec:Track ;
@@ -601,7 +601,7 @@ sec:linearAlgebra
 .
 sec:linguistic
   rdf:type sec:BachelorDegree ;
-  rdfs:label "linguistics"@en ;
+  rdfs:label "Linguistics"@en ;
 .
 sec:logic
   rdf:type sec:ExtraKnowledge ;
@@ -636,7 +636,7 @@ sec:mathematicsLinearAlgebraDiscreteMathematicsStatistics
 .
 sec:medicine
   rdf:type sec:BachelorDegree ;
-  rdfs:label "medicine"@en ;
+  rdfs:label "Medicine"@en ;
 .
 sec:morphology
   rdf:type sec:ExtraKnowledge ;
@@ -806,7 +806,7 @@ sec:phonology
 .
 sec:phsychology
   rdf:type sec:BachelorDegree ;
-  rdfs:label "psychology"@en ;
+  rdfs:label "Psychology"@en ;
 .
 sec:physics
   rdf:type sec:BachelorDegree ;
@@ -831,7 +831,7 @@ sec:prolog
 .
 sec:psychobiology
   rdf:type sec:BachelorDegree ;
-  rdfs:label "psychobiology"@en ;
+  rdfs:label "Psychobiology"@en ;
 .
 sec:psychology
   rdf:type sec:ExtraKnowledge ;
@@ -1025,7 +1025,7 @@ sec:syntax
 .
 sec:technicalMathematics
   rdf:type sec:BachelorDegree ;
-  rdfs:label "technical mathematics"@en ;
+  rdfs:label "Technical Mathematics"@en ;
 .
 sec:textMining
   rdf:type sec:Track ;

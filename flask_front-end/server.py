@@ -6,7 +6,7 @@ import random
 import inspect
 app = Flask(__name__)
 
-ontology = "Ontology.ttl"
+ontology = "C:/Users/rshaw/OneDrive - NetApp Inc/Documents/Uni Stuff/KE/StudentEligibilityChecker/flask_front-end/Ontology.ttl"
 g = Graph()
 g.parse(ontology, format='ttl')
 
@@ -283,7 +283,7 @@ def update_knowledge():
   print('knowledge list: ', updated_knowledge)
   html_string_selected = ''
   for entry in updated_knowledge:
-      html_string_selected += '<label value="{}">{}</label>'.format(entry, entry)
+      html_string_selected += '<input class="form-check-input" value="{}" type="checkbox" id="{}" /><label value="{}" class="form-check-label" for="{}">{}</label></br>'.format(entry, entry, entry, entry, entry)
 
   return jsonify(html_string_selected=html_string_selected)
 
