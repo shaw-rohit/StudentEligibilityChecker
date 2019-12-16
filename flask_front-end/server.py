@@ -6,7 +6,7 @@ import random
 import inspect
 app = Flask(__name__)
 
-ontology = "C:/Users/rshaw/OneDrive - NetApp Inc/Documents/Uni Stuff/KE/StudentEligibilityChecker/flask_front-end/Ontology.ttl"
+ontology = "Ontology.ttl"
 g = Graph()
 g.parse(ontology, format='ttl')
 
@@ -73,6 +73,7 @@ def get_bachelor(degree_name, track_name):
          VALUES ?track { """+trackname+""" }
          ?masterdegree rdf:type sec:MasterDegree .
          ?masterdegree sec:hasTrack ?track .
+         ?track sec:requiresBachelorDegree ?bachelordegree .
          ?bachelordegree rdf:type sec:BachelorDegree .
          ?bachelordegree rdfs:label ?bachelordegree_label .
          FILTER (LANG(?bachelordegree_label)  = 'en') 
@@ -81,6 +82,8 @@ def get_bachelor(degree_name, track_name):
 
     for row in bachelor_q_result:
       bachelor_list.append("%s" % row)
+    bachelor_list.insert(0, "Choose")
+    bachelor_list.insert(1, "Other")
 
     return (bachelor_list)
 
@@ -494,7 +497,7 @@ def check_knowledge_or_bachelor(selected_track):
     elif calframe[1][3] == 'update_bachelor':
         updated_bachelor = get_bachelor(selected_master, selected_track)
         return updated_bachelor
-  elif selected_track == 'Information Science':
+  elif selected_track == 'Information Sciences':
     selected_track = "sec:informationScience"
     selected_master = "sec:mscInformationScience"
     if calframe[1][3] == 'update_knowledge':
@@ -533,6 +536,24 @@ def check_knowledge_or_bachelor(selected_track):
   elif selected_track == 'Stochastics and Financial Mathematics':
     selected_track = "sec:stochasticsAndFinancialMathematics"
     selected_master = "sec:mscStochasticsAndFinancialMathematics"
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
+  elif selected_track == 'Bioinformatics and Systems Biology':
+    selected_track = "sec:bioinformaticsAndSystemsBiology"
+    selected_master = "sec:mscBioinformaticsAndSystemsBiology"
+    if calframe[1][3] == 'update_knowledge':
+        updated_knowledge = get_knowledge(selected_master, selected_track)
+        return updated_knowledge
+    elif calframe[1][3] == 'update_bachelor':
+        updated_bachelor = get_bachelor(selected_master, selected_track)
+        return updated_bachelor
+  elif selected_track == 'Parallel Distributed Computer Systems':
+    selected_track = "sec:parallelDistributedComputerSystem"
+    selected_master = "sec:mscParallelDistributedComputerSystem"
     if calframe[1][3] == 'update_knowledge':
         updated_knowledge = get_knowledge(selected_master, selected_track)
         return updated_knowledge
