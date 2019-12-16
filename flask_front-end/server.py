@@ -218,43 +218,8 @@ def update_track_menu():
     selected_master = request.args.get('selected_master', type=str)
     print('selected master: ',selected_master)
            # master_id = ['ai', 'bsb', 'ba', 'cs', 'eoc', 'gbh', 'is', 'lgs', 'math', 'pdcs', 'sbi', 'sfm']
-    if selected_master == 'math':
-      selected_master = "sec:mscMathematics"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'ai':
-      selected_master = "sec:mscArtificialIntelligence"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'cs':
-      selected_master = "sec:mscComputerScience"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'ba':
-      selected_master = "sec:mscBusinessAnalytics"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'bsb':
-      selected_master = "sec:mscBioinformaticsAndSystemsBiology"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'eoc':
-      selected_master = "sec:mscEconometricsAndOperationsResearch"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'gbh':
-      selected_master = "sec:mscGenesInBehaviourAndHealth"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'is':
-      selected_master = "sec:mscInformationScience"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'lgs':
-      selected_master = "sec:mscLinguistic"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'pdcs':
-      selected_master = "sec:mscParallelDistributedComputerSystem"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'sbi':
-      selected_master = "sec:mscScienceBusinessInnovation"
-      updated_tracks = get_track(selected_master)
-    elif selected_master == 'sfm':
-      selected_master = "sec:mscStochasticsAndFinancialMathematics"
-      updated_tracks = get_track(selected_master)
 
+    updated_tracks = check_track(selected_master)
     print('track list: ', updated_tracks)
 
     # create the values in the dropdown as a html string
@@ -264,6 +229,9 @@ def update_track_menu():
 
     return jsonify(html_string_selected=html_string_selected)
 
+#######################################
+####### POPULATE KNOWLEDGE LIST #######
+#######################################
 @app.route('/update_knowledge')
 def update_knowledge():
   # gonna update knowledge here depending on selected track, once jquery is fixed
@@ -271,83 +239,7 @@ def update_knowledge():
   selected_track = request.args.get('selected_track', type=str)
   print('selected_track: ', selected_track)
 
-  if selected_track == 'Cognitive Science':
-    selected_track = "sec:cognitiveScience"
-    selected_master = "sec:mscArtificialIntelligence"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Artificial Intelligence':
-    selected_track = "sec:artificialIntelligence"
-    selected_master = "sec:mscArtificialIntelligence"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Business Analytics':
-    selected_track = "sec:businessAnalytics"
-    selected_master = "sec:mscBusinessAnalytics"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Big Data Engineering':
-    selected_track = "sec:bigDataEngineering"
-    selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Computer Systems Security':
-    selected_track = "sec:computerSystemsSecurity"
-    selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Foundations of Computing and Concurrency':
-    selected_track = "sec:foundationsOfComputingAndConcurrency"
-    selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Internet and Web Technology':
-    selected_track = "sec:internetAndWebTechnology"
-    selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Parallel Computing Systems':
-    selected_track = "sec:parallelComputingSystems"
-    selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Software Engineering and Green IT':
-    selected_track = "sec:softwareEngineeringAndGreenIT"
-    selected_master = "sec:mscComputerScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Econometrics and Data Science':
-    selected_track = "sec:econometricsAndDataScience"
-    selected_master = "sec:mscEconometricsAndOperationsResearch"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Financial Engineering':
-    selected_track = "sec:financialEngineering"
-    selected_master = "sec:mscEconometricsAndOperationsResearch"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Operations Research Theory':
-    selected_track = "sec:operationsResearchTheory"
-    selected_master = "sec:mscEconometricsAndOperationsResearch"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Supply Chain Management':
-    selected_track = "sec:supplyChainManagement"
-    selected_master = "sec:mscEconometricsAndOperationsResearch"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Research Master':
-    selected_track = "sec:researchMaster"
-    selected_master = "sec:mscGenesInBehaviourAndHealth"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Information Science':
-    selected_track = "sec:informationScience"
-    selected_master = "sec:mscInformationScience"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Text Mining':
-    selected_track = "sec:textMining"
-    selected_master = "sec:mscLinguistic"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Mathematics':
-    selected_track = "sec:mathematics"
-    selected_master = "sec:mscMathematics"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Science Business Innovation':
-    selected_track = "sec:scienceBusinessInnovation"
-    selected_master = "sec:mscScienceBusinessInnovation"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-  elif selected_track == 'Stochastics and Financial Mathematics':
-    selected_track = "sec:stochasticsAndFinancialMathematics"
-    selected_master = "sec:mscStochasticsAndFinancialMathematics"
-    updated_knowledge = get_knowledge(selected_master, selected_track)
-
+  updated_knowledge = check_knowledge(selected_track)
 
   print('knowledge list: ', updated_knowledge)
   html_string_selected = ''
@@ -356,32 +248,162 @@ def update_knowledge():
 
   return jsonify(html_string_selected=html_string_selected)
 
-## This method receives the option ID (master_id) of the selected programme from the front end and gets the track for it
-## Not sure how to send the track list to the front-end
-# @app.route('/programme', methods=['POST', 'GET'])
-# def programme():
-#     if request.method=='POST':
-#       print('this is post request')
-#       name = request.args.get('value')
-#       if name != '':
-#           selected_master = list(master_map.keys())[list(master_map.values()).index(name)]   # retrieve the key from the value (master_id)
-#           print(selected_master)
-          
-#           if (selected_master == "MSc Artificial Intelligence"):
-#               selected_master = "sec:mscArtificialIntelligence"
-#               track_list = get_track(selected_master)
-#           elif (selected_master == "MSc Computer Science"):
-#               selected_master = "sec:mscComputerScience"
-#               track_list = get_track(selected_master)
-#           elif (selected_master == "MSc Econometrics and Operations Research"):
-#               selected_master = "sec:mscEconometricsAndOperationsResearch"
-#               track_list = get_track(selected_master)
 
-#       print (track_list)
-#     elif request.method=='GET':
-#       print('this is get request')
+###############################
+####### CHECK TRACK ###########
+###############################
+def check_track(selected_master):
+  if selected_master == 'math':
+    selected_master = "sec:mscMathematics"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'ai':
+    selected_master = "sec:mscArtificialIntelligence"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'cs':
+    selected_master = "sec:mscComputerScience"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'ba':
+    selected_master = "sec:mscBusinessAnalytics"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'bsb':
+    selected_master = "sec:mscBioinformaticsAndSystemsBiology"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'eoc':
+    selected_master = "sec:mscEconometricsAndOperationsResearch"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'gbh':
+    selected_master = "sec:mscGenesInBehaviourAndHealth"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'is':
+    selected_master = "sec:mscInformationScience"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'lgs':
+    selected_master = "sec:mscLinguistic"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'pdcs':
+    selected_master = "sec:mscParallelDistributedComputerSystem"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'sbi':
+    selected_master = "sec:mscScienceBusinessInnovation"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
+  elif selected_master == 'sfm':
+    selected_master = "sec:mscStochasticsAndFinancialMathematics"
+    updated_tracks = get_track(selected_master)
+    return updated_tracks
 
-#     return jsonify({'reply':'success'})
+###############################
+####### CHECK KNOWLEDGE #######
+###############################
+def check_knowledge(selected_track):
+  if selected_track == 'Cognitive Science':
+    selected_track = "sec:cognitiveScience"
+    selected_master = "sec:mscArtificialIntelligence"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Artificial Intelligence':
+    selected_track = "sec:artificialIntelligence"
+    selected_master = "sec:mscArtificialIntelligence"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Business Analytics':
+    selected_track = "sec:businessAnalytics"
+    selected_master = "sec:mscBusinessAnalytics"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Big Data Engineering':
+    selected_track = "sec:bigDataEngineering"
+    selected_master = "sec:mscComputerScience"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Computer Systems Security':
+    selected_track = "sec:computerSystemsSecurity"
+    selected_master = "sec:mscComputerScience"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Foundations of Computing and Concurrency':
+    selected_track = "sec:foundationsOfComputingAndConcurrency"
+    selected_master = "sec:mscComputerScience"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Internet and Web Technology':
+    selected_track = "sec:internetAndWebTechnology"
+    selected_master = "sec:mscComputerScience"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Parallel Computing Systems':
+    selected_track = "sec:parallelComputingSystems"
+    selected_master = "sec:mscComputerScience"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Software Engineering and Green IT':
+    selected_track = "sec:softwareEngineeringAndGreenIT"
+    selected_master = "sec:mscComputerScience"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Econometrics and Data Science':
+    selected_track = "sec:econometricsAndDataScience"
+    selected_master = "sec:mscEconometricsAndOperationsResearch"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Financial Engineering':
+    selected_track = "sec:financialEngineering"
+    selected_master = "sec:mscEconometricsAndOperationsResearch"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Operations Research Theory':
+    selected_track = "sec:operationsResearchTheory"
+    selected_master = "sec:mscEconometricsAndOperationsResearch"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Supply Chain Management':
+    selected_track = "sec:supplyChainManagement"
+    selected_master = "sec:mscEconometricsAndOperationsResearch"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Research Master':
+    selected_track = "sec:researchMaster"
+    selected_master = "sec:mscGenesInBehaviourAndHealth"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Information Science':
+    selected_track = "sec:informationScience"
+    selected_master = "sec:mscInformationScience"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Text Mining':
+    selected_track = "sec:textMining"
+    selected_master = "sec:mscLinguistic"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Mathematics':
+    selected_track = "sec:mathematics"
+    selected_master = "sec:mscMathematics"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Science Business Innovation':
+    selected_track = "sec:scienceBusinessInnovation"
+    selected_master = "sec:mscScienceBusinessInnovation"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+  elif selected_track == 'Stochastics and Financial Mathematics':
+    selected_track = "sec:stochasticsAndFinancialMathematics"
+    selected_master = "sec:mscStochasticsAndFinancialMathematics"
+    updated_knowledge = get_knowledge(selected_master, selected_track)
+    return updated_knowledge
+
+
+
 
 
 #####converts us gpa to uk gpa
@@ -429,6 +451,8 @@ def ind_to_us(gpa):
         return 1.7
     if gpa < 5:
         return round(random.uniform(0, 1.3), 1)
+
+
 
 
 if __name__ == '__main__':
