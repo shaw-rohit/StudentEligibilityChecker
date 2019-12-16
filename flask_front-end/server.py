@@ -96,7 +96,8 @@ def result():
       gpa_scale=request.args.get('gpa_scale'),
       converted_gpa=request.args.get('converted_gpa'),
       selected_bachelor=request.args.get('selected_bachelor'),
-      selected_bachelor_type=request.args.get('selected_bachelor_type'))
+      selected_bachelor_type=request.args.get('selected_bachelor_type'),
+      selected_native=request.args.get('selected_native'))
 
 
 @app.route('/index')
@@ -237,9 +238,33 @@ def index_post():
            calc_ind_gpa = us_to_uk(usa_gpa)
            print(calc_ind_gpa)
            converted_gpa = calc_ind_gpa
-        #########################
-        ####### GPA END #######
-        #########################
+
+       #########################
+       ####### NATIVE ENGLISH BEGIN #######
+       #########################
+       selected_native = request.form.get('native')
+       print('Native speaker: ', selected_native)
+
+       #########################
+       ####### ENGLISH TEST BEGIN #######
+       #########################
+       selected_engtest = request.form.get('englishtest')
+       print('English test: ', selected_engtest)
+       selected_eng_score = request.form.get('etest')
+       print('English score: ', selected_eng_score)
+
+       #########################
+       #######  WORK EXP. BEGIN #######
+       #########################
+       selected_work = request.form.get('work')
+       print('Work exp: ', selected_work)
+
+       #########################
+       #######  KNOWLEDGE BEGIN #######
+       #########################
+       selected_knowledge = request.form.getlist('knowledge')
+       print('Knowledge: ', selected_knowledge)
+
         
        print(converted_gpa)
        return redirect(url_for('result',
@@ -249,7 +274,8 @@ def index_post():
         gpa_scale=gpa_scale,
         converted_gpa=converted_gpa,
         selected_bachelor=selected_bachelor,
-        selected_bachelor_type=selected_bachelor_type))
+        selected_bachelor_type=selected_bachelor_type,
+        selected_native=selected_native))
 
 
 # this method gets the selected master program, and updated the track menu accordingly
@@ -286,7 +312,7 @@ def update_knowledge():
   print('knowledge list: ', updated_knowledge)
   html_string_selected = ''
   for entry in updated_knowledge:
-      html_string_selected += '<input class="form-check-input" value="{}" type="checkbox" id="{}" /><label value="{}" class="form-check-label" for="{}">{}</label></br>'.format(entry, entry, entry, entry, entry)
+      html_string_selected += '<input type="checkbox" name="knowledge" value="{}">{}</br>'.format(entry, entry)
 
   return jsonify(html_string_selected=html_string_selected)
 
