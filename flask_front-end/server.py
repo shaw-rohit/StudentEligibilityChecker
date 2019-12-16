@@ -88,9 +88,12 @@ def get_bachelor(degree_name, track_name):
 def result():
     return render_template('result.html',
       selected_master=request.args.get('selected_master'),
+      selected_track=request.args.get('selected_track'),
       gpa=request.args.get('gpa'),
       gpa_scale=request.args.get('gpa_scale'),
-      converted_gpa=request.args.get('converted_gpa'))
+      converted_gpa=request.args.get('converted_gpa'),
+      selected_bachelor=request.args.get('selected_bachelor'),
+      selected_bachelor_type=request.args.get('selected_bachelor_type'))
 
 
 @app.route('/index')
@@ -156,6 +159,10 @@ def index_get():
 def index_post():
    print('sup')
    if request.method=='POST':
+       #########################
+       ####### MASTER BEGIN #######
+       #########################
+        # master_id = ['ai', 'bsb', 'ba', 'cs', 'eoc', 'gbh', 'is', 'lgs', 'math', 'pdcs', 'sbi', 'sfm']
        selected_master = request.form.get('programme')
        if selected_master == 'ai':
            selected_master = 'MSc Artificial Intelligence'
@@ -165,6 +172,40 @@ def index_post():
            selected_master = 'MSc Business Analytics'
        elif selected_master == 'is':
            selected_master = 'MSc Information Science'
+       elif selected_master == 'bsb':
+           selected_master = 'MSc Bioinformatics&Systems Biology'
+       elif selected_master == 'eoc':
+           selected_master = 'MSc Econometrics and Operations Research'
+       elif selected_master == 'gbh':
+           selected_master = 'MSc Genes In Behaviour and Health'
+       elif selected_master == 'lgs':
+           selected_master = 'MSc Linguistics'
+       elif selected_master == 'math':
+           selected_master = 'MSc Mathematics'
+       elif selected_master == 'pdcs':
+           selected_master = 'MSc Parallel Distributed Computer Systems'
+       elif selected_master == 'sbi':
+           selected_master = 'MSc Science Business Innovation'
+       elif selected_master == 'sfm':
+           selected_master = 'MSc Stochastics&Financial Mathematics'
+
+       #########################
+       ####### TRACK BEGIN #######
+       #########################
+
+       selected_track = request.form.get('tracks')
+
+       #########################
+       ####### BACHELOR BEGIN #######
+       #########################
+
+       selected_bachelor = request.form.get('bachelors')
+
+       #########################
+       ####### BACHELOR TYPE BEGIN #######
+       #########################
+
+       selected_bachelor_type = request.form.get('btype')
        
        #########################
        ####### GPA BEGIN #######
@@ -200,9 +241,12 @@ def index_post():
        print(converted_gpa)
        return redirect(url_for('result',
         selected_master=selected_master,
+        selected_track=selected_track,
         gpa=gpa,
         gpa_scale=gpa_scale,
-        converted_gpa=converted_gpa))
+        converted_gpa=converted_gpa,
+        selected_bachelor=selected_bachelor,
+        selected_bachelor_type=selected_bachelor_type))
 
 
 # this method gets the selected master program, and updated the track menu accordingly
@@ -262,9 +306,6 @@ def update_bachelor():
   return jsonify(html_string_selected=html_string_selected)
 
 
-def test():
-  print('checking whose callling')
-
 ###############################
 ####### CHECK TRACK ###########
 ###############################
@@ -318,9 +359,9 @@ def check_track(selected_master):
     updated_tracks = get_track(selected_master)
     return updated_tracks
 
-###############################
-####### CHECK KNOWLEDGE #######
-###############################
+##########################################
+####### CHECK KNOWLEDGE & BACHELOR #######
+##########################################
 def check_knowledge_or_bachelor(selected_track):
   curframe = inspect.currentframe()
   calframe = inspect.getouterframes(curframe, 2)
@@ -498,9 +539,6 @@ def check_knowledge_or_bachelor(selected_track):
     elif calframe[1][3] == 'update_bachelor':
         updated_bachelor = get_bachelor(selected_master, selected_track)
         return updated_bachelor
-
-
-
 
 
 #####converts us gpa to uk gpa
