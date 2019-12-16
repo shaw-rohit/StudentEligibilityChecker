@@ -87,11 +87,6 @@
                                   <option id={{ id }} value={{ id }}>{{ master }}</option>
 
                                 {% endfor %}
-<!--                                 <option id="cs" value="cs">MSc Computer Science</option>
-                                <option id="is" value="3">MSc Information Sciences</option> -->
-<!--                                 <option id="cs" value="1">MSc Computer Science</option>
-                                <option id="ai" value="2">MSc Artificial Intelligence</option>
-                                <option id="is" value="3">MSc Information Sciences</option> -->
                               </select>
                         </div>
                     </div>
@@ -106,41 +101,9 @@
                                     <option value="{{ o }}">{{ o }}</option> <!-- todo -->
 
                                     {% endfor %}
-
-                                    <!-- <option id="cs1" value="Internet & Web Technology">Internet & Web Technology</option>
-                                    <option id="cs2" value="Big Data Engineering">Big Data Engineering</option>
-                                    <option id="cs3" value="Software Engineering and Green IT">Software Engineering and Green IT</option>
-                                    <option id="cs4" value="Parallel Computing Systems">Parallel Computing Systems</option>
-                                    <option id="cs5" value="Foundations of Computing and Concurrency">Foundations of Computing and Concurrency</option>
-                                    <option id="cs6" value="Computer Systems Security">Computer Systems Security</option> -->
                                 </select>
                         </div>
                    </div>
-<!--
-                 <div id="ai_track">
-                   <div class="form-row">
-                     <div class="form-holder form-holder-2">
-                           <legend>Track or Specialization</legend>
-                               <select id="ai_track" name="ai_track" class="browser-default custom-select">
-                                   <option selected hidden>Choose</option>
-                                   <option id="ai1" value="Artifical Intelligenc">Artifical Intelligence</option>
-                                   <option id="ai2" value="Cognitive Science">Cognitive Science</option>
-                                   <option id="ai3" value="Hybrid Intelligence">Hybrid Intelligence</option>
-                               </select>
-                       </div>
-                  </div>
-                </div> -->
- <!--                <div id="is_track">
-                  <div class="form-row">
-                    <div class="form-holder form-holder-2">
-                          <legend>Track or Specialization</legend>
-                              <select id="is_track" name="is_track" class="browser-default custom-select">
-                                  <option selected hidden>Choose</option>
-                                  <option id="is1" value="Information Sciences">Information Sciences</option>
-                              </select>
-                      </div>
-                 </div>
-               </div> -->
              </div>
     			            </section>
     						<!-- SECTION 2 -->
@@ -154,14 +117,19 @@
     									<h3 class="heading">Academic Background</h3>
     									<p>Specify details about your previous education</p>
     								</div>
-								<div class="form-row">
-    									<div class="form-holder form-holder-2">
-    										<fieldset>
-    											<legend>Bachelor Degree Programme</legend>
-    											<input type="text" name="bachelor" id="bachelor" class="form-control" 												placeholder="Enter your Bachelors" >
-    										</fieldset>
-    									</div>
-    								</div>
+								                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+                            <legend for="bachelors">Bachelor Degree Programme</legend>
+                                <select id="bachelors" name="bachelors" class="browser-default custom-select">
+                                    <option selected hidden>Choose</option>
+                                    {% for o in bachelors%}
+
+                                    <option value="{{ o }}">{{ o }}</option>
+
+                                    {% endfor %}
+                                </select>
+                        </div>
+                   </div>
 
                     <div class ="form-row">
                       <div class ="form-holder form-holder-2">
@@ -276,89 +244,9 @@
                    
 
 
-<!--                 <div id="compsci2" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            CS Course 2
-                         </label>
-                    </div>
-                </div>
-                <div id="ai11" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Java programming
-                         </label>
-                    </div>
-                </div>
-                <div id="ai22" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Programming with Prolog
-                         </label>
-                    </div>
-                </div>
-                <div id="ai33" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Introduction to AI
-                         </label>
-                    </div>
-                </div>
-                <div id="ai44" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Logic Basics
-                         </label>
-                    </div>
-                </div>
-                <div id="ai55" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Advanced Mathematics
-                         </label>
-                    </div>
-                </div>
-                <div id="ai66" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Natural Language Processing
-                         </label>
-                    </div>
-                </div>
-                <div id="ai77" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Psychology
-                         </label>
-                    </div>
-                </div>
-                 <div id="is11" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            IS Course 1
-                         </label>
-                    </div>
-                </div>
-                <div id="is22" style="display:none;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            IS Course 2
-                         </label>
-                    </div>
-                </div> -->
+
     							       </div>
-                                     <!-- <button type="submit" class="btn btn-labeled btn-success" action="http://127.0.0.1:5000/result">
-                <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Submit</button> -->
+                              
     			            </section>
     		        	</div>
     		        </form>
@@ -533,33 +421,6 @@
     });
 </script>
 
-<!-- <script>
-  function pass_programme(selection) {
-    var sel = selection.value;
-    var prgrm_name = "";
-    if(sel != 'Choose') {
-      prgrm_name = sel;
-      url = 'http://127.0.0.1:5000/programme?value=' + prgrm_name;
-    }
-    $.ajax(
-      {
-        type:'POST',
-        contentType:'application/json; charset-utf-08',
-        dataType:'json',
-        url: url,
-        success: function (data) {
-          var reply = data.reply;
-          if (reply == "success") {
-              return;
-          }
-          else {
-              alert("some error ocured")
-          }
-        }
-      }
-    );
-  }
-</script> -->
 <script type="text/javascript">
       $(document).ready(function() {
 
@@ -579,6 +440,15 @@
 
           }).success(function(data) {
                 $('#knowledge').html(data.html_string_selected);
+           })
+        });
+        $('#tracks').change(function(){
+
+          $.getJSON('/update_bachelor', {
+            selected_track: $('#tracks').val()
+
+          }).success(function(data) {
+                $('#bachelors').html(data.html_string_selected);
            })
         });
       });
