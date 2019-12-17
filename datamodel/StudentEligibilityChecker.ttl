@@ -290,11 +290,11 @@ sec:businessModelling
 .
 sec:cambridgeCertificateIOfProficiencyInEnglish
   rdf:type sec:EnglishTest ;
-  rdfs:label "cambridge certificate of proficiency in english"@en ;
+  rdfs:label "Cambridge Certificate of Proficiency in English"@en ;
 .
 sec:cambridgeCertificateInAdvancedEnglish
   rdf:type sec:EnglishTest ;
-  rdfs:label "cambridge certificate in advanced english"@en ;
+  rdfs:label "Cambridge Certificate in Advanced English"@en ;
 .
 sec:chemistry
   rdf:type sec:BachelorDegree ;
@@ -513,7 +513,7 @@ sec:healthScience
 .
 sec:ielts
   rdf:type sec:EnglishTest ;
-  rdfs:label "ielts"@en ;
+  rdfs:label "Ielts"@en ;
 .
 sec:informatic
   rdf:type sec:BachelorDegree ;
@@ -1057,11 +1057,11 @@ sec:thermodynamics
 .
 sec:toeflInternetBased
   rdf:type sec:EnglishTest ;
-  rdfs:label "toefl internet based"@en ;
+  rdfs:label "Toefl Internet Based"@en ;
 .
 sec:toeflPaperBased
   rdf:type sec:EnglishTest ;
-  rdfs:label "toefl paper based"@en ;
+  rdfs:label "Toefl Paper Based"@en ;
 .
 sec:vrijeUniversiteitAmsterdam
   rdf:type sec:University ;
@@ -1082,5 +1082,5 @@ sec:vrijeUniversiteitAmsterdam
 .
 sec:vuTestEnglishLanguageProficiency
   rdf:type sec:EnglishTest ;
-  rdfs:label "vu-test english language proficiency"@en ;
+  rdfs:label "VU-Test English Language Proficiency"@en ;
 .
