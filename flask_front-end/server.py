@@ -12,6 +12,7 @@ g.parse(ontology, format='ttl')
 
 master_map = {}
 master_track_map = {}
+updated_knowledge = []
 
 ############################################
 ####### GET TRACK LIST FROM ONTOLOGY #######
@@ -31,7 +32,7 @@ def get_track(degree_name):
     for row in track_q_result:
         track_list.append("%s" % row)
     track_list.insert(0, "Choose")
-    
+
     return(track_list)
 
 ################################################
@@ -76,7 +77,7 @@ def get_bachelor(degree_name, track_name):
          ?track sec:requiresBachelorDegree ?bachelordegree .
          ?bachelordegree rdf:type sec:BachelorDegree .
          ?bachelordegree rdfs:label ?bachelordegree_label .
-         FILTER (LANG(?bachelordegree_label)  = 'en') 
+         FILTER (LANG(?bachelordegree_label)  = 'en')
       }order by ?bachelordegree_label
       """)
 
@@ -97,7 +98,8 @@ def result():
       converted_gpa=request.args.get('converted_gpa'),
       selected_bachelor=request.args.get('selected_bachelor'),
       selected_bachelor_type=request.args.get('selected_bachelor_type'),
-      selected_native=request.args.get('selected_native'))
+      selected_native=request.args.get('selected_native'),
+      eligibility_score=request.args.get('eligibility_score'))
 
 
 @app.route('/index')
@@ -151,10 +153,10 @@ def index_get():
        knowledge = ['select track']
        bachelors = ['Other']
 
-       return render_template('index.html', 
-        master_map=master_map, 
-        english_test=english_test, 
-        tracks=tracks, 
+       return render_template('index.html',
+        master_map=master_map,
+        english_test=english_test,
+        tracks=tracks,
         knowledge=knowledge,
         bachelors=bachelors)
 
@@ -162,6 +164,7 @@ def index_get():
 @app.route('/index', methods=['POST'])
 def index_post():
    print('sup')
+   global updated_knowledge
    if request.method=='POST':
        #########################
        ####### MASTER BEGIN #######
@@ -177,7 +180,7 @@ def index_post():
        elif selected_master == 'is':
            selected_master = 'MSc Information Science'
        elif selected_master == 'bsb':
-           selected_master = 'MSc Bioinformatics&Systems Biology'
+           selected_master = 'MSc Bioinformatics & Systems Biology'
        elif selected_master == 'eoc':
            selected_master = 'MSc Econometrics and Operations Research'
        elif selected_master == 'gbh':
@@ -191,7 +194,7 @@ def index_post():
        elif selected_master == 'sbi':
            selected_master = 'MSc Science Business Innovation'
        elif selected_master == 'sfm':
-           selected_master = 'MSc Stochastics&Financial Mathematics'
+           selected_master = 'MSc Stochastics & Financial Mathematics'
 
        #########################
        ####### TRACK BEGIN #######
@@ -204,13 +207,15 @@ def index_post():
        #########################
 
        selected_bachelor = request.form.get('bachelors')
+       print('Selected Bachelor:', selected_bachelor)
 
        #########################
        ####### BACHELOR TYPE BEGIN #######
        #########################
 
        selected_bachelor_type = request.form.get('btype')
-       
+       print('Selected Bachelor type:', selected_bachelor_type)
+
        #########################
        ####### GPA BEGIN #######
        #########################
@@ -265,7 +270,48 @@ def index_post():
        selected_knowledge = request.form.getlist('knowledge')
        print('Knowledge: ', selected_knowledge)
 
-        
+
+       ##########################################
+       ####### CALCULATE ELIGIBILITY SCORE ######
+       ##########################################
+
+       # Bachelor's course selection score [5% weight]
+       if selected_bachelor == "Other":
+           bachelor_score = 0.0
+       else:
+           bachelor_score = 5.0
+
+       # Bachelor's - Research or not - score [40% weight]
+       if selected_bachelor_type == 'Yes':
+           bachelor_type_score = 40.0
+       else:
+           bachelor_type_score = 0.0
+
+       # Bachelor's GPA - score [5% weight]
+       if converted_gpa >= 65.00:
+           gpa_score = 5.0
+       else:
+           gpa_score = 0.0
+
+       # English language proficiency score [5% weight]
+       # if selected_engtest
+
+       # Work experience score [5% weight]
+       if selected_work in ["1 year", "> 2 years"]:
+           work_ex_score = 5.0
+       else:
+           work_ex_score = 0.0
+
+       # Knowledge score [40% weight]
+       total_knowledge_items = len(updated_knowledge)
+       selected_knowledge_items = len(selected_knowledge)
+       individual_item_weight = 40.0/total_knowledge_items
+       knowledge_score = individual_item_weight * selected_knowledge_items
+
+       # Eligibility score
+       eligibility_score = round(bachelor_score + bachelor_type_score + gpa_score + work_ex_score + knowledge_score)
+
+
        print(converted_gpa)
        return redirect(url_for('result',
         selected_master=selected_master,
@@ -275,7 +321,8 @@ def index_post():
         converted_gpa=converted_gpa,
         selected_bachelor=selected_bachelor,
         selected_bachelor_type=selected_bachelor_type,
-        selected_native=selected_native))
+        selected_native=selected_native,
+        eligibility_score=eligibility_score))
 
 
 # this method gets the selected master program, and updated the track menu accordingly
@@ -297,6 +344,7 @@ def update_track_menu():
 
     return jsonify(html_string_selected=html_string_selected)
 
+
 #######################################
 ####### POPULATE KNOWLEDGE LIST #######
 #######################################
@@ -304,6 +352,7 @@ def update_track_menu():
 def update_knowledge():
   # gonna update knowledge here depending on selected track, once jquery is fixed
   print('wassup')
+  global updated_knowledge
   selected_track = request.args.get('selected_track', type=str)
   print('selected_track: ', selected_track)
 
@@ -315,6 +364,7 @@ def update_knowledge():
       html_string_selected += '<input type="checkbox" name="knowledge" value="{}">{}</br>'.format(entry, entry)
 
   return jsonify(html_string_selected=html_string_selected)
+
 
 #######################################
 ####### POPULATE BACHELOR LIST ########
@@ -387,6 +437,7 @@ def check_track(selected_master):
     selected_master = "sec:mscStochasticsAndFinancialMathematics"
     updated_tracks = get_track(selected_master)
     return updated_tracks
+
 
 ##########################################
 ####### CHECK KNOWLEDGE & BACHELOR #######
