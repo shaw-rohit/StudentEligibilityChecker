@@ -651,7 +651,7 @@ sec:mscArtificialIntelligence
 sec:mscBioinformaticsAndSystemsBiology
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:bioinformaticsAndSystemsBiology ;
-  rdfs:label "MSc Bioinformatics&Systems Biology"@en ;
+  rdfs:label "MSc Bioinformatics & Systems Biology"@en ;
 .
 sec:mscBusinessAnalytics
   rdf:type sec:MasterDegree ;
@@ -709,7 +709,7 @@ sec:mscScienceBusinessInnovation
 sec:mscStochasticsAndFinancialMathematics
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:stochasticsAndFinancialMathematics ;
-  rdfs:label "MSc Stochastics&Financial Mathematics"@en ;
+  rdfs:label "MSc Stochastics & Financial Mathematics"@en ;
 .
 sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
