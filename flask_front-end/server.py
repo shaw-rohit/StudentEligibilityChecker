@@ -435,6 +435,7 @@ def index_post():
             gpa_score_comment = "(You do not meet the minimum GPA requirements)"
 
         # English language proficiency score [5% weight]
+        english_score_comment = ""
         if selected_native == "Yes":
             english_score = 5.0
         elif selected_engtest == "IELTS":
@@ -455,7 +456,7 @@ def index_post():
                 english_score_comment = ""
             else:
                 english_score = 0.0
-                english_score_comment = "Invalid score"
+                english_score_comment = "English Language: Invalid score"
         elif selected_engtest == "TOEFL Internet Based":
             selected_eng_thresh = int(get_english_threshold(selected_engtest))
             if (
@@ -474,7 +475,7 @@ def index_post():
                 english_score_comment = ""
             else:
                 english_score = 0.0
-                english_score_comment = "Invalid score"
+                english_score_comment = "English Language: Invalid score"
         elif selected_engtest == "TOEFL Paper Based":
             selected_eng_thresh = int(get_english_threshold(selected_engtest))
             if (
@@ -493,7 +494,7 @@ def index_post():
                 english_score_comment = ""
             else:
                 english_score = 0.0
-                english_score_comment = "Invalid score"
+                english_score_comment = "English Language: Invalid score"
         elif selected_engtest == "VU-Test English Language Proficiency":
             selected_eng_thresh = int(get_english_threshold(selected_engtest))
             if (
@@ -512,7 +513,7 @@ def index_post():
                 english_score_comment = ""
             else:
                 english_score = 0.0
-                english_score_comment = "Invalid score"
+                english_score_comment = "English Language: Invalid score"
         elif selected_engtest == "Cambridge Certificate in Advanced English":
             selected_eng_thresh = get_english_threshold(selected_engtest)
             scoreA = 3
