@@ -41,12 +41,14 @@
     </div>
   </br>
     <p>You have {{ eligibility_score }}% chance of getting admitted to {{ selected_master }} - {{ selected_track }}</p>
-    <p>Bachelor Programme: {{ selected_bachelor }} </p>
-    <p>Research Bachelor?: {{ selected_bachelor_type }} </p>
-    <p>Your GPA: {{ gpa }} </p>
-    <p>Your GPA Scale: {{ gpa_scale }} </p>
-    <p>Converted GPA: {{ converted_gpa }} </p>
+    <p>Bachelor Programme: {{ selected_bachelor }} {{ bachelor_score_comment }}</p>
+    <p>Research Bachelor: {{ selected_bachelor_type }} {{ bachelor_type_score_comment }}</p>
+    <p>Your GPA: {{ gpa }} {{ gpa_score_comment }} </p>
+    <!-- <p>Your GPA Scale: {{ gpa_scale }} </p> -->
+    <!-- <p>Converted GPA: {{ converted_gpa }} </p> -->
     <p>Native English Speaker: {{ selected_native }} </p>
+    <p>{{ knowledge_score_comment }}</p>
+    <p>{{ work_ex_score_comment }}</p>
     <form>
                 <a href="http://127.0.0.1:5000/index">Home</a>
               </form>

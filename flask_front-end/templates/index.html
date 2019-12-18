@@ -69,13 +69,13 @@
                                     <div class="form-holder">
                                         <fieldset>
                                             <legend>First Name</legend>
-                                            <input type="text" class="form-control" id="first-name" name="first-name" placeholder="First Name">
+                                            <input type="text" class="form-control" id="first-name" name="first-name" placeholder="First Name" required>
                                         </fieldset>
                                     </div>
                                     <div class="form-holder">
                                         <fieldset>
                                             <legend>Last Name</legend>
-                                            <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last Name">
+                                            <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last Name" required>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                     <div class="form-holder form-holder-2">
                                         <legend for="programme">Master Degree Programme</legend>
                                         <select name="programme" id="programme" class="browser-default custom-select">
-                                            <option selected hidden>Choose</option>
+                                            <option disabled selected hidden>Choose</option>
                                             {% for master, id in master_map.items() %}
 
                                             <option id={{ id }} value={{ id }}>{{ master }}</option>
@@ -105,7 +105,7 @@
                                     <div class="form-holder form-holder-2">
                                         <legend for="tracks">Track or Specialization</legend>
                                         <select id="tracks" name="tracks" class="browser-default custom-select">
-                                            <option selected hidden>Choose</option>
+                                            <option disabled selected hidden>Choose</option>
                                             {% for o in tracks%}
 
                                             <option value="{{ o }}">{{ o }}</option>
@@ -154,18 +154,13 @@
                                 </div>
                                 <form action="" method="POST">
                                     <div class="form-row">
-
                                         <div class="form-holder">
-
                                             <legend>GPA Scale</legend>
                                             <select name=gpascale class="browser-default custom-select">
                                                 <option selected hidden>Choose</option>
                                                 <option id="us" value="0-4">1-4</option>
-                                                <option id="ger" value="0-10">1-10</option>
-                                                <option id="usa" value="0-5">1-5</option>
-                                                <option id="uk" value="0-24">1-24</option>
+                                                <option id="ind" value="0-10">1-10</option>
                                             </select>
-
                                         </div>
 
                                         <div class="form-holder">
@@ -225,20 +220,19 @@
                                         <legend>How many years of relevant work experience do you have?</legend>
                                         <select id="work" name="work" class="browser-default custom-select">
                                             <option selected hidden>Choose</option>
-                                            <option id="one" value="1 year">
-                                                < 1 year</option>
-                                                    <option id="two" value="1-2 years">1- 2 years</option>
-                                                    <option id="three" value="> 2 years">> 2 years</option>
+                                            <option id="one" value="less 1 year">Less than 1 year</option>
+                                            <option id="two" value="2 years">1 - 2 years</option>
+                                            <option id="three" value="more 2 years">More than 2 years</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-holder form-holder-2">
-                                        <legend for="knowledge">Course Description</legend>
+                                        <legend for="knowledge">Which of the following knowledge do you possess?</legend>
                                     </div>
                                 </div>
 
-                                <div id="knowledge">
+                                <div id="knowledge" class="knowledge">
                                     <div class="form-check">
                                         {% for o in knowledge%}
                                         <input type="checkbox" name="knowledge" value="{{ o }}"> {{ o }} 

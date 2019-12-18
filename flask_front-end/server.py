@@ -127,6 +127,11 @@ def result():
         selected_bachelor_type=request.args.get("selected_bachelor_type"),
         selected_native=request.args.get("selected_native"),
         eligibility_score=request.args.get("eligibility_score"),
+        bachelor_score_comment=request.args.get("bachelor_score_comment"),
+        bachelor_type_score_comment=request.args.get("bachelor_type_score_comment"),
+        gpa_score_comment=request.args.get("gpa_score_comment"),
+        work_ex_score_comment=request.args.get("work_ex_score_comment"),
+        knowledge_score_comment=request.args.get("knowledge_score_comment"),
     )
 
 
@@ -321,35 +326,48 @@ def index_post():
         # Bachelor's course selection score [5% weight]
         if selected_bachelor == "Other":
             bachelor_score = 0.0
+            bachelor_score_comment = "(Your background differs from the ones preferred)"
         else:
             bachelor_score = 5.0
+            bachelor_score_comment = ""
 
         # Bachelor's - Research or not - score [40% weight]
         if selected_bachelor_type == "Yes":
             bachelor_type_score = 40.0
+            bachelor_type_score_comment = ""
         else:
             bachelor_type_score = 0.0
+            bachelor_type_score_comment = "(You lack experience in research)"
 
         # Bachelor's GPA - score [5% weight]
         if converted_gpa >= 65.00:
             gpa_score = 5.0
+            gpa_score_comment = ""
         else:
             gpa_score = 0.0
+            gpa_score_comment = "(You do not meet the minimum GPA requirements)"
 
         # English language proficiency score [5% weight]
-        # if selected_engtest
+        # if selected_engtest == ""
 
         # Work experience score [5% weight]
-        if selected_work in ["1 year", "> 2 years"]:
+        if (selected_work == "2 years") or (selected_work == "more 2 years"):
             work_ex_score = 5.0
+            work_ex_score_comment = "Work Experience: Your work experience might have a positive inflience on your admit decision"
         else:
             work_ex_score = 0.0
+            work_ex_score_comment = ""
 
         # Knowledge score [40% weight]
         total_knowledge_items = len(updated_knowledge)
         selected_knowledge_items = len(selected_knowledge)
         individual_item_weight = 40.0 / total_knowledge_items
         knowledge_score = individual_item_weight * selected_knowledge_items
+
+        if knowledge_score < 24.0:   # Considering 60% knowledge as the threshold
+            knowledge_score_comment = "Knowledge: You lack most of the knowledge required for this programme"
+        else:
+            knowledge_score_comment = ""
 
         # Eligibility score
         eligibility_score = round(
@@ -373,6 +391,11 @@ def index_post():
                 selected_bachelor_type=selected_bachelor_type,
                 selected_native=selected_native,
                 eligibility_score=eligibility_score,
+                bachelor_score_comment=bachelor_score_comment,
+                bachelor_type_score_comment=bachelor_type_score_comment,
+                gpa_score_comment=gpa_score_comment,
+                work_ex_score_comment=work_ex_score_comment,
+                knowledge_score_comment=knowledge_score_comment,
             )
         )
 

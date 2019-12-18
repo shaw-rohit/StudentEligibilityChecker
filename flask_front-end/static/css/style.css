@@ -40,6 +40,11 @@ body {
 	display: -webkit-flex;
 }
 
+.knowledge {
+	margin-top: -10px;
+}
+
+
 .form-v1-content .wizard-form {
 	width: 100%;
 	min-height: 686px;
@@ -252,6 +257,10 @@ body {
 	font-size: 11px;
 	font-weight: 700;
 	color: #999;
+	margin-bottom: 0px !important;
+	width: auto !important;
+	height: auto !important;
+	border-bottom: none !important;
 }
 .inner .form-row .form-holder input,
 .inner .form-row .form-holder select {
