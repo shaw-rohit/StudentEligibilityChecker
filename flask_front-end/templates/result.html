@@ -36,17 +36,17 @@
                     </div>
                 </div>
             </div>
-            <progress style="display: none" id="progress_bar" value="0" max="75"></progress>
+            <progress style="display: none" id="progress_bar" value="0" max="{{ eligibility_score }}"></progress>
         </div>
     </div>
   </br>
-    <p>You have a 75% chance of getting admitted to  {{ selected_master }} - {{ selected_track }}</p>
+    <p>You have {{ eligibility_score }}% chance of getting admitted to {{ selected_master }} - {{ selected_track }}</p>
     <p>Bachelor Programme: {{ selected_bachelor }} </p>
     <p>Research Bachelor?: {{ selected_bachelor_type }} </p>
     <p>Your GPA: {{ gpa }} </p>
     <p>Your GPA Scale: {{ gpa_scale }} </p>
     <p>Converted GPA: {{ converted_gpa }} </p>
-    <p>Native English Speaker?: {{ selected_native }} </p>
+    <p>Native English Speaker: {{ selected_native }} </p>
     <form>
                 <a href="http://127.0.0.1:5000/index">Home</a>
               </form>

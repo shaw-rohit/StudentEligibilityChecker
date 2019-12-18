@@ -503,7 +503,7 @@ sec:healthScience
 .
 sec:ielts
   rdf:type sec:EnglishTest ;
-  rdfs:label "Ielts"@en ;
+  rdfs:label "IELTS"@en ;
 .
 sec:informatic
   rdf:type sec:BachelorDegree ;
@@ -641,7 +641,7 @@ sec:mscArtificialIntelligence
 sec:mscBioinformaticsAndSystemsBiology
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:bioinformaticsAndSystemsBiology ;
-  rdfs:label "MSc Bioinformatics&Systems Biology"@en ;
+  rdfs:label "MSc Bioinformatics & Systems Biology"@en ;
 .
 sec:mscBusinessAnalytics
   rdf:type sec:MasterDegree ;
@@ -699,7 +699,7 @@ sec:mscScienceBusinessInnovation
 sec:mscStochasticsAndFinancialMathematics
   rdf:type sec:MasterDegree ;
   sec:hasTrack sec:stochasticsAndFinancialMathematics ;
-  rdfs:label "MSc Stochastics&Financial Mathematics"@en ;
+  rdfs:label "MSc Stochastics & Financial Mathematics"@en ;
 .
 sec:naturalLanguageProcessing
   rdf:type sec:ExtraKnowledge ;
@@ -1047,11 +1047,11 @@ sec:thermodynamics
 .
 sec:toeflInternetBased
   rdf:type sec:EnglishTest ;
-  rdfs:label "Toefl Internet Based"@en ;
+  rdfs:label "TOEFL Internet Based"@en ;
 .
 sec:toeflPaperBased
   rdf:type sec:EnglishTest ;
-  rdfs:label "Toefl Paper Based"@en ;
+  rdfs:label "TOEFL Paper Based"@en ;
 .
 sec:vrijeUniversiteitAmsterdam
   rdf:type sec:University ;
