@@ -22,12 +22,6 @@ sec:CorCplusprogramming
   rdf:type sec:ExtraKnowledge ;
   rdfs:label "C/C++"@en ;
 .
-sec:EligibilityQuantity
-  rdf:type owl:Class ;
-  rdfs:comment "class contains information for the final eligibility grade" ;
-  rdfs:label "Eligibility Quantity"@en ;
-  rdfs:subClassOf owl:Thing ;
-.
 sec:EnglishProfQuantity
   rdf:type owl:Class ;
   rdfs:label "english prof quantity"@en ;
@@ -143,10 +137,6 @@ sec:algorithms
 sec:anyOtherScienceBachelor
   rdf:type sec:BachelorDegree ;
   rdfs:label "Any Other Bachelor in Science"@en ;
-.
-sec:artificalIntelligenceBachelorScore45
-  rdf:type sec:EligibilityQuantity ;
-  rdfs:label "artifical Intelligence track bachelor score 45" ;
 .
 sec:artificialIntelligence
   rdf:type sec:BachelorDegree ;
