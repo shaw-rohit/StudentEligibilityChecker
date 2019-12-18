@@ -18,6 +18,7 @@ body {
 	-ms-align-items: center;
 	-moz-align-items: center;
 	-webkit-align-items: center;
+	-webkit-print-color-adjust: exact;
 }
 
 .form-v1-content   {

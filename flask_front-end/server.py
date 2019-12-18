@@ -12,6 +12,7 @@ import sys
 import io
 import random
 import inspect
+import pdfkit
 
 app = Flask(__name__)
 
@@ -22,6 +23,16 @@ g.parse(ontology, format="ttl")
 master_map = {}
 master_track_map = {}
 updated_knowledge = []
+selectedMaster = ""
+selectedTrack = ""
+
+
+############################################
+############## RESULTS TO PDF ##############
+############################################
+def pdf():
+    print("Trying to print")
+    pdfkit.from_url("127.0.0.1:5000/result", "SEC Out.pdf")
 
 
 ############################################
@@ -53,6 +64,12 @@ def get_track(degree_name):
 ####### GET KNOWLEDGE LIST FROM ONTOLOGY #######
 ################################################
 def get_knowledge(degree_name, track_name):
+    global selectedMaster
+    global selectedTrack
+
+    selectedMaster = degree_name
+    selectedTrack = track_name
+
     degree = degree_name
     trackname = track_name
     knowledge_list = []
@@ -114,6 +131,73 @@ def get_bachelor(degree_name, track_name):
     return bachelor_list
 
 
+############################################
+# GET ENGLISH TEST THRESHOLD FROM ONTOLOGY #
+############################################
+def get_english_threshold(test_name):
+    global selectedMaster
+    global selectedTrack
+
+    degree = selectedMaster
+    trackname = selectedTrack
+    test = test_name
+    test_dict = {}
+
+    print("Test_name: ", test)
+
+    english_thresh_q_result = g.query(
+        """select ?englishprof_label ?score where {
+        VALUES ?master { """
+        + degree
+        + """ }
+        VALUES ?track { """
+        + trackname
+        + """ }
+   	    ?master sec:hasTrack ?track .
+	    ?track rdf:type sec:Track .
+	    ?track sec:requiresEnglishProf ?engprofquantity .
+        ?engprofquantity sec:hasType ?englishprof .
+        ?englishprof rdfs:label ?englishprof_label .
+        FILTER (LANG(?englishprof_label)  = 'en')
+        ?engprofquantity sec:hasScore ?score .
+        }
+        """
+    )
+
+    ### figure the quotes for rdfs label
+    # english_thresh_q_result = g.query(
+    # """select ?score where {
+    #     VALUES ?master { """
+    #    + degree
+    #    + """ }
+    #     VALUES ?track { """
+    #    + trackname
+    #    + """ }
+    #    VALUES ?testname { """
+    #   + " test "
+    #   + """ }
+    #     ?master sec:hasTrack ?track .
+    #     ?track rdf:type sec:Track .
+    #     ?track sec:requiresEnglishProf ?engprofquantity .
+    # 	?engprofquantity sec:hasType ?englishprof .
+    # 	?englishprof rdf:type sec:EnglishTest .
+    # 	?englishprof rdfs:label ?testname @en .
+    #    	?engprofquantity  sec:hasScore ?score .
+    #     }
+    # """
+    # )
+
+    print("Threshold results: ")
+    for row in english_thresh_q_result:
+        string = "%s_%s" % row
+        string_list = string.split("_")
+        test_dict[string_list[0]] = string_list[-1]
+
+    print(test_dict)
+
+    return test_dict[test]
+
+
 @app.route("/result")
 def result():
     return render_template(
@@ -132,7 +216,10 @@ def result():
         gpa_score_comment=request.args.get("gpa_score_comment"),
         work_ex_score_comment=request.args.get("work_ex_score_comment"),
         knowledge_score_comment=request.args.get("knowledge_score_comment"),
+        english_score_comment=request.args.get("english_score_comment"),
     )
+
+    pdf()
 
 
 @app.route("/index")
@@ -348,7 +435,144 @@ def index_post():
             gpa_score_comment = "(You do not meet the minimum GPA requirements)"
 
         # English language proficiency score [5% weight]
-        # if selected_engtest == ""
+        if selected_native == "Yes":
+            english_score = 5.0
+        elif selected_engtest == "IELTS":
+            selected_eng_thresh = float(get_english_threshold(selected_engtest))
+            if (
+                (float(selected_eng_score) < selected_eng_thresh)
+                and (float(selected_eng_score) >= 0.0)
+                and (float(selected_eng_score) <= 9.0)
+            ):
+                english_score = 0.0
+                english_score_comment = "English Language: You do not meet the English language requirements"
+            elif (
+                (float(selected_eng_score) >= selected_eng_thresh)
+                and (float(selected_eng_score) >= 0.0)
+                and (float(selected_eng_score) <= 9.0)
+            ):
+                english_score = 5.0
+                english_score_comment = ""
+            else:
+                english_score = 0.0
+                english_score_comment = "Invalid score"
+        elif selected_engtest == "TOEFL Internet Based":
+            selected_eng_thresh = int(get_english_threshold(selected_engtest))
+            if (
+                (int(selected_eng_score) < selected_eng_thresh)
+                and (int(selected_eng_score) >= 0)
+                and (int(selected_eng_score) <= 120)
+            ):
+                english_score = 0.0
+                english_score_comment = "English Language: You do not meet the English language requirements"
+            elif (
+                (int(selected_eng_score) >= selected_eng_thresh)
+                and (int(selected_eng_score) >= 0)
+                and (int(selected_eng_score) <= 120)
+            ):
+                english_score = 5.0
+                english_score_comment = ""
+            else:
+                english_score = 0.0
+                english_score_comment = "Invalid score"
+        elif selected_engtest == "TOEFL Paper Based":
+            selected_eng_thresh = int(get_english_threshold(selected_engtest))
+            if (
+                (int(selected_eng_score) < selected_eng_thresh)
+                and (int(selected_eng_score) >= 310)
+                and (int(selected_eng_score) <= 677)
+            ):
+                english_score = 0.0
+                english_score_comment = "English Language: You do not meet the English language requirements"
+            elif (
+                (int(selected_eng_score) >= selected_eng_thresh)
+                and (int(selected_eng_score) >= 310)
+                and (int(selected_eng_score) <= 677)
+            ):
+                english_score = 5.0
+                english_score_comment = ""
+            else:
+                english_score = 0.0
+                english_score_comment = "Invalid score"
+        elif selected_engtest == "VU-Test English Language Proficiency":
+            selected_eng_thresh = int(get_english_threshold(selected_engtest))
+            if (
+                (int(selected_eng_score) < selected_eng_thresh)
+                and (int(selected_eng_score) >= 310)
+                and (int(selected_eng_score) <= 677)
+            ):
+                english_score = 0.0
+                english_score_comment = "English Language: You do not meet the English language requirements"
+            elif (
+                (int(selected_eng_score) >= selected_eng_thresh)
+                and (int(selected_eng_score) >= 310)
+                and (int(selected_eng_score) <= 677)
+            ):
+                english_score = 5.0
+                english_score_comment = ""
+            else:
+                english_score = 0.0
+                english_score_comment = "Invalid score"
+        elif selected_engtest == "Cambridge Certificate in Advanced English":
+            selected_eng_thresh = get_english_threshold(selected_engtest)
+            scoreA = 3
+            scoreB = 2
+            scoreC = 1
+            scoreVal = 0
+            scoreThresh = 0
+
+            if selected_eng_score == "A":
+                scoreVal = scoreA
+            elif selected_eng_score == "B":
+                scoreVal = scoreB
+            elif selected_eng_score == "C":
+                scoreVal = scoreC
+            else:
+                scoreVal = 0
+
+            if selected_eng_thresh == "A":
+                scoreThresh = scoreA
+            elif selected_eng_thresh == "B":
+                scoreThresh = scoreB
+            elif selected_eng_thresh == "C":
+                scoreThresh = scoreC
+            else:
+                scoreThresh = 0
+
+            if scoreVal >= scoreThresh:
+                english_score = 5.0
+                english_score_comment = ""
+            else:
+                english_score = 0.0
+                english_score_comment = "English Language: You do not meet the English language requirements"
+        elif selected_engtest == "Cambridge Certificate of Proficiency in English":
+            selected_eng_thresh = get_english_threshold(selected_engtest)
+            scoreA = 3
+            scoreB = 2
+            scoreC = 1
+            scoreVal = 0
+            scoreThresh = 0
+
+            if selected_eng_score == "A":
+                scoreVal = scoreA
+            elif selected_eng_score == "B":
+                scoreVal = scoreB
+            elif selected_eng_score == "C":
+                scoreVal = scoreC
+
+            if selected_eng_thresh == "A":
+                scoreThresh = scoreA
+            elif selected_eng_thresh == "B":
+                scoreThresh = scoreB
+            elif selected_eng_thresh == "C":
+                scoreThresh = scoreC
+
+            if scoreVal >= scoreThresh:
+                english_score = 5.0
+                english_score_comment = ""
+            else:
+                english_score = 0.0
+                english_score_comment = "English Language: You do not meet the English language requirements"
 
         # Work experience score [5% weight]
         if (selected_work == "2 years") or (selected_work == "more 2 years"):
@@ -364,8 +588,10 @@ def index_post():
         individual_item_weight = 40.0 / total_knowledge_items
         knowledge_score = individual_item_weight * selected_knowledge_items
 
-        if knowledge_score < 24.0:   # Considering 60% knowledge as the threshold
-            knowledge_score_comment = "Knowledge: You lack most of the knowledge required for this programme"
+        if knowledge_score < 24.0:  # Considering 60% knowledge as the threshold
+            knowledge_score_comment = (
+                "Knowledge: You lack most of the knowledge required for this programme"
+            )
         else:
             knowledge_score_comment = ""
 
@@ -396,6 +622,7 @@ def index_post():
                 gpa_score_comment=gpa_score_comment,
                 work_ex_score_comment=work_ex_score_comment,
                 knowledge_score_comment=knowledge_score_comment,
+                english_score_comment=english_score_comment,
             )
         )
 
