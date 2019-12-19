@@ -79,14 +79,14 @@
                                         </fieldset>
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                <!-- <div class="form-row">
                                     <div class="form-holder form-holder-2">
                                         <fieldset>
                                             <legend>Your Email</legend>
                                             <input type="text" name="your_email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com">
                                         </fieldset>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-row">
                                     <div class="form-holder form-holder-2">
                                         <legend for="programme">Master Degree Programme</legend>
@@ -235,7 +235,7 @@
                                 <div id="knowledge" class="knowledge">
                                     <div class="form-check">
                                         {% for o in knowledge%}
-                                        <input type="checkbox" name="knowledge" value="{{ o }}"> {{ o }} 
+                                        <input type="checkbox" name="knowledge" value="{{ o }}"> {{ o }}
                                         {% endfor %}
 
                                     </div>
@@ -359,7 +359,7 @@
       $("#english").toggle($(this).val() == 'No');
     }).trigger('change.english');
   });
-  </script> 
+  </script>
 
         <script>
             $(document).ready(function() {
