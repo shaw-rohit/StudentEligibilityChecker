@@ -12,7 +12,6 @@ import sys
 import io
 import random
 import inspect
-import pdfkit
 
 app = Flask(__name__)
 
@@ -25,14 +24,6 @@ master_track_map = {}
 updated_knowledge = []
 selectedMaster = ""
 selectedTrack = ""
-
-
-############################################
-############## RESULTS TO PDF ##############
-############################################
-def pdf():
-    print("Trying to print")
-    pdfkit.from_url("127.0.0.1:5000/result", "SEC Out.pdf")
 
 
 ############################################
@@ -217,6 +208,7 @@ def result():
         work_ex_score_comment=request.args.get("work_ex_score_comment"),
         knowledge_score_comment=request.args.get("knowledge_score_comment"),
         english_score_comment=request.args.get("english_score_comment"),
+        first_name=request.args.get("first_name"),
     )
 
     pdf()
@@ -605,6 +597,9 @@ def index_post():
             + knowledge_score
         )
 
+        ## Get first name of the user
+        first_name = request.form.getlist("first-name")
+
         print(converted_gpa)
         return redirect(
             url_for(
@@ -624,6 +619,7 @@ def index_post():
                 work_ex_score_comment=work_ex_score_comment,
                 knowledge_score_comment=knowledge_score_comment,
                 english_score_comment=english_score_comment,
+                first_name=first_name,
             )
         )
 
