@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Student Eligibility Checker</title>
+  <!-- <meta content="width=device-width, initial-scale=1" name="viewport"> -->
+
+  <link href="./css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="./css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="./css/sijitemplate.webflow.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="css/opensans-font.css">
+  <link rel="stylesheet" type="text/css" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/score-style.css"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Gothic A1:regular,500,600,700,900"]  }});</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="section-hero-2">
+    <div class="container">
+      <div class="col lg-6 padding-right md-12">
+        <h1 class="hero-title ondark">Choose the degree programme that<br>best fits you at<br>VU Amsterdam!</h1>
+        <div class="paragraph-medium margin-bottom ondark">Save time &amp; money by applying only to university<br>degree programmes that you are eligible for<br></div>
+        <div class="container hero-button-container">
+          <a href="#sec-fo" class="button-primary-2 w-inline-block">
+            <div class="button-text-2">get started</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a id="sec-fo"> </a>
+
+  <div class="sectionn">
+    		<div class="form-v1-content">
+    			<div class="wizard-form">
+    		        <form class="form-register" action="#" method="post">
+    		        	<div id="form-total">
+    		        		<!-- SECTION 1 -->
+    			            <h2>
+    			            	<p class="step-icon"><span>01</span></p>
+    			            	<span class="step-text">Degree Information</span>
+    			            </h2>
+    			            <section>
+    			                <div class="inner">
+    			                	<div class="wizard-header">
+    									<h3 class="heading">Degree Information</h3>
+                    </br></br>
+    								</div>
+    								<div class="form-row">
+    									<div class="form-holder">
+    										<fieldset>
+    											<legend>First Name</legend>
+    											<input type="text" class="form-control" id="first-name" name="first-name" placeholder="First Name" required>
+    										</fieldset>
+    									</div>
+    									<div class="form-holder">
+    										<fieldset>
+    											<legend>Last Name</legend>
+    											<input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last Name" required>
+    										</fieldset>
+    									</div>
+    								</div>
+    								<div class="form-row">
+    									<div class="form-holder form-holder-2">
+    										<fieldset>
+    											<legend>Your Email</legend>
+    											<input type="text" name="your_email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com" required>
+    										</fieldset>
+    									</div>
+    								</div>
+                    <div class="form-row">
+                        <div class="form-holder form-holder-2">
+                              <legend>Master Degree Programme</legend>
+                              <select id="programme" class="browser-default custom-select" onchange="admSelectCheck(this);">
+                                <option selected hidden>Choose</option>
+                                <option id="cs" value="1">MSc Computer Science</option>
+                                <option id="ai" value="2">MSc Artificial Intelligence</option>
+                                <option id="is" value="3">MSc Information Sciences</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div id="cs_track">
+                    <div class="form-row">
+                      <div class="form-holder form-holder-2">
+				                    <legend>Track or Specialization</legend>
+                                <select id="cs_track" name=cs_track class="browser-default custom-select">
+                                    <option selected hidden>Choose</option>
+                                    <option id="cs1" value="1">Internet & Web Technology</option>
+                                    <option id="cs2" value="2">Big Data Engineering</option>
+                                    <option id="cs3" value="3">Software Engineering and Green IT</option>
+                                    <option id="cs4" value="4">Parallel Computing Systems</option>
+                                    <option id="cs5" value="5">Foundations of Computing and Concurrency</option>
+                                    <option id="cs6" value="6">Computer Systems Security</option>
+                                </select>
+                        </div>
+                   </div>
+                 </div>
+                 <div id="ai_track">
+                   <div class="form-row">
+                     <div class="form-holder form-holder-2">
+                           <legend>Track or Specialization</legend>
+                               <select id="ai_track" name=ai_track class="browser-default custom-select">
+                                   <option selected hidden>Choose</option>
+                                   <option id="ai1" value="7">Artifical Intelligence</option>
+                                   <option id="ai2" value="8">Cognitive Science</option>
+                                   <option id="ai3" value="9">Hybrid Intelligence</option>
+                               </select>
+                       </div>
+                  </div>
+                </div>
+                <div id="is_track">
+                  <div class="form-row">
+                    <div class="form-holder form-holder-2">
+                          <legend>Track or Specialization</legend>
+                              <select id="is_track" name=is_track class="browser-default custom-select">
+                                  <option selected hidden>Choose</option>
+                                  <option id="is1" value="10">Information Sciences</option>
+                              </select>
+                      </div>
+                 </div>
+               </div>
+             </div>
+    			            </section>
+    						<!-- SECTION 2 -->
+    			            <h2>
+    			            	<p class="step-icon"><span>02</span></p>
+    			            	<span class="step-text">Academic Background</span>
+    			            </h2>
+    			            <section>
+    			                <div class="inner">
+    			                	<div class="wizard-header">
+    									<h3 class="heading">Academic Background</h3>
+    									<p>Specify details about your previous education</p>
+    								</div>
+								<div class="form-row">
+    									<div class="form-holder form-holder-2">
+    										<fieldset>
+    											<legend>Bachelor Degree Programme</legend>
+    											<input type="text" name="bachelor" id="bachelor" class="form-control" 												placeholder="Enter your Bachelors" required>
+    										</fieldset>
+    									</div>
+    								</div>
+
+                    <div class ="form-row">
+                      <div class ="form-holder form-holder-2">
+                        <legend style>Is your Bachelor from a research insitute?</legend>
+                        <select id="research" name=insitute class="browser-default custom-select">
+                          <option selected hidden>Choose</option>
+                          <option id="yess" value="11">Yes</option>
+                          <option id="noo" value="22">No</option>
+                        </select>
+                      </div>
+                    </div>
+
+    								<div class="form-row">
+    									<div class="form-holder">
+
+    											<legend>GPA Scale</legend>
+    											<select name=gpascale class="browser-default custom-select">
+                            								<option selected hidden>Choose</option>
+                                    							<option id="us" value="1">1-4</option>
+                                    							<option id="ger" value="2">1-10</option>
+                                                  <option id="usa" value="3">1-5</option>
+                                                  <option id="uk" value="4">1-24</option>
+											</select>
+
+    									</div>
+    									<div class="form-holder">
+    										<fieldset>
+    											<legend>GPA</legend>
+    											<input style="height:44px" type="text" class="form-control" id="gpa" name="gpa" placeholder="GPA" required>
+    										</fieldset>
+    									</div>
+    								</div>
+								<div class ="form-row">
+								<div class ="form-holder form-holder-2">
+
+								<legend style>Are you a Native English Speaker?</legend>
+									<select id="native" name=degree class="browser-default custom-select">
+                                    					<option selected hidden>Choose</option>
+                                    					<option id="yes" value="1">Yes</option>
+									<option id="no" value="2">No</option>
+                                    					</select>
+
+								</div>
+								</div>
+								<div class="form-row" id="english">
+    									<div class="form-holder">
+    											<legend>Type of English Test</legend>
+    											<select name=english class="browser-default custom-select">
+                            <option selected hidden>Choose</option>
+                            <option id="toefl-i" value="1">TOEFL-IBT</option>
+                            <option id="toefl-p" value="2">TOEFL-PBT</option>
+                            <option id="ielts" value="3">IELTS (Academic)</option>
+                            <option id="cae" value="4">Cambridge (CAE)</option>
+                            <option id="cpe" value="5">Cambridge (CPE)</option>
+                            <option id="toefl-v" value="6">VU TOEFL-ITP</option>
+              						</select>
+                      </div>
+
+    									<div class="form-holder">
+									<fieldset>
+									<legend>Test Score</legend>
+    									<input style ="height:44px" type="text" class="form-control" id="etest" name="etest" placeholder="Test Score" required>
+    									</fieldset>
+    									</div>
+    								</div>
+    			            </section>
+
+                      <!-- SECTION 3 -->
+    			            <h2>
+    			            	<p class="step-icon"><span>03</span></p>
+    			            	<span class="step-text">Technical Knowledge</span>
+    			            </h2>
+    			            <section>
+    			                <div class="inner">
+    			                	<div class="wizard-header">
+    									<h3 class="heading">Technical Knowledge</h3>
+    									<p>Specify details about your technical knowledge and work experience</p>
+    								</div>
+                    <div class="form-row">
+    								<div class="form-holder form-holder-2">
+    									<legend>How many years of relevant work experience do you have?</legend>
+    									<select name=work class="browser-default custom-select">
+                			     <option selected hidden>Choose</option>
+                        	 <option id="one" value="1">< 1 year</option>
+                        	 <option id="two" value="2">1- 2 years</option>
+                    			 <option id="three" value="3">> 2 years</option>
+    									</select>
+        						</div>
+        						</div>
+                    <div class="form-row">
+    									<div class="form-holder form-holder-2">
+    											<legend>Course Description</legend>
+    									</div>
+                    </div>
+
+                    <div id="compsci1" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            CS Course 1
+                         </label>
+                    </div>
+                </div>
+                <div id="compsci2" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            CS Course 2
+                         </label>
+                    </div>
+                </div>
+                <div id="ai11" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Java programming
+                         </label>
+                    </div>
+                </div>
+                <div id="ai22" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Programming with Prolog
+                         </label>
+                    </div>
+                </div>
+                <div id="ai33" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Introduction to AI
+                         </label>
+                    </div>
+                </div>
+                <div id="ai44" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Logic Basics
+                         </label>
+                    </div>
+                </div>
+                <div id="ai55" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Advanced Mathematics
+                         </label>
+                    </div>
+                </div>
+                <div id="ai66" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Natural Language Processing
+                         </label>
+                    </div>
+                </div>
+                <div id="ai77" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Psychology
+                         </label>
+                    </div>
+                </div>
+                 <div id="is11" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            IS Course 1
+                         </label>
+                    </div>
+                </div>
+                <div id="is22" style="display:none;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            IS Course 2
+                         </label>
+                    </div>
+                </div>
+    							       </div>
+    			            </section>
+
+    		        	</div>
+    		        </form>
+    			</div>
+    		</div>
+  </div>
+
+<div class="section3">
+    <div class="bar_container">
+        <div id="main_container">
+            <div id="pbar" class="progress-pie-chart" data-percent="0">
+                <div class="ppc-progress">
+                    <div class="ppc-progress-fill"></div>
+                </div>
+                <div class="ppc-percents">
+                    <div class="pcc-percents-wrapper">
+                        <span>%</span>
+                    </div>
+                </div>
+            </div>
+            <progress style="display: none" id="progress_bar" value="0" max="75"></progress>
+        </div>
+    </div>
+  </br>
+    <p>You have a 75% chance of getting admitted to MSc X - Y</p>
+</div>
+
+  <div id="start" class="sectionf footer-2 flex flex-vertical">
+    <div class="footer-color">
+      <div class="col lg-6 sm-12">
+        <div class="center-text">© 2019 KE Team 4. All rights reserved.</div>
+      </br>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="js/jquery.steps.js"></script>
+	<script src="js/main.js"></script>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    var checkboxes = document.getElementsByTagName('input');
+    for (var i=0; i<checkboxes.length; i++)  {
+      if (checkboxes[i].type == 'checkbox')   {
+        checkboxes[i].checked = false;
+      }
+    }
+  </script>
+
+  <script>
+    function admSelectCheck(nameSelect) {
+    if(nameSelect){
+        csOpt = document.getElementById("cs").value;
+        aiOpt = document.getElementById("ai").value;
+        isOpt = document.getElementById("is").value;
+        if(csOpt == nameSelect.value){
+            document.getElementById("compsci1").style.display = "block";
+            document.getElementById("compsci2").style.display = "block";
+            document.getElementById("ai11").style.display = "none";
+            document.getElementById("ai22").style.display = "none";
+            document.getElementById("ai33").style.display = "none";
+            document.getElementById("ai44").style.display = "none";
+            document.getElementById("ai55").style.display = "none";
+            document.getElementById("ai66").style.display = "none";
+            document.getElementById("ai77").style.display = "none";
+            document.getElementById("is11").style.display = "none";
+            document.getElementById("is22").style.display = "none";
+        }
+        else if(aiOpt == nameSelect.value){
+            document.getElementById("compsci1").style.display = "none";
+            document.getElementById("compsci2").style.display = "none";
+            document.getElementById("ai11").style.display = "block";
+            document.getElementById("ai22").style.display = "block";
+            document.getElementById("ai33").style.display = "block";
+            document.getElementById("ai44").style.display = "block";
+            document.getElementById("ai55").style.display = "block";
+            document.getElementById("ai66").style.display = "block";
+            document.getElementById("ai77").style.display = "block";
+            document.getElementById("is11").style.display = "none";
+            document.getElementById("is22").style.display = "none";
+        }
+        else if(isOpt == nameSelect.value){
+            document.getElementById("compsci1").style.display = "none";
+            document.getElementById("compsci2").style.display = "none";
+            document.getElementById("ai11").style.display = "none";
+            document.getElementById("ai22").style.display = "none";
+            document.getElementById("ai33").style.display = "none";
+            document.getElementById("ai44").style.display = "none";
+            document.getElementById("ai55").style.display = "none";
+            document.getElementById("ai66").style.display = "none";
+            document.getElementById("ai77").style.display = "none";
+            document.getElementById("is11").style.display = "block";
+            document.getElementById("is22").style.display = "block";
+        }
+    }
+    else {
+            document.getElementById("compsci1").style.display = "none";
+            document.getElementById("compsci2").style.display = "none";
+            document.getElementById("ai11").style.display = "none";
+            document.getElementById("ai22").style.display = "none";
+            document.getElementById("ai33").style.display = "none";
+            document.getElementById("ai44").style.display = "none";
+            document.getElementById("ai55").style.display = "none";
+            document.getElementById("ai66").style.display = "none";
+            document.getElementById("ai77").style.display = "none";
+            document.getElementById("is11").style.display = "none";
+            document.getElementById("is22").style.display = "none";
+      }
+    }
+  </script>
+
+  <script type="text/javascript">
+  $(document).ready(function()
+  {
+    $('#native').on('change.english',function(){
+      $("#english").toggle($(this).val() == '2');
+    }).trigger('change.english');
+  });
+
+  $(document).ready(function()
+  {
+    $('#programme').on('change.prog',function(){
+      $("#cs_track").toggle($(this).val() == '1');
+    }).trigger('change.prog');
+  });
+
+  $(document).ready(function()
+  {
+    $('#programme').on('change.prog',function(){
+      $("#ai_track").toggle($(this).val() == '2');
+    }).trigger('change.prog');
+  });
+
+  $(document).ready(function()
+  {
+    $('#programme').on('change.prog',function(){
+      $("#is_track").toggle($(this).val() == '3');
+    }).trigger('change.prog');
+  });
+  </script>
+
+<script>
+    $(document).ready(function() {
+        var progressbar = $('#progress_bar');
+        max = progressbar.attr('max');
+        time = (100 / max) * 5;
+        value = progressbar.val();
+
+        var loading = function() {
+            value += 1;
+            addValue = progressbar.val(value);
+
+            $('.progress-value').html(value + '%');
+            var $ppc = $('.progress-pie-chart'),
+            deg = 360 * value / 100;
+            if (value > 50) {
+                $ppc.addClass('gt-50');
+            }
+
+            $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
+            $('.ppc-percents span').html(value + '%');
+
+            if (value == max) {
+                clearInterval(animate);
+            }
+        };
+
+        var animate = setInterval(function() {
+            loading();
+        }, time);
+    });
+</script>
+
+</body>
+</html>
