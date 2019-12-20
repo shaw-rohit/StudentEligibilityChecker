@@ -79,14 +79,6 @@
                                         </fieldset>
                                     </div>
                                 </div>
-                                <!-- <div class="form-row">
-                                    <div class="form-holder form-holder-2">
-                                        <fieldset>
-                                            <legend>Your Email</legend>
-                                            <input type="text" name="your_email" id="your_email" class="form-control" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="example@email.com">
-                                        </fieldset>
-                                    </div>
-                                </div> -->
                                 <div class="form-row">
                                     <div class="form-holder form-holder-2">
                                         <legend for="programme">Master Degree Programme</legend>
@@ -107,10 +99,7 @@
                                         <select id="tracks" name="tracks" class="browser-default custom-select">
                                             <option disabled selected hidden>Choose</option>
                                             {% for o in tracks%}
-
                                             <option value="{{ o }}">{{ o }}</option>
-                                            <!-- todo -->
-
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -259,12 +248,7 @@
             </div>
         </div>
 
-        <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script type="text/javascript">var j3 = $.noConflict(true);</script> -->
-
         <script src="https://code.jquery.com/jquery-2.2.4.js" type="text/javascript" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-        <!-- <script type="text/javascript">var j2 = $.noConflict(true);</script> -->
-
         <script src="/static/js/jquery.steps.js"></script>
         <script src="/static/js/main.js"></script>
 
@@ -289,107 +273,12 @@
             }
         </script>
 
-        <script>
-            function admSelectCheck(nameSelect) {
-                if (nameSelect) {
-                    console.log("cs value: ", document.getElementById("cs").value);
-                    console.log("nameSelect: ", nameSelect.value);
-                    //console.log(document.getElementById("ai").id);
-                    csOpt = document.getElementById("cs").value;
-                    aiOpt = document.getElementById("ai").value;
-                    isOpt = document.getElementById("is").value;
-                    if (csOpt == nameSelect.value) {
-                        console.log('truee')
-                        document.getElementById("compsci1").style.display = "block";
-                        document.getElementById("compsci2").style.display = "block";
-                        document.getElementById("ai11").style.display = "none";
-                        document.getElementById("ai22").style.display = "none";
-                        document.getElementById("ai33").style.display = "none";
-                        document.getElementById("ai44").style.display = "none";
-                        document.getElementById("ai55").style.display = "none";
-                        document.getElementById("ai66").style.display = "none";
-                        document.getElementById("ai77").style.display = "none";
-                        document.getElementById("is11").style.display = "none";
-                        document.getElementById("is22").style.display = "none";
-                    } else if (aiOpt == nameSelect.value) {
-                        document.getElementById("compsci1").style.display = "none";
-                        document.getElementById("compsci2").style.display = "none";
-                        document.getElementById("ai11").style.display = "block";
-                        document.getElementById("ai22").style.display = "block";
-                        document.getElementById("ai33").style.display = "block";
-                        document.getElementById("ai44").style.display = "block";
-                        document.getElementById("ai55").style.display = "block";
-                        document.getElementById("ai66").style.display = "block";
-                        document.getElementById("ai77").style.display = "block";
-                        document.getElementById("is11").style.display = "none";
-                        document.getElementById("is22").style.display = "none";
-                    } else if (isOpt == nameSelect.value) {
-                        document.getElementById("compsci1").style.display = "none";
-                        document.getElementById("compsci2").style.display = "none";
-                        document.getElementById("ai11").style.display = "none";
-                        document.getElementById("ai22").style.display = "none";
-                        document.getElementById("ai33").style.display = "none";
-                        document.getElementById("ai44").style.display = "none";
-                        document.getElementById("ai55").style.display = "none";
-                        document.getElementById("ai66").style.display = "none";
-                        document.getElementById("ai77").style.display = "none";
-                        document.getElementById("is11").style.display = "block";
-                        document.getElementById("is22").style.display = "block";
-                    }
-                } else {
-                    document.getElementById("compsci1").style.display = "none";
-                    document.getElementById("compsci2").style.display = "none";
-                    document.getElementById("ai11").style.display = "none";
-                    document.getElementById("ai22").style.display = "none";
-                    document.getElementById("ai33").style.display = "none";
-                    document.getElementById("ai44").style.display = "none";
-                    document.getElementById("ai55").style.display = "none";
-                    document.getElementById("ai66").style.display = "none";
-                    document.getElementById("ai77").style.display = "none";
-                    document.getElementById("is11").style.display = "none";
-                    document.getElementById("is22").style.display = "none";
-                }
-            }
-        </script>
-
         <script type="text/javascript">
-  $(document).ready(function()
-  {
-    $('#native').on('change.english',function(){
-      $("#english").toggle($(this).val() == 'No');
-    }).trigger('change.english');
-  });
-  </script>
-
-        <script>
-            $(document).ready(function() {
-                var progressbar = $('#progress_bar');
-                max = progressbar.attr('max');
-                time = (100 / max) * 5;
-                value = progressbar.val();
-
-                var loading = function() {
-                    value += 1;
-                    addValue = progressbar.val(value);
-
-                    $('.progress-value').html(value + '%');
-                    var $ppc = $('.progress-pie-chart'),
-                        deg = 360 * value / 100;
-                    if (value > 50) {
-                        $ppc.addClass('gt-50');
-                    }
-
-                    $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
-                    $('.ppc-percents span').html(value + '%');
-
-                    if (value == max) {
-                        clearInterval(animate);
-                    }
-                };
-
-                var animate = setInterval(function() {
-                    loading();
-                }, time);
+            $(document).ready(function()
+            {
+                $('#native').on('change.english',function(){
+                    $("#english").toggle($(this).val() == 'No');
+                }).trigger('change.english');
             });
         </script>
 

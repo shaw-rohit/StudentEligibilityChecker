@@ -134,8 +134,6 @@ def get_english_threshold(test_name):
     test = test_name
     test_dict = {}
 
-    print("Test_name: ", test)
-
     english_thresh_q_result = g.query(
         """select ?englishprof_label ?score where {
         VALUES ?master { """
@@ -155,36 +153,10 @@ def get_english_threshold(test_name):
         """
     )
 
-    ### figure the quotes for rdfs label
-    # english_thresh_q_result = g.query(
-    # """select ?score where {
-    #     VALUES ?master { """
-    #    + degree
-    #    + """ }
-    #     VALUES ?track { """
-    #    + trackname
-    #    + """ }
-    #    VALUES ?testname { """
-    #   + " test "
-    #   + """ }
-    #     ?master sec:hasTrack ?track .
-    #     ?track rdf:type sec:Track .
-    #     ?track sec:requiresEnglishProf ?engprofquantity .
-    # 	?engprofquantity sec:hasType ?englishprof .
-    # 	?englishprof rdf:type sec:EnglishTest .
-    # 	?englishprof rdfs:label ?testname @en .
-    #    	?engprofquantity  sec:hasScore ?score .
-    #     }
-    # """
-    # )
-
-    print("Threshold results: ")
     for row in english_thresh_q_result:
         string = "%s_%s" % row
         string_list = string.split("_")
         test_dict[string_list[0]] = string_list[-1]
-
-    print(test_dict)
 
     return test_dict[test]
 
@@ -211,16 +183,12 @@ def result():
         first_name=request.args.get("first_name"),
     )
 
-    pdf()
-
 
 @app.route("/index")
 def index_get():
     global master_map
     global master_track_map
-    print("sup")
     if request.method == "GET":
-        print("hiiii", file=sys.stdout)
         ##########################################
         ####### DISPLAY MASTER PRGRM BEGIN #######
         ##########################################
@@ -249,14 +217,13 @@ def index_get():
         ]
         for row in master_q_result:
             master_prgrm.append("%s" % row)
-            # print("%s" % row)
-        # print(master_prgrm)
-        # print(master_id)
+
         master_map = dict(zip(master_prgrm, master_id))
-        # print(master_map)
+
         ##########################################
         ####### DISPLAY MASTER PRGRM END #########
         ##########################################
+
 
         ##########################################
         ####### DISPLAY ENGLISH TEST BEGIN #######
@@ -271,11 +238,11 @@ def index_get():
         english_test = []
         for row in english_q_result:
             english_test.append("%s" % row)
-            # print("%s" % row)
-        # print(english_test)
+
         ########################################
         ####### DISPLAY ENGLISH TEST END #######
         ########################################
+        
         tracks = ["select master program"]
         knowledge = ["select track"]
         bachelors = ["Other"]
@@ -292,7 +259,6 @@ def index_get():
 
 @app.route("/index", methods=["POST"])
 def index_post():
-    print("sup")
     global updated_knowledge
     if request.method == "POST":
         #########################
@@ -325,78 +291,43 @@ def index_post():
         elif selected_master == "sfm":
             selected_master = "MSc Stochastics & Financial Mathematics"
 
-        ##############################
-        ######### TRACK BEGIN ########
-        ##############################
-
         selected_track = request.form.get("tracks")
 
-        ##############################
-        ####### BACHELOR BEGIN #######
-        ##############################
-
         selected_bachelor = request.form.get("bachelors")
-        print("Selected Bachelor:", selected_bachelor)
-
-        ##############################
-        #### BACHELOR TYPE BEGIN #####
-        ##############################
 
         selected_bachelor_type = request.form.get("btype")
-        print("Selected Bachelor type:", selected_bachelor_type)
 
         ##############################
         ########## GPA BEGIN #########
         ##############################
         grading_scale = {"usa": "0-4", "ind": "0-10"}
         gpa_scale = request.form.get("gpascale")
-        print("selected GPA scale:", gpa_scale)
         gpa = request.form.get("gpa")
         gpa = float(gpa)
-        print("GPA:", gpa)
         converted_gpa = 0
+
         #####check for grading scale
         if gpa_scale in grading_scale["usa"]:
-            # print('usa conversion')
             ###calls us to uk gpa conversion
             calc_us_gpa = us_to_uk(gpa)
-            print(calc_us_gpa)
             converted_gpa = calc_us_gpa
         else:
-            print("carrying india to us conversion first")
             ###converts indian gpa to usa gpa first
             usa_gpa = ind_to_us(gpa)
-            # print(usa_gpa)
             ###converts us gpa to uk gpa
             calc_ind_gpa = us_to_uk(usa_gpa)
-            print(calc_ind_gpa)
             converted_gpa = calc_ind_gpa
 
-        ##############################
-        #### NATIVE ENGLISH BEGIN ####
-        ##############################
+
         selected_native = request.form.get("native")
-        print("Native speaker: ", selected_native)
 
-        ############################
-        #### ENGLISH TEST BEGIN ####
-        ############################
         selected_engtest = request.form.get("englishtest")
-        print("English test: ", selected_engtest)
+
         selected_eng_score = request.form.get("etest")
-        print("English score: ", selected_eng_score)
 
-        ############################
-        #####  WORK EXP. BEGIN #####
-        ############################
         selected_work = request.form.get("work")
-        print("Work exp: ", selected_work)
 
-        ############################
-        #####  KNOWLEDGE BEGIN #####
-        ############################
         selected_knowledge = request.form.getlist("knowledge")
-        print("Knowledge: ", selected_knowledge)
 
         ############################
         ## FINAL ELIGIBILITY SCORE #
@@ -600,7 +531,6 @@ def index_post():
         ## Get first name of the user
         first_name = request.form.getlist("first-name")
 
-        print(converted_gpa)
         return redirect(
             url_for(
                 "result",
@@ -629,11 +559,7 @@ def index_post():
 def update_track_menu():
     # the value of the first dropdown (selected by the user)
     selected_master = request.args.get("selected_master", type=str)
-    print("selected master: ", selected_master)
-    # master_id = ['ai', 'bsb', 'ba', 'cs', 'eoc', 'gbh', 'is', 'lgs', 'math', 'pdcs', 'sbi', 'sfm']
-
     updated_tracks = check_track(selected_master)
-    print("track list: ", updated_tracks)
 
     # create the values in the dropdown as a html string
     html_string_selected = ""
@@ -648,15 +574,11 @@ def update_track_menu():
 #######################################
 @app.route("/update_knowledge")
 def update_knowledge():
-    # gonna update knowledge here depending on selected track, once jquery is fixed
-    print("wassup")
     global updated_knowledge
-    selected_track = request.args.get("selected_track", type=str)
-    print("selected_track: ", selected_track)
 
+    selected_track = request.args.get("selected_track", type=str)
     updated_knowledge = check_knowledge_or_bachelor(selected_track)
 
-    print("knowledge list: ", updated_knowledge)
     html_string_selected = ""
     for entry in updated_knowledge:
         html_string_selected += '<input type="checkbox" name="knowledge" value="{}">{}</br>'.format(
@@ -671,13 +593,9 @@ def update_knowledge():
 #######################################
 @app.route("/update_bachelor")
 def update_bachelor():
-    # gonna update knowledge here depending on selected track, once jquery is fixed
-    # selected_master = request.args.get('selected_master', type=str)
     selected_track = request.args.get("selected_track", type=str)
-
     updated_bachelor = check_knowledge_or_bachelor(selected_track)
 
-    print("bachelors list: ", updated_bachelor)
     html_string_selected = ""
     for entry in updated_bachelor:
         html_string_selected += '<option value="{}">{}</option>'.format(entry, entry)
@@ -745,7 +663,7 @@ def check_track(selected_master):
 def check_knowledge_or_bachelor(selected_track):
     curframe = inspect.currentframe()
     calframe = inspect.getouterframes(curframe, 2)
-    print("caller name:", calframe[1][3])
+
     if calframe[1][3] == "update_track_menu":
         test()
     if selected_track == "Cognitive Science":
@@ -941,8 +859,6 @@ def check_knowledge_or_bachelor(selected_track):
 
 #####converts us gpa to uk gpa
 def us_to_uk(score):
-    print("comes into the conversion")
-    print(score)
     if score == 4:
         return round(random.uniform(70, 99), 2)
     if score < 4 and score >= 3.7:
@@ -968,7 +884,6 @@ def ind_to_us(gpa):
     if gpa >= 8.5:
         return round(random.uniform(3.7, 4.0), 1)
     if gpa >= 8 and gpa <= 8.4:
-        print("3.7")
         return 3.7
     if gpa >= 7.5 and gpa <= 7.9:
         return 3.3
