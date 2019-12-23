@@ -28,6 +28,10 @@ The system is basically a ```Website``` built using ```HTML and other frontend t
 5) Once the script is executed, Go to the following link to start using the Student Eligibility checker:<http://127.0.0.1:5000/index>
 6) Now the server and the system are up and running. Try your hands at the Student Eligibility checker to save time and money on your college apps!!
 
+## Authors
+% Rohit Shaw; Katerina Chinnappan; Kailainathan Muthiah Kasinathan; Gorkem Simsek-Senel
+
+
 
 
 _A project built for the course Knowledge Engineering at Vrije Universiteit Amsterdam._
